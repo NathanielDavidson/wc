@@ -1,6 +1,6 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/wc-app.html",
   "fragments": [
     "src/wc-view1.html",
     "src/wc-view2.html",
