@@ -22,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
 
-<dom-module id="my-app">
+<dom-module id="wc-app">
   <template>
     <style>
       :host {
@@ -78,6 +78,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="view1" href="/view1">View One</a>
           <a name="view2" href="/view2">View Two</a>
           <a name="view3" href="/view3">View Three</a>
+          <a name="search" href="/search">Search</a>
         </iron-selector>
       </app-drawer>
 
@@ -87,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            <div main-title>My App</div>
+            <div main-title>Winary Code</div>
           </app-toolbar>
         </app-header>
 
@@ -96,10 +97,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
-          <my-view404 name="view404"></my-view404>
+          <wc-view1 name="view1"></wc-view1>
+          <wc-view2 name="view2"></wc-view2>
+          <wc-view3 name="view3"></wc-view3>
+          <wc-search name="search"></wc-search>
+
+          <wc-view404 name="view404"></wc-view404>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
@@ -107,7 +110,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: 'my-app',
+      is: 'wc-app',
 
       properties: {
         page: {
@@ -126,14 +129,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _pageChanged: function(page) {
+        //https://www.polymer-project.org/1.0/start/toolbox/create-a-page#aside-wheres-the-html-import
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl('wc-' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
+
       },
 
       _showPage404: function() {
         this.page = 'view404';
       }
     });
+
+
+
+
+
   </script>
 </dom-module>

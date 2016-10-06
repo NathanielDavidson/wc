@@ -2,10 +2,11 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
-    "src/my-view404.html"
+    "src/wc-view1.html",
+    "src/wc-view2.html",
+    "src/wc-view3.html",
+    "src/wc-view404.html",
+    "src/wc-serch.html"
   ],
   "sourceGlobs": [
    "src/**/*",
