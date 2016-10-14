@@ -90,9 +90,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Contact</span>
           </a>
 
-          <a data-route="books" href="{{baseUrl}}books">
+          <a data-route="register-wine" href="{{baseUrl}}register-wine">
             <iron-icon icon="book"></iron-icon>
-            <span>Books</span>
+            <span>register-wine</span>
+
           </a>
         </paper-menu>
       </paper-scroll-header-panel>
@@ -488,9 +489,70 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
-            <section data-route="books">
+            <section data-route="register-wine">
               <paper-material elevation="1">
                 <p>Hello, World!</p>
+                <!--Masons Section-->
+                <form is="iron-form" id="register-wine-form" method="post" disable-native-validation-ui action="../api/register-wine.php">
+                                    <h3>Insert Wine Data! </h3>
+                                    <paper-input-container>
+                                        <input is="iron-input" id = "inputProducer" name ="producer" type ="text" placeholder = "Producer" required>
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+
+                                    <paper-input-container>
+                                        <input is="iron-input" id = "inputName" name ="wname" type ="text" placeholder = "Wine Name" required>
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+
+                                    <paper-input-container>
+                                        <input is="iron-input" id = "inputGrape" name ="grape" type ="text" placeholder = "Grape (Optional)">
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+
+                                    <paper-dropdown-menu label="Wine Style">
+                                        <paper-listbox class="dropdown-content" name = "wine_styles">
+                                          <paper-item>Sparkling White</paper-item>
+                                          <paper-item>Sparkling Rose</paper-item>
+                                          <paper-item>Stil White</paper-item>
+                                          <paper-item>Still Red</paper-item>
+                                          <paper-item>Dessert</paper-item>
+                                          <paper-item>Fortified White</paper-item>
+                                          <paper-item>Fortified Red</paper-item>
+                                        </paper-listbox>
+                                      </paper-dropdown-menu>
+
+                                      <paper-input-container>
+                                        <input is="iron-input" id = "inputVintage" name ="vintage" type ="number" placeholder = "Vintage (YYYY)" required>
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+
+                                    <paper-input-container>
+                                        <input is="iron-input" id = "inputCountry" name ="country" type ="text" placeholder = "Country" required>
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+
+                                    <paper-input-container>
+                                        <input is="iron-input" id = "inputState" name ="state" type ="text" placeholder = "State/Province" required>
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+
+                                    <paper-input-container>
+                                        <input is="iron-input" id = "inputRegion" name ="region" type ="text" placeholder = "Region (Optional)">
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+
+                                    <paper-input-container>
+                                        <input is="iron-input" id = "inputSubRegion" name ="sRegion" type ="text" placeholder = "Sub-Region (Optional)">
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+
+                                    <paper-input-container>
+                                        <input is="iron-input" id = "inputVintage" name ="vintage" type ="number" placeholder = "Alcohol Percentage (##)" required>
+                                        <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+                                    </paper-input-container>
+                                      <button name="regWine" type="submit">Register Wine</button>
+                                </form>
               </paper-material>
             </section>
           </iron-pages>
