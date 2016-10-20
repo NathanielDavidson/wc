@@ -17,6 +17,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit">
+  <link rel="import" href="elements/wc-assess/wc-assess.html">
+  <link rel="import" href="elements/wc-multi-select-input/wc-multi-select-input.html">
+  <link rel="import" href="elements/wc-button-select-input/wc-button-select-input.html">
+  <link rel="import" href="elements/wc-aroma-value-input/wc-aroma-value-input.html">
+  <link rel="import" href="elements/wc-long-menu/wc-long-menu.html">
+
   <title>Polymer Starter Kit</title>
 
   <!-- Place favicon.ico in the `app/` directory -->
@@ -136,6 +142,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               <paper-material elevation="1">
                 <p>This is another card.</p>
+
+                <form action="api/register-wine.php">
+                  <button name="regWine" type="submit">Register Wine</button>
+                </form>
+
               </paper-material>
 
               <paper-material elevation="1">
@@ -179,7 +190,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="contact">
               <paper-material elevation="1">
                 <!-- Anita's --> 
-                <!-- 
+              <!--
                 <wc-assess id="wc-red-assess"  method="post" action="api/assess.php">
 
 
@@ -485,7 +496,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                  </div>
 
                                  <button class="btn" name="redAssessReturn" type="submit">Submit</button>
-                             </wc-assess> --> 
+                             </wc-assess> -->
               </paper-material>
             </section>
 
@@ -493,7 +504,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <p>Hello, World!</p>
                 <!--Masons Section-->
-                <form is="iron-form" id="register-wine-form" method="post" disable-native-validation-ui action="../api/register-wine.php">
+                <form  id="register-wine-form" method="post" action="{{baseUrl}}api/register-wine.php">
                                     <h3>Insert Wine Data! </h3>
                                     <paper-input-container>
                                         <input is="iron-input" id = "inputProducer" name ="producer" type ="text" placeholder = "Producer" required>
@@ -548,7 +559,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                     </paper-input-container>
 
                                     <paper-input-container>
-                                        <input is="iron-input" id = "inputVintage" name ="vintage" type ="number" placeholder = "Alcohol Percentage (##)" required>
+                                        <input is="iron-input" id = "inputAlcohol" name ="alcohol" type ="number" placeholder = "Alcohol Percentage (##)" required>
                                         <!---Can insert Icon for prettiness, but will later, lets get functionality-->
                                     </paper-input-container>
                                       <button name="regWine" type="submit">Register Wine</button>
