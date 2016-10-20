@@ -1,0 +1,35 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form-element-behavior/iron-form-element-behavior.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+
+
+
+
+
+</head><body><dom-module id="wc-aroma-value-input">
+    <template>
+        <style>
+
+            :host{
+                display: block;
+                padding: 10px;
+            }
+
+            :host.iron-selected {
+                @apply(--paper-menu-selected-item);
+            }
+
+        </style>
+
+
+        <content>
+
+        </content>
+
+
+
+    </template>
+
+    <script>!function(){Polymer({is:"wc-aroma-value-input",behaviors:[Polymer.IronFormElementBehavior,Polymer.PaperItemBehavior],properties:{value:{type:Number,value:0},name:{type:String}},ready:function(){},textToName:function(e){var r=e.split(" "),o=r.map(function(e){return e.toLowerCase()}),t=o.join("_");this.name=t}})}();</script>
+</dom-module>
+</body></html>
