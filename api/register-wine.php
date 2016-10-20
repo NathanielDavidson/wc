@@ -41,8 +41,8 @@
             $sub_region = '';
         }
 
-        $sql = "INSERT INTO TABLE_8 (Producer, Wine_Name, Vintage, Wine_Style, Grapes, Country, State, City, Region) VALUES('$producer', '$name','$vintage', 'Sparkling', '$grape', '$region_country', 
-            '$region_state', 'city','$region');";
+        $sql = "INSERT INTO wine_bottle (producer, wine_name, vintage, wine_style, grapes, country, state, city, region) VALUES('$producer', '$name','$vintage', 'Sparkling', '$grape', '$region_country', 
+            '$region_state', 'city','$region','$alcohol_percentage');";
         $statement = $conn->prepare($sql); //prevents SQL Injection
         $statement->execute();
     }
