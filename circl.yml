@@ -1,0 +1,10 @@
+test:
+  post:
+      - mkdir -p $CIRCLE_TEST_REPORTS/reports
+      - cp ./*/*-reports/*.xml $CIRCLE_TEST_REPORTS/reports
+      - cp ./*/*.war $CIRCLE_TEST_ARTIFACRS/
+      - mvn verify
+      - bash <(curl -s https://codecov.io/bash)
+notify:
+  webooks:
+    -url: http://csumbse.net/harbormaster/hook/cirlceci/

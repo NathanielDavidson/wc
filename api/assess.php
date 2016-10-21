@@ -5,10 +5,11 @@ $conn = getDatabaseConnection();
 
 if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
 
-	  $username = $_POST['username'];
+    //TODO: add logic to determine if user is signed in or not
+    //$username = $_POST['username'];
     $wine_producer = $_POST['wine_producer'];
     $wine_name = $_POST['wine_name'];
-    $wine_vintage = $_POST['vintage'];
+    $wine_vintage = $_POST['wine_vintage'];
     $date = date("Y-m-d",time());
     $zip_code = $_POST['zip_code'];
 
