@@ -40,29 +40,20 @@
 		echo 'User ID: ' . $userNode->getId().'<br>';
 		echo 'Email: ' . $userNode->getProperty('email').'<br><br>';
 		$fbPhoto = 'https://graph.facebook.com/'.$userNode->getId().'/picture?width=400';
-		echo "<img src='$fbPhoto' /><br><br>";
-		
+		echo "<img src='$fbPhoto' /><br>";
 	}else{
+	    //may be ugly, but I can add the basic login form here as well. DONE
+	    echo '<form action = " " method = "POST">';
+	    echo 'Login<br>Username<input type="text" name = "uName"> <br>';
+	    echo 'Password <input type = "password" name = "passWord"><br>';
+	    echo '<button name="signIn" type="submit">Login</button>';
+	    echo '</form>';
+	    echo '<br>Alternative Log in Methods<br>';
+	    
 		$permissions  = ['email'];
 		$loginUrl = $helper->getLoginUrl($redirecTo,$permissions);
-		echo '<a href="' . $loginUrl . '">Log in</a>';
+	
+		echo '<a href="' . $loginUrl . '">';
+		echo '<img src="https://s12.postimg.org/d6dhoc20d/FBlogin.png"></a>';
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
