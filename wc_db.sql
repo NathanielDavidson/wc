@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 20, 2016 at 08:02 AM
+-- Generation Time: Oct 21, 2016 at 05:38 AM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -11,8 +11,377 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `db_wc`
+-- Database: `wc_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aromas`
+--
+
+CREATE TABLE `aromas` (
+  `color_key` int(1) DEFAULT NULL,
+  `primary_color` varchar(6) DEFAULT NULL,
+  `secondary_color` varchar(10) DEFAULT NULL,
+  `apple_pear` varchar(12) DEFAULT NULL,
+  `citrus_fruit` varchar(17) DEFAULT NULL,
+  `stone_fruit` varchar(15) DEFAULT NULL,
+  `tropical_melon` varchar(13) DEFAULT NULL,
+  `fruit_type` varchar(18) DEFAULT NULL,
+  `flowers` varchar(14) DEFAULT NULL,
+  `herbs` varchar(12) DEFAULT NULL,
+  `vegetal` varchar(26) DEFAULT NULL,
+  `oxidative` varchar(11) DEFAULT NULL,
+  `yeast_bread_dough` varchar(11) DEFAULT NULL,
+  `ml_butter_cream` varchar(14) DEFAULT NULL,
+  `earth_leaves_mushrooms` varchar(12) DEFAULT NULL,
+  `mineral_stone_sulfur` varchar(12) DEFAULT NULL,
+  `oak_vanilla_toast_smoke_coconut` varchar(15) DEFAULT NULL,
+  `red_fruit` varchar(11) DEFAULT NULL,
+  `black_fruit` varchar(13) DEFAULT NULL,
+  `blue_fruit` varchar(15) DEFAULT NULL,
+  `mint_eucalyptus` varchar(10) DEFAULT NULL,
+  `pepper_spice` varchar(16) DEFAULT NULL,
+  `cocoa_coffee` varchar(14) DEFAULT NULL,
+  `meat_leather` varchar(13) DEFAULT NULL,
+  `tobacco_tar` varchar(13) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `aromas`
+--
+
+INSERT INTO `aromas` (`color_key`, `primary_color`, `secondary_color`, `apple_pear`, `citrus_fruit`, `stone_fruit`, `tropical_melon`, `fruit_type`, `flowers`, `herbs`, `vegetal`, `oxidative`, `yeast_bread_dough`, `ml_butter_cream`, `earth_leaves_mushrooms`, `mineral_stone_sulfur`, `oak_vanilla_toast_smoke_coconut`, `red_fruit`, `black_fruit`, `blue_fruit`, `mint_eucalyptus`, `pepper_spice`, `cocoa_coffee`, `meat_leather`, `tobacco_tar`) VALUES
+(0, 'Orange', 'Brown', '', '', '', '', 'Under Ripe', 'Rose', 'Fresh Herbs', 'Green Bell Pepper Capsicum', '', '', '', 'Forest Floor', 'Sulfur', 'Vanilla', 'Red Cherry', 'Black Berry', 'Blueberry', 'Mint', 'Black Peppercorn', 'Milk Chocolate', 'Meat', 'Wet Tabacco'),
+(0, 'Garnet', 'Black Blue', '', '', '', '', 'Ripe', 'Violet', 'Dried Herbs', 'Fresh Herbs', '', '', '', 'Compost', 'Slate Petrol', 'Maple', 'Pomegranate', 'Black Currant', 'Dried Blueberry', 'Eucalyptus', 'Green Peppercorn', 'Dark Chocolate', 'Grilled Meat', 'Dried Tabacco'),
+(0, 'Ruby', '', '', '', '', '', 'Over Ripe Stem Jam', 'Lavender', 'Tomato Leaf', 'Dried Herbs', '', '', '', 'Mushrooms', 'Metallic', 'Light Toast', 'Cranberry', 'Raisin ', 'Plum', 'Menthol', 'Cinnamon', 'Cocoa Powder', 'Beef Jerky', 'Tar'),
+(0, 'Purple', '', '', '', '', '', 'Dried Baked', 'Dried Flowers', 'Basil ', 'Stem Whole Cluster', '', '', '', 'Potting Soil', 'Flit', 'Heavy Toast', 'Raspberry', 'Date', 'Plum Skin', '', 'Baking Spice', 'Mocha', 'Wet Leather', 'Ashtray'),
+(0, '', '', '', '', '', '', '', 'Potpourri', 'Oregano', '', '', '', '', 'Barnyard', 'Dust', 'Sawdust', 'Red Currant', 'Fig', '', '', 'Hard Spice', 'Espresso', 'Dried Leather', ''),
+(0, '', '', '', '', '', '', '', '', 'Fennel', '', '', '', '', 'Wet Leaves', 'Chalk', 'Sandlewood', '', '', '', '', 'Anise Licorice', 'Coffee Grounds', '', ''),
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Dried Leaves', 'Limestone', 'Pencil Shavings', '', '', '', '', '', '', '', ''),
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Volcanic', '', '', '', '', '', '', '', '', ''),
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Smokey', '', '', '', '', '', '', '', '', ''),
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pencil Lead', '', '', '', '', '', '', '', '', ''),
+(1, 'Straw', 'None', 'Green Apple', 'Lemon ', 'White Peach', 'Passion Fruit', 'Under Ripe', 'White Flowers', 'Dried Herbs ', 'Radish ', 'Baked Fruit', 'Brioche', 'Butter', 'Straw Hay', 'Sulfur ', 'Vanilla ', '', '', '', '', '', '', '', ''),
+(1, 'Yellow', 'Silver', 'Yellow Apple', 'Myer Lemon ', 'Yellow Peach', 'PineApple', 'Ripe', 'Yellow Flowers', 'Fresh Herbs', 'Jalapeno', 'Brown Fruit', 'Almond', 'Butter Popcorn', 'Cut Grass', 'Slate Petrol', 'Maple', '', '', '', '', '', '', '', ''),
+(1, 'Gold', 'Green ', 'Red Apple ', 'Lime ', 'Apricot', 'Kiwi', 'Over Ripe Stew Jam', 'Dried Flowers', '', 'Green Bell Pepper ', 'Leather', 'Fresh Dough', 'Creamed Corn', '', 'Metallic ', 'Light Toast', '', '', '', '', '', '', '', ''),
+(1, '', 'Copper', 'Baked Apple', 'Orange', 'Apricot Kernel ', 'Lychee', 'Dried Baked', 'Honeysuckle', '', 'Cut Grass', 'Astray', 'Hazelnut', 'Cream', '', 'Fit', 'Heavy Toast', '', '', '', '', '', '', '', ''),
+(1, '', '', '', 'Dried Orange Peel', 'Nectarine', 'Mango', '', 'Orange Blossom', '', '', '', 'Yeast', '', '', 'Dust', 'Sawdust', '', '', '', '', '', '', '', ''),
+(1, '', '', '', 'Grapefruit', '', 'Banana ', '', '', '', '', '', '', '', '', 'Chalk', '', '', '', '', '', '', '', '', ''),
+(1, '', '', '', '', '', 'Banana Peel', '', '', '', '', '', '', '', '', 'Limestone', '', '', '', '', '', '', '', '', ''),
+(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Volcanic', '', '', '', '', '', '', '', '', ''),
+(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Smokey', '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assessment`
+--
+
+CREATE TABLE `assessment` (
+  `assessment_id` int(11) NOT NULL,
+  `date` varchar(20) DEFAULT NULL,
+  `producer` varchar(40) DEFAULT NULL,
+  `wine_name` varchar(40) DEFAULT NULL,
+  `vintage` int(4) DEFAULT NULL,
+  `zip_code` int(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `username` varchar(30) NOT NULL DEFAULT '',
+  `password` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`username`, `password`) VALUES
+('Anita', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+('Daniel', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+('Miriam ', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+('username', 'password');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `red_taste_assessment`
+--
+
+CREATE TABLE `red_taste_assessment` (
+  `taste_id` int(4) DEFAULT NULL,
+  `primary_color` int(1) DEFAULT NULL,
+  `secondary_color` int(1) DEFAULT NULL,
+  `red_fruits_level` int(1) DEFAULT NULL,
+  `red_cherry` int(1) DEFAULT NULL,
+  `pomegranate` int(1) DEFAULT NULL,
+  `cranberry` int(1) DEFAULT NULL,
+  `raspberry` int(1) DEFAULT NULL,
+  `red_currant` int(1) DEFAULT NULL,
+  `red_fruit_other` varchar(16) DEFAULT NULL,
+  `black_fruit_level` int(1) DEFAULT NULL,
+  `black_berry` int(1) DEFAULT NULL,
+  `black_currant` int(1) DEFAULT NULL,
+  `raisin` int(1) DEFAULT NULL,
+  `date` int(1) DEFAULT NULL,
+  `fig` int(1) DEFAULT NULL,
+  `black_fruit_other` varchar(16) DEFAULT NULL,
+  `blue_fruit_level` int(1) DEFAULT NULL,
+  `blueberry` int(1) DEFAULT NULL,
+  `dried_blueberry` int(1) DEFAULT NULL,
+  `plum` int(1) DEFAULT NULL,
+  `plum_skin` int(1) DEFAULT NULL,
+  `blue_fruit_other` varchar(16) DEFAULT NULL,
+  `fruit_type` int(1) DEFAULT NULL,
+  `flowers_level` int(1) DEFAULT NULL,
+  `rose` int(1) DEFAULT NULL,
+  `violet` int(1) DEFAULT NULL,
+  `lavender` int(1) DEFAULT NULL,
+  `dried_flowers` int(1) DEFAULT NULL,
+  `potpourri` int(1) DEFAULT NULL,
+  `flowers_other` varchar(16) DEFAULT NULL,
+  `herbs_level` int(1) DEFAULT NULL,
+  `fresh_herbs` int(1) DEFAULT NULL,
+  `dried_herbs` int(1) DEFAULT NULL,
+  `tomatoe_leaf` int(1) DEFAULT NULL,
+  `basil` int(1) DEFAULT NULL,
+  `oregeno` int(1) DEFAULT NULL,
+  `fennel` int(1) DEFAULT NULL,
+  `herbs_other` varchar(16) DEFAULT NULL,
+  `vegetal_level` int(1) DEFAULT NULL,
+  `green_bell_pepper_capsicum` int(1) DEFAULT NULL,
+  `vegetal_fresh_herbs` int(1) DEFAULT NULL,
+  `vegetal_dried_herbs` int(1) DEFAULT NULL,
+  `stem_whole_cluster` int(1) DEFAULT NULL,
+  `vegetal_other` varchar(16) DEFAULT NULL,
+  `mint_eucalyptus_level` int(1) DEFAULT NULL,
+  `mint` int(1) DEFAULT NULL,
+  `eucalyptus` int(1) DEFAULT NULL,
+  `menthol` int(1) DEFAULT NULL,
+  `mint_eucalyptus_other` varchar(16) DEFAULT NULL,
+  `pepper_spice_level` int(1) DEFAULT NULL,
+  `black_peppercorn` int(1) DEFAULT NULL,
+  `green_peppercorn` int(1) DEFAULT NULL,
+  `cinnamon` int(1) DEFAULT NULL,
+  `baking_spice` int(1) DEFAULT NULL,
+  `hard_spice` int(1) DEFAULT NULL,
+  `anise_licorice` int(1) DEFAULT NULL,
+  `pepper_spice_other` varchar(16) DEFAULT NULL,
+  `cocoa_coffee_level` int(1) DEFAULT NULL,
+  `dark_chocolate` int(1) DEFAULT NULL,
+  `cocoa_powder` int(1) DEFAULT NULL,
+  `mocha` int(1) DEFAULT NULL,
+  `espresso` int(1) DEFAULT NULL,
+  `coffee_grounds` int(1) DEFAULT NULL,
+  `cocoa_coffee_other` varchar(16) DEFAULT NULL,
+  `meat_leather_level` int(1) DEFAULT NULL,
+  `meat` int(1) DEFAULT NULL,
+  `grilled_meat` int(1) DEFAULT NULL,
+  `beef_jerkey` int(1) DEFAULT NULL,
+  `wet_leather` int(1) DEFAULT NULL,
+  `dried_leather` int(1) DEFAULT NULL,
+  `meat_leather_other` varchar(16) DEFAULT NULL,
+  `tobacco_tar_level` int(1) DEFAULT NULL,
+  `wet_tobacco` int(1) DEFAULT NULL,
+  `dried_tobacco` int(1) DEFAULT NULL,
+  `tar` int(1) DEFAULT NULL,
+  `ashtray` int(1) DEFAULT NULL,
+  `tobacco_tar_other` varchar(16) DEFAULT NULL,
+  `earth_leaves_mushrooms_level` int(1) DEFAULT NULL,
+  `forest_floor` int(1) DEFAULT NULL,
+  `compost` int(1) DEFAULT NULL,
+  `mushrooms` int(1) DEFAULT NULL,
+  `potting_soil` int(1) DEFAULT NULL,
+  `barnyard` int(1) DEFAULT NULL,
+  `wet_leaves` int(1) DEFAULT NULL,
+  `dried_leaves` int(1) DEFAULT NULL,
+  `earth_leaves_mushrooms_other` varchar(16) DEFAULT NULL,
+  `mineral_stone_sulfur_level` int(1) DEFAULT NULL,
+  `sulfur` int(1) DEFAULT NULL,
+  `slate_petrol` int(1) DEFAULT NULL,
+  `metallic` int(1) DEFAULT NULL,
+  `flit` int(1) DEFAULT NULL,
+  `dust` int(1) DEFAULT NULL,
+  `chalk` int(1) DEFAULT NULL,
+  `limestone` int(1) DEFAULT NULL,
+  `volcanic` int(1) DEFAULT NULL,
+  `smokey` int(1) DEFAULT NULL,
+  `pencil_lead` int(1) DEFAULT NULL,
+  `mineral_stone_sulfur_other` varchar(16) DEFAULT NULL,
+  `oak_vanilla_smoke_coconut_level` int(1) DEFAULT NULL,
+  `coconut` int(1) DEFAULT NULL,
+  `light_toast` int(1) DEFAULT NULL,
+  `heavy_toast` int(1) DEFAULT NULL,
+  `sawdust` int(1) DEFAULT NULL,
+  `sandalwood` int(1) DEFAULT NULL,
+  `pencil_shavings` int(1) DEFAULT NULL,
+  `oak_vanilla_smoke_coconut_other` varchar(16) DEFAULT NULL,
+  `sweetness` int(1) DEFAULT NULL,
+  `alcohol` int(1) DEFAULT NULL,
+  `tannin` int(1) DEFAULT NULL,
+  `bitter` int(1) DEFAULT NULL,
+  `balanced` int(1) DEFAULT NULL,
+  `length` int(1) DEFAULT NULL,
+  `complexity` int(1) DEFAULT NULL,
+  `quality_for_price` int(1) DEFAULT NULL,
+  `quality_for_price_rate` int(1) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `red_taste_assessment`
+--
+
+INSERT INTO `red_taste_assessment` (`taste_id`, `primary_color`, `secondary_color`, `red_fruits_level`, `red_cherry`, `pomegranate`, `cranberry`, `raspberry`, `red_currant`, `red_fruit_other`, `black_fruit_level`, `black_berry`, `black_currant`, `raisin`, `date`, `fig`, `black_fruit_other`, `blue_fruit_level`, `blueberry`, `dried_blueberry`, `plum`, `plum_skin`, `blue_fruit_other`, `fruit_type`, `flowers_level`, `rose`, `violet`, `lavender`, `dried_flowers`, `potpourri`, `flowers_other`, `herbs_level`, `fresh_herbs`, `dried_herbs`, `tomatoe_leaf`, `basil`, `oregeno`, `fennel`, `herbs_other`, `vegetal_level`, `green_bell_pepper_capsicum`, `vegetal_fresh_herbs`, `vegetal_dried_herbs`, `stem_whole_cluster`, `vegetal_other`, `mint_eucalyptus_level`, `mint`, `eucalyptus`, `menthol`, `mint_eucalyptus_other`, `pepper_spice_level`, `black_peppercorn`, `green_peppercorn`, `cinnamon`, `baking_spice`, `hard_spice`, `anise_licorice`, `pepper_spice_other`, `cocoa_coffee_level`, `dark_chocolate`, `cocoa_powder`, `mocha`, `espresso`, `coffee_grounds`, `cocoa_coffee_other`, `meat_leather_level`, `meat`, `grilled_meat`, `beef_jerkey`, `wet_leather`, `dried_leather`, `meat_leather_other`, `tobacco_tar_level`, `wet_tobacco`, `dried_tobacco`, `tar`, `ashtray`, `tobacco_tar_other`, `earth_leaves_mushrooms_level`, `forest_floor`, `compost`, `mushrooms`, `potting_soil`, `barnyard`, `wet_leaves`, `dried_leaves`, `earth_leaves_mushrooms_other`, `mineral_stone_sulfur_level`, `sulfur`, `slate_petrol`, `metallic`, `flit`, `dust`, `chalk`, `limestone`, `volcanic`, `smokey`, `pencil_lead`, `mineral_stone_sulfur_other`, `oak_vanilla_smoke_coconut_level`, `coconut`, `light_toast`, `heavy_toast`, `sawdust`, `sandalwood`, `pencil_shavings`, `oak_vanilla_smoke_coconut_other`, `sweetness`, `alcohol`, `tannin`, `bitter`, `balanced`, `length`, `complexity`, `quality_for_price`, `quality_for_price_rate`) VALUES
+(1234, 0, 0, 4, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 0, 'this is s string', 0, 0, 0, 0, 0, 0, 3, 1, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sommelier`
+--
+
+CREATE TABLE `sommelier` (
+  `user_name` varchar(20) NOT NULL,
+  `password` varchar(40) DEFAULT NULL,
+  `first_name` varchar(40) DEFAULT NULL,
+  `last_name` varchar(40) DEFAULT NULL,
+  `zip` int(5) DEFAULT NULL,
+  `age` int(2) DEFAULT NULL,
+  `tastings_per_year` int(4) DEFAULT NULL,
+  `membership_date` date NOT NULL,
+  `expert_level` int(1) NOT NULL,
+  `certification_body` varchar(40) DEFAULT NULL,
+  `first_cert_month` date DEFAULT NULL,
+  `first_cert_year` date DEFAULT NULL,
+  `last_cert_month` date DEFAULT NULL,
+  `last_cert_year` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sommelier`
+--
+
+INSERT INTO `sommelier` (`user_name`, `password`, `first_name`, `last_name`, `zip`, `age`, `tastings_per_year`, `membership_date`, `expert_level`, `certification_body`, `first_cert_month`, `first_cert_year`, `last_cert_month`, `last_cert_year`) VALUES
+('Anita', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Anita', 'Garcia', 93901, 24, 0, '2016-01-19', 0, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00'),
+('Miriam', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Miriam', 'Flores', 93907, 21, 0, '2016-01-19', 0, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `white_tatse_assessment`
+--
+
+CREATE TABLE `white_tatse_assessment` (
+  `taste_id` int(4) DEFAULT NULL,
+  `primary_color` int(1) DEFAULT NULL,
+  `secondary_color` int(1) DEFAULT NULL,
+  `apple_pear_level` int(1) DEFAULT NULL,
+  `green_apple` int(1) DEFAULT NULL,
+  `yellow_apple` int(1) DEFAULT NULL,
+  `red_apple` int(1) DEFAULT NULL,
+  `baked_apple` int(1) DEFAULT NULL,
+  `apple_pear_other` varchar(16) DEFAULT NULL,
+  `citrus_level` int(1) DEFAULT NULL,
+  `lemon` int(1) DEFAULT NULL,
+  `myer_lemon` int(1) DEFAULT NULL,
+  `lime` int(1) DEFAULT NULL,
+  `orange` int(1) DEFAULT NULL,
+  `dried_orange_peel` int(1) DEFAULT NULL,
+  `grapefruit` int(1) DEFAULT NULL,
+  `cirtus_other` varchar(17) DEFAULT NULL,
+  `stone_level` int(1) DEFAULT NULL,
+  `white_peach` int(1) DEFAULT NULL,
+  `yellow_peach` int(1) DEFAULT NULL,
+  `apricot` int(1) DEFAULT NULL,
+  `apricot_kernal` int(1) DEFAULT NULL,
+  `nectarine` int(1) DEFAULT NULL,
+  `stone_other` varchar(16) DEFAULT NULL,
+  `tropcial_melon_level` int(1) DEFAULT NULL,
+  `passion_fruit` int(1) DEFAULT NULL,
+  `pineapple` int(1) DEFAULT NULL,
+  `kiwi` int(1) DEFAULT NULL,
+  `lychee` int(1) DEFAULT NULL,
+  `mango` int(1) DEFAULT NULL,
+  `banana` int(1) DEFAULT NULL,
+  `tropical_melon_other` varchar(17) DEFAULT NULL,
+  `fruit_type` int(1) DEFAULT NULL,
+  `flower_level` int(1) DEFAULT NULL,
+  `white_flowers` int(1) DEFAULT NULL,
+  `yellow_flowers` int(1) DEFAULT NULL,
+  `dried_folwers` int(1) DEFAULT NULL,
+  `honeysuckle` int(1) DEFAULT NULL,
+  `orange_blossom` int(1) DEFAULT NULL,
+  `flower_other` varchar(16) DEFAULT NULL,
+  `herb_level` int(1) DEFAULT NULL,
+  `dried_herbs` int(1) DEFAULT NULL,
+  `fresh_herbs` int(1) DEFAULT NULL,
+  `herbs_other` varchar(17) DEFAULT NULL,
+  `vegetal_level` int(1) DEFAULT NULL,
+  `radish` int(1) DEFAULT NULL,
+  `jalapeno` int(1) DEFAULT NULL,
+  `green_bell_pepper` int(1) DEFAULT NULL,
+  `vegetal_cut_grass` int(1) DEFAULT NULL,
+  `vegetal_other` varchar(16) DEFAULT NULL,
+  `oxidative_level` varchar(10) DEFAULT NULL,
+  `baked_fruit` int(1) DEFAULT NULL,
+  `brown_fruit` int(1) DEFAULT NULL,
+  `leather` int(1) DEFAULT NULL,
+  `ashtray` int(1) DEFAULT NULL,
+  `oxidative_other` varchar(16) DEFAULT NULL,
+  `yeast_bread_dough_level` int(1) DEFAULT NULL,
+  `brioche` int(1) DEFAULT NULL,
+  `almond` int(1) DEFAULT NULL,
+  `fresh_dough` int(1) DEFAULT NULL,
+  `hazelnut` int(1) DEFAULT NULL,
+  `yeast` int(1) DEFAULT NULL,
+  `yeast_bread_dough_other` varchar(16) DEFAULT NULL,
+  `ml_butter_cream_level` int(1) DEFAULT NULL,
+  `earth_leaves_mushrooms_level` int(1) DEFAULT NULL,
+  `straw_hay` int(1) DEFAULT NULL,
+  `earth_leaves_mushrooms_cut_grass` int(1) DEFAULT NULL,
+  `earth_leaves_mushrooms_other` varchar(16) DEFAULT NULL,
+  `mineral_stone_sulfur_level` int(1) DEFAULT NULL,
+  `sulfur` int(1) DEFAULT NULL,
+  `state_petrol` int(1) DEFAULT NULL,
+  `metallic` int(1) DEFAULT NULL,
+  `flit` int(1) DEFAULT NULL,
+  `dust` int(1) DEFAULT NULL,
+  `chalk` int(1) DEFAULT NULL,
+  `limestone` int(1) DEFAULT NULL,
+  `volcanic` int(1) DEFAULT NULL,
+  `smokey` int(1) DEFAULT NULL,
+  `mineral_stone_sulfur_other` int(1) DEFAULT NULL,
+  `oak_vanilla_toast_level` int(1) DEFAULT NULL,
+  `vanilla` int(1) DEFAULT NULL,
+  `maple` int(1) DEFAULT NULL,
+  `light_toast` int(1) DEFAULT NULL,
+  `heavy_toast` int(1) DEFAULT NULL,
+  `sawdust` int(1) DEFAULT NULL,
+  `oak_vanilla_toast_other` varchar(16) DEFAULT NULL,
+  `sweetness` int(1) DEFAULT NULL,
+  `acid` int(11) NOT NULL,
+  `alcohol` int(1) DEFAULT NULL,
+  `bitter` int(1) DEFAULT NULL,
+  `balanced` int(1) DEFAULT NULL,
+  `length` int(1) DEFAULT NULL,
+  `complexity` int(1) DEFAULT NULL,
+  `quality_for_price` int(1) DEFAULT NULL,
+  `quality_for_price_rate` int(1) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `white_tatse_assessment`
+--
+
+INSERT INTO `white_tatse_assessment` (`taste_id`, `primary_color`, `secondary_color`, `apple_pear_level`, `green_apple`, `yellow_apple`, `red_apple`, `baked_apple`, `apple_pear_other`, `citrus_level`, `lemon`, `myer_lemon`, `lime`, `orange`, `dried_orange_peel`, `grapefruit`, `cirtus_other`, `stone_level`, `white_peach`, `yellow_peach`, `apricot`, `apricot_kernal`, `nectarine`, `stone_other`, `tropcial_melon_level`, `passion_fruit`, `pineapple`, `kiwi`, `lychee`, `mango`, `banana`, `tropical_melon_other`, `fruit_type`, `flower_level`, `white_flowers`, `yellow_flowers`, `dried_folwers`, `honeysuckle`, `orange_blossom`, `flower_other`, `herb_level`, `dried_herbs`, `fresh_herbs`, `herbs_other`, `vegetal_level`, `radish`, `jalapeno`, `green_bell_pepper`, `vegetal_cut_grass`, `vegetal_other`, `oxidative_level`, `baked_fruit`, `brown_fruit`, `leather`, `ashtray`, `oxidative_other`, `yeast_bread_dough_level`, `brioche`, `almond`, `fresh_dough`, `hazelnut`, `yeast`, `yeast_bread_dough_other`, `ml_butter_cream_level`, `earth_leaves_mushrooms_level`, `straw_hay`, `earth_leaves_mushrooms_cut_grass`, `earth_leaves_mushrooms_other`, `mineral_stone_sulfur_level`, `sulfur`, `state_petrol`, `metallic`, `flit`, `dust`, `chalk`, `limestone`, `volcanic`, `smokey`, `mineral_stone_sulfur_other`, `oak_vanilla_toast_level`, `vanilla`, `maple`, `light_toast`, `heavy_toast`, `sawdust`, `oak_vanilla_toast_other`, `sweetness`, `acid`, `alcohol`, `bitter`, `balanced`, `length`, `complexity`, `quality_for_price`, `quality_for_price_rate`) VALUES
+(1234, 1, 3, 1, 1, 0, 0, 1, 'this is a string', 0, 0, 0, 0, 0, 0, 0, 'this is a string ', 0, 0, 0, 0, 0, 0, 'this is a string', 0, 0, 0, 0, 0, 0, 0, 'this is a string ', 0, 0, 0, 0, 0, 0, 0, 'this is a string', 0, 0, 0, 'this is a string ', 0, 0, 0, 0, 0, 'this is a string', '', 0, 0, 0, 0, 'this is a string', 0, 0, 0, 0, 0, 0, 'this is a string', 0, 0, 0, 0, 'this is a string', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'this is a string', 0, 0, 0, 0, 0, 0, 3, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -431,4 +800,38 @@ INSERT INTO `wine_bottle` (`producer`, `wine_name`, `vintage`, `wine_style`, `gr
 ('Fonseca', 'Vintage Port', '1970', 'Fortified Red', 'Port Blend', 'Portugal', '', '', 'Douro', NULL),
 ('Taylor Fladgate Vintage Porto', 'Vintage Port', '1970', 'Fortified Red', 'Port Blend', 'Portugal', '', '', 'Douro', NULL),
 ('Taylor Fladgate Vintage Porto', 'Vintage Port', '1966', 'Fortified Red', 'Port Blend', 'Portugal', '', '', 'Douro', NULL),
-('$producer', '$name', '$vin', 'Sparkling', '$grape', '$region_coun', '$region_st', 'city', '$region', NULL);
+('$producer', '$name', '$vin', 'Sparkling', '$grape', '$region_coun', '$region_st', 'city', '$region', NULL),
+('WORKING', 'WORKING', '1234', 'Sparkling', 'WORKING', 'WORKING', 'CA', 'city', 'WORKING', NULL),
+('WORKING', 'WORKING', '1234', 'Sparkling', '', 'WORKING', 'ca', 'city', 'WORKING', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `assessment`
+--
+ALTER TABLE `assessment`
+  ADD PRIMARY KEY (`assessment_id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `sommelier`
+--
+ALTER TABLE `sommelier`
+  ADD PRIMARY KEY (`user_name`(8));
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `assessment`
+--
+ALTER TABLE `assessment`
+  MODIFY `assessment_id` int(11) NOT NULL AUTO_INCREMENT;
