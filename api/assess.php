@@ -2,7 +2,7 @@
 
 include 'db.include.php';
 $conn = getDatabaseConnection();
-
+/*
 if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
 
 	  $username = $_POST['username'];
@@ -13,7 +13,7 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
     $zip_code = $_POST['zip_code'];
 
     $sql = "INSERT INTO assessment
-			VALUES $date, $wine_producer, $wine_name, $wine_vintage $zip_code";
+			VALUES $date, $wine_producer, $wine_name, $wine_vintage, $zip_code";
 	$statement = $conn->prepare($sql);
     $statement->execute();
 
@@ -409,6 +409,6 @@ $namedParameter[':acid'] = $_POST[':acid'];
 
 }
  echo json_encode($_POST);
-
+*/
 
 ?>

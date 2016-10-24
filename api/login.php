@@ -1,5 +1,9 @@
 <?php 
     require_once ('../vendor/autoload.php');
+    if($_SESSION['email']){
+    	session_destroy();
+    	header('Location: https://winarycode-masloph.c9users.io/wc/');
+    }
     session_start();
     //starts session and grabs facebooks(composers) autoloaders
     $fb = new Facebook\Facebook([
@@ -36,11 +40,11 @@
 		  exit;
 		}
 		// Payload, where we could see if its in database, if not insert.
-		echo 'Name: ' . $userNode->getName().'<br>';
-		echo 'User ID: ' . $userNode->getId().'<br>';
-		echo 'Email: ' . $userNode->getProperty('email').'<br><br>';
-		$fbPhoto = 'https://graph.facebook.com/'.$userNode->getId().'/picture?width=400';
-		echo "<img src='$fbPhoto' /><br>";
+		$_SESSION['name'] = $userNode->getName();
+		$_SESSION['id'] = $userNode->getId();
+		$_SESSION['email'] = $userNode->getProperty('email');
+		$_SESSION['image'] = 'https://graph.facebook.com/'.$userNode->getId().'/picture?width=400';
+		header('Location: https://winarycode-masloph.c9users.io/wc/');
 	}else{
 	    //may be ugly, but I can add the basic login form here as well. DONE
 	    echo '<form action = " " method = "POST">';

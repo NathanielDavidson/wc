@@ -1,43 +1,40 @@
 <?php
-        echo 'Here';
-        //include 'db.include.php';
-        //$conn = getDatabaseConnection(); //gets database connection
-        $host = "localhost";
-        $dbname = "wc_db";
-        $username = "masloph";
-        $password = "";
-        try{
-                $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                $conn = $dbConn;
-        }
-        catch(PDOException $e){
-                echo $e->getMessage();
-        }
-    
+
+    include 'db.include.php';
+    $conn = getDatabaseConnection(); //gets database connection
+    $host = "localhost";
+    $dbname = "wc_db";
+    $username = "root";
+    $password = "root";
+
     if(isset($_POST["regWine"])){
-        echo "form not empty";
+        //echo "In form, ";
+        //var_dump($_POST);
         $producer = $_POST["producer"];
-        echo $producer;
+        //echo $producer;
         $name = $_POST["wname"];
-        echo $name;
+        //echo $name;
         $vintage = $_POST["vintage"];
-        echo $vintage;
-        $wine_style = $_POST["wine_styles"];
-        echo $wine_style;
+        //echo $vintage;
+        $wine_style = $_POST['wine_styles'];
+        
+        //echo $wine_style;
+        //var_dump($_POST);
         $grape = $_POST["grape"];
-        echo $grape;
-    
+        //echo $grape;
+
         $region_country = $_POST["country"];
-        echo $region_country;
+        //echo $region_country;
         $region_state = $_POST["state"];
-        echo $region_state;
+        //echo $region_state;
         $region = $_POST["region"];//optional so test it
-        echo $region;
+        //echo $region;
         $sub_region =$_POST["sRegion"]; //optional so test it
-        echo $sub_region;
+        //echo $sub_region;
         $alcohol_percentage = $_POST["alcohol"];
-        echo $alcohol_percentage;
-    
+        //$alcohol_percentage = 99;
+        //echo $alcohol_percentage;
+
         if("" == trim($_POST['grape'])){//TESTS, trims entry to see if it's empty, if it is value set to empty NOT NULL
             $grape = '';
         }
@@ -47,16 +44,11 @@
         if("" == trim($_POST['sRegion'])){
             $sub_region = '';
         }
-        /*echo 'before sql';
-        $sequel = "INSERT INTO wine_bottle (producer, grape, region, alcohol, vintage) VALUES ("test", "test","test",12.5 ,1234)";
-        */
-        echo "something"; 
-        $sequel = "INSERT INTO TABLE_8" .
-        "(Producer, Wine_Name, Vintage, Wine_Style, Grapes, Country, State, City, Region, Sub_Region)" .
-        "VALUES('$producer', '$name','$vintage', 'sparkling', '$grape', '$region_country', '$region_state', 'city',
-        '$region', '$sub_region')";//SQL insert statement. FOUND ERRORS HERE, MUST BE SINGLE QUOTES IN STRINGS
-        echo $sequel;
-    
-        //$conn->exec($sequel);
+
+
+        $sql = "INSERT INTO wine_bottle (producer, wine_name, vintage, wine_style, grapes, country, state, city, region, alcohol) VALUES('$producer', '$name','$vintage', '$wine_style', '$grape', '$region_country', 
+            '$region_state', 'city','$region','$alcohol_percentage');";
+        $statement = $conn->prepare($sql); //prevents SQL Injection
+        $statement->execute();
     }
 ?>
