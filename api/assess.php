@@ -2,10 +2,17 @@
 
 include 'db.include.php';
 $conn = getDatabaseConnection();
-/*
+    
+    if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
+      echo "Connected successfully";
+    
+
 if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
 
-	  $username = $_POST['username'];
+//RECORDS METADATA ABOUT THE ASSESSMENT
+	$username = $_POST['username'];
     $wine_producer = $_POST['wine_producer'];
     $wine_name = $_POST['wine_name'];
     $wine_vintage = $_POST['vintage'];
@@ -13,12 +20,12 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
     $zip_code = $_POST['zip_code'];
 
     $sql = "INSERT INTO assessment
-			VALUES $date, $wine_producer, $wine_name, $wine_vintage, $zip_code";
+			VALUES $date, $wine_producer, $wine_name, $wine_vintage $zip_code";
 	$statement = $conn->prepare($sql);
     $statement->execute();
 
-    if(isset($_POST['redAssessForm']){
-    	$primary_color =
+//RED ASSESMENT QUERY 
+if(isset($_POST['redAssessForm']){
 
     	$sql = "INSERT INTO red_taste_assessment
 		VALUES :taste_id, :primary_color, :secondary_color, :apple_pear_level,
@@ -28,9 +35,9 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
        :cirtus_other, :stone_level, :white_peach, :yellow_peach,
        :apricot, :apricot_kernal, :nectarine, :stone_other,
        :tropcial_melon_leve, :passion_fruit, :pineapple,
-       :kiwi, :lychee, :mango :banana, :tropical_melon_other,
+       :kiwi :lychee, :mango :banana, :tropical_melon_other,
        :fruit_type, :flower_level, :white_flowers, :yellow_flowers,
-       :dried_flowers, :honeysuckle, :orange_blossom, :flower_other,
+       :dried_flowerss, :honeysuckle, :orange_blossom, :flower_other,
         :herb_level, :dried_herbs, :fresh_herbs, :herbs_other,
        :vegetal_level, :radish, :jalapeno, :green_bell_pepper,
        :vegetal_cut_grass, :vegetal_other, :oxidative_leve, :baked_fruit,
@@ -42,7 +49,7 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
        :mineral_stone_sulfur_level, :sulfur, :state_petrol, :metallic,
        :flit, :dust, :chalk, :limestone, :volcanic,  :smokey,
        :mineral_stone_sulfur_other, :oak_vanilla_toast_level, :vanilla, :maple,
-:light_toast, :heavy_toast, :sawdust, :oak_vanilla_toast_other, :sweetness, :alcohol, :bitter, :balanced, :length, :complexity,
+       :light_toast, :heavy_toast, :sawdust, :oak_vanilla_toast_other, :sweetness, :alcohol, :bitter, :balanced, :length, :complexity,
       	      	:quality_for_price, :quality_for_price_rate, :taste_id, :primary_color,
 :secondary_color, :red_fruits_level, :red_cherry, :pomegranate,
 :cranberry, :raspberry, :red_currant, :red_fruit_other,
@@ -69,11 +76,11 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
 
     	$namedParameter = array();
    		$namedParameter[':taste_id'] = $_POST['taste_id'];
-$namedParameter[':primary_color'] = $_POST['primary_color'];
-$namedParameter[':secondary_color'] = $_POST['secondary_color'];
-$namedParameter[':apple_pear_level'] = $_POST['apple_pear_level'];
+$namedParameter[' :primary_color'] = $_POST['primary_color'];
+$namedParameter[' :secondary_color'] = $_POST['secondary_color'];
+$namedParameter[' :apple_pear_level'] = $_POST['apple_pear_level'];
 $namedParameter[':green_apple'] = $_POST['green_apple'];
-$namedParameter[':yellow_apple'] = $_POST['yellow_apple'];
+$namedParameter[' :yellow_apple'] = $_POST['yellow_apple'];
 $namedParameter[' :red_apple'] = $_POST['red_apple'];
 $namedParameter[' :baked_apple'] = $_POST['baked_apple'];
 $namedParameter[' :apple_pear_other'] = $_POST['apple_pear_other'];
@@ -88,15 +95,14 @@ $namedParameter[':cirtus_other'] = $_POST['cirtus_other'];
 $namedParameter[' :stone_level'] = $_POST['stone_level'];
 $namedParameter[' :white_peach'] = $_POST['white_peach'];
 $namedParameter[' :yellow_peach'] = $_POST['yellow_peach'];
-$namedParameter[':apricot'] = $_POST['apricot'];
+$namedParameter[':apricot'] = $_POST[':apricot'];
 $namedParameter[' :apricot_kernal'] = $_POST['apricot_kernal'];
 $namedParameter[' :nectarine'] = $_POST['nectarine'];
 $namedParameter[' :stone_other'] = $_POST['stone_other'];
 $namedParameter[':tropcial_melon_leve'] = $_POST['tropcial_melon_leve'];
 $namedParameter[' :passion_fruit'] = $_POST['passion_fruit'];
 $namedParameter[' :pineapple'] = $_POST['pineapple'];
-$namedParameter[':kiwi'] = $_POST['lychee'];
-$namedParameter[':lychee'] = $_POST['lychee'];
+$namedParameter[':kiwi :lychee'] = $_POST['kiwi :lychee'];
 $namedParameter[' :mango'] = $_POST['mango'];
 $namedParameter[' :banana'] = $_POST['banana'];
 $namedParameter[' :tropical_melon_other'] = $_POST['tropical_melon_other'];
@@ -104,7 +110,7 @@ $namedParameter[' :fruit_type'] = $_POST['fruit_type'];
 $namedParameter[' :flower_level'] = $_POST['flower_level'];
 $namedParameter[' :white_flowers'] = $_POST['white_flowers'];
 $namedParameter[' :yellow_flowers'] = $_POST['yellow_flowers'];
-$namedParameter[':dried_flowers'] = $_POST['dried_flowers'];
+$namedParameter[':dried_flowers'] = $_POST['dried_fo'];
 $namedParameter[' :honeysuckle'] = $_POST['honeysuckle'];
 $namedParameter[' :orange_blossom'] = $_POST['orange_blossom'];
 $namedParameter[' :flower_other'] = $_POST['flower_other'];
@@ -127,7 +133,7 @@ $namedParameter[' :oxidative_other'] = $_POST['oxidative_other'];
 $namedParameter[':yeast_bread_dough_level'] = $_POST['yeast_bread_dough_level'];
 $namedParameter[' :brioche'] = $_POST['brioche'];
 $namedParameter[' :almond'] = $_POST['almond'];
-$namedParameter[' :fresh_dough'] = $_POST['fresh_dough'];
+$namedParameter[' :fresh_dough'] = $_POST[' :fresh_dough'];
 $namedParameter[' :hazelnut'] = $_POST['hazelnut'];
 $namedParameter[' :yeast'] = $_POST['yeast'];
 $namedParameter[' :yeast_bread_dough_other'] = $_POST['yeast_bread_dough_other'];
@@ -222,7 +228,7 @@ $namedParameter[' :anise_licorice'] = $_POST['anise_licorice'];
 $namedParameter[' :pepper_spice_other'] = $_POST['pepper_spice_other'];
 $namedParameter[' :cocoa_coffee_level'] = $_POST['cocoa_coffee_level'];
 $namedParameter[':dark_chocolate'] = $_POST['dark_chocolate'];
-$namedParameter[' :cocoa_powder'] = $_POST[' cocoa_powder'];
+$namedParameter[' :cocoa_powder'] = $_POST['cocoa_powder'];
 $namedParameter[' :mocha'] = $_POST['mocha'];
 $namedParameter[' :espresso'] = $_POST['espresso'];
 $namedParameter[' :coffee_grounds'] = $_POST['coffee_grounds'];
@@ -282,7 +288,7 @@ $namedParameter[' :quality_for_price_rate'] = $_POST['quality_for_price_rate'];
     	$statement->execute($namedParameter);
 
     }
-
+//WHITE ASSESSMENT QUERY 
     if(isset($_POST['whiteAssessForm']){
     	$sql = "INSERT INTO white_taste_assessment
               VALUES (:taste_id, :primary_color, :secondary_color,:apple_pear_level,
@@ -304,111 +310,109 @@ $namedParameter[' :quality_for_price_rate'] = $_POST['quality_for_price_rate'];
                       :sweetness, :alcohol, :bitter, :balanced, :length, :complexity, :quality_for_price,
                       :quality_for_price_rate, :acid)";
     	$namedParameter = array();
-   		$namedParameter[':taste_id'] = $_POST[':taste_id'];
-$namedParameter[' :primary_color'] = $_POST[' :primary_color'];
-$namedParameter[' :secondary_color'] = $_POST[' :secondary_color'];
-$namedParameter[' :apple_pear_level'] = $_POST[' :apple_pear_level'];
-$namedParameter[' :green_apple'] = $_POST[' :green_apple'];
-$namedParameter[' :yellow_apple'] = $_POST[' :yellow_apple'];
-$namedParameter[' :red_apple'] = $_POST[' :red_apple'];
-$namedParameter[' :baked_apple'] = $_POST[' :baked_apple'];
-$namedParameter[' :apple_pear_other'] = $_POST[' :apple_pear_other'];
-$namedParameter[' :citrus_level'] = $_POST[' :citrus_level'];
-$namedParameter[' :lemon'] = $_POST[' :lemon'];
-$namedParameter[' :myer_lemon'] = $_POST[' :myer_lemon'];
-$namedParameter[' :lime'] = $_POST[' :lime'];
-$namedParameter[' :orange'] = $_POST[' :orange'];
-$namedParameter[' :dried_orange_peel'] = $_POST[' :dried_orange_peel'];
-$namedParameter[' :grapefruit'] = $_POST[' :grapefruit'];
-$namedParameter[' :cirtus_other'] = $_POST[' :cirtus_other'];
-$namedParameter[' :stone_level'] = $_POST[' :stone_level'];
-$namedParameter[' :white_peach'] = $_POST[' :white_peach'];
-$namedParameter[' :yellow_peach'] = $_POST[' :yellow_peach'];
-$namedParameter[' :apricot'] = $_POST[' :apricot'];
-$namedParameter[' :apricot_kernal'] = $_POST[' :apricot_kernal'];
-$namedParameter[' :nectarine'] = $_POST[' :nectarine'];
-$namedParameter[' :stone_other'] = $_POST[' :stone_other'];
-$namedParameter[' :tropcial_melon_level'] = $_POST[' :tropcial_melon_level'];
-$namedParameter[' :passion_fruit'] = $_POST[' :passion_fruit'];
-$namedParameter[' :pineapple'] = $_POST[' :pineapple'];
-$namedParameter[' :kiwi'] = $_POST[' :kiwi'];
-$namedParameter[' :lychee'] = $_POST[' :lychee'];
-$namedParameter[' :mango'] = $_POST[' :mango'];
-$namedParameter[' :banana'] = $_POST[' :banana'];
-$namedParameter[' :tropical_melon_other'] = $_POST[' :tropical_melon_other'];
-$namedParameter[' :fruit_type'] = $_POST[' :fruit_type'];
-$namedParameter[':flower_level'] = $_POST[':flower_level'];
-$namedParameter[' :white_flowers'] = $_POST[' :white_flowers'];
-$namedParameter[' :yellow_flowers'] = $_POST[' :yellow_flowers'];
-$namedParameter[' :dried_flowers'] = $_POST[' :dried_flowers'];
-$namedParameter[' :honeysuckle'] = $_POST[' :honeysuckle'];
-$namedParameter[' :orange_blossom'] = $_POST[' :orange_blossom'];
-$namedParameter[' :flower_other'] = $_POST[' :flower_other'];
-$namedParameter[' :herb_level'] = $_POST[' :herb_level'];
-$namedParameter[' :dried_herbs'] = $_POST[' :dried_herbs'];
-$namedParameter[' :fresh_herbs'] = $_POST[' :fresh_herbs'];
-$namedParameter[' :herbs_other'] = $_POST[' :herbs_other'];
-$namedParameter[' :vegetal_level'] = $_POST[' :vegetal_level'];
-$namedParameter[' :radish'] = $_POST[' :radish'];
-$namedParameter[':jalapeno'] = $_POST[':jalapeno'];
-$namedParameter[' :green_bell_pepper'] = $_POST[' :green_bell_pepper'];
-$namedParameter[' :vegetal_cut_grass'] = $_POST[' :vegetal_cut_grass'];
-$namedParameter[' :vegetal_other'] = $_POST[' :vegetal_other'];
-$namedParameter[' :oxidative_level'] = $_POST[' :oxidative_level'];
-$namedParameter[' :baked_fruit'] = $_POST[' :baked_fruit'];
-$namedParameter[' :brown_fruit'] = $_POST[' :brown_fruit'];
-$namedParameter[' :leather'] = $_POST[' :leather'];
-$namedParameter[' :ashtray'] = $_POST[' :ashtray'];
-$namedParameter[' :oxidative_other'] = $_POST[' :oxidative_other'];
-$namedParameter[' :yeast_bread_dough_level'] = $_POST[' :yeast_bread_dough_level'];
-$namedParameter[' :brioche'] = $_POST[' :brioche'];
-$namedParameter[' :almond'] = $_POST[' :almond'];
-$namedParameter[' :fresh_dough'] = $_POST[' :fresh_dough'];
-$namedParameter[' :hazelnut'] = $_POST[' :hazelnut'];
-$namedParameter[':yeast'] = $_POST[':yeast'];
-$namedParameter[':yeast_bread_dough_other'] = $_POST[':yeast_bread_dough_other'];
-$namedParameter[':ml_butter_cream_level'] = $_POST[':ml_butter_cream_level'];
-$namedParameter[':earth_leaves_mushrooms_level'] = $_POST[':earth_leaves_mushrooms_level'];
-$namedParameter[' :straw_hay'] = $_POST[' :straw_hay'];
-$namedParameter[' :earth_leaves_mushrooms_cut_grass'] = $_POST[' :earth_leaves_mushrooms_cut_grass'];
-$namedParameter[' :earth_leaves_mushrooms_other'] = $_POST[' :earth_leaves_mushrooms_other'];
-$namedParameter[':mineral_stone_sulfur_level'] = $_POST[':mineral_stone_sulfur_level'];
-$namedParameter[' :sulfur'] = $_POST[' :sulfur'];
-$namedParameter[' :state_petrol'] = $_POST[' :state_petrol'];
-$namedParameter[' :metallic'] = $_POST[' :metallic'];
-$namedParameter[' :flit'] = $_POST[' :flit'];
-$namedParameter[' :dust'] = $_POST[' :dust'];
-$namedParameter[' :chalk'] = $_POST[' :chalk'];
-$namedParameter[' :limestone'] = $_POST[' :limestone'];
-$namedParameter[' :volcanic'] = $_POST[' :volcanic'];
-$namedParameter[' :smokey'] = $_POST[' :smokey'];
-$namedParameter[' :mineral_stone_sulfur_other'] = $_POST[' :mineral_stone_sulfur_other'];
-$namedParameter[' :oak_vanilla_toast_level'] = $_POST[' :oak_vanilla_toast_level'];
-$namedParameter[' :vanilla'] = $_POST[' :vanilla'];
-$namedParameter[' :maple'] = $_POST[' :maple'];
-$namedParameter[' :light_toast'] = $_POST[' :light_toast'];
-$namedParameter[' :heavy_toast'] = $_POST[' :heavy_toast'];
-$namedParameter[' :sawdust'] = $_POST[' :sawdust'];
-$namedParameter[' :oak_vanilla_toast_other'] = $_POST[' :oak_vanilla_toast_other'];
-$namedParameter[' :sweetness'] = $_POST[' :sweetness'];
-$namedParameter[' :alcohol'] = $_POST[' :alcohol'];
-$namedParameter[' :bitter'] = $_POST[' :bitter'];
-$namedParameter[' :balanced'] = $_POST[' :balanced'];
-$namedParameter[' :length'] = $_POST[' :length'];
-$namedParameter[' :complexity'] = $_POST[' :complexity'];
-$namedParameter[' :quality_for_price'] = $_POST[' :quality_for_price'];
-$namedParameter[' :quality_for_price_rate'] = $_POST[' :quality_for_price_rate'];
-$namedParameter[':acid'] = $_POST[':acid'];
+   		$namedParameter[':taste_id'] = $_POST['taste_id'];
+$namedParameter[' :primary_color'] = $_POST['primary_color'];
+$namedParameter[' :secondary_color'] = $_POST['secondary_color'];
+$namedParameter[' :apple_pear_level'] = $_POST['apple_pear_level'];
+$namedParameter[' :green_apple'] = $_POST['green_apple'];
+$namedParameter[' :yellow_apple'] = $_POST['yellow_apple'];
+$namedParameter[' :red_apple'] = $_POST['red_apple'];
+$namedParameter[' :baked_apple'] = $_POST['baked_apple'];
+$namedParameter[' :apple_pear_other'] = $_POST['apple_pear_other'];
+$namedParameter[' :citrus_level'] = $_POST['citrus_level'];
+$namedParameter[' :lemon'] = $_POST['lemon'];
+$namedParameter[' :myer_lemon'] = $_POST['myer_lemon'];
+$namedParameter[' :lime'] = $_POST['lime'];
+$namedParameter[' :orange'] = $_POST['orange'];
+$namedParameter[' :dried_orange_peel'] = $_POST['dried_orange_peel'];
+$namedParameter[' :grapefruit'] = $_POST['grapefruit'];
+$namedParameter[' :cirtus_other'] = $_POST['cirtus_other'];
+$namedParameter[' :stone_level'] = $_POST['stone_level'];
+$namedParameter[' :white_peach'] = $_POST['white_peach'];
+$namedParameter[' :yellow_peach'] = $_POST['yellow_peach'];
+$namedParameter[' :apricot'] = $_POST['apricot'];
+$namedParameter[' :apricot_kernal'] = $_POST['apricot_kernal'];
+$namedParameter[' :nectarine'] = $_POST['nectarine'];
+$namedParameter[' :stone_other'] = $_POST['stone_other'];
+$namedParameter[' :tropcial_melon_level'] = $_POST['tropcial_melon_level'];
+$namedParameter[' :passion_fruit'] = $_POST['passion_fruit'];
+$namedParameter[' :pineapple'] = $_POST['pineapple'];
+$namedParameter[' :kiwi'] = $_POST['kiwi'];
+$namedParameter[' :lychee'] = $_POST['lychee'];
+$namedParameter[' :mango'] = $_POST['mango'];
+$namedParameter[' :banana'] = $_POST['banana'];
+$namedParameter[' :tropical_melon_other'] = $_POST['tropical_melon_other'];
+$namedParameter[' :fruit_type'] = $_POST['fruit_type'];
+$namedParameter[' :flower_level'] = $_POST['flower_level'];
+$namedParameter[' :white_flowers'] = $_POST['white_flowers'];
+$namedParameter[' :yellow_flowers'] = $_POST['yellow_flowers'];
+$namedParameter[' :dried_flowers'] = $_POST['dried_flowers'];
+$namedParameter[' :honeysuckle'] = $_POST['honeysuckle'];
+$namedParameter[' :orange_blossom'] = $_POST['orange_blossom'];
+$namedParameter[' :flower_other'] = $_POST['flower_other'];
+$namedParameter[' :herb_level'] = $_POST['herb_level'];
+$namedParameter[' :dried_herbs'] = $_POST['dried_herbs'];
+$namedParameter[' :fresh_herbs'] = $_POST['fresh_herbs'];
+$namedParameter[' :herbs_other'] = $_POST['herbs_other'];
+$namedParameter[' :vegetal_level'] = $_POST['vegetal_level'];
+$namedParameter[' :radish'] = $_POST['radish'];
+$namedParameter[' :jalapeno'] = $_POST['jalapeno'];
+$namedParameter[' :green_bell_pepper'] = $_POST['green_bell_pepper'];
+$namedParameter[' :vegetal_cut_grass'] = $_POST['vegetal_cut_grass'];
+$namedParameter[' :vegetal_other'] = $_POST['vegetal_other'];
+$namedParameter[' :oxidative_level'] = $_POST['oxidative_level'];
+$namedParameter[' :baked_fruit'] = $_POST['baked_fruit'];
+$namedParameter[' :brown_fruit'] = $_POST['brown_fruit'];
+$namedParameter[' :leather'] = $_POST['leather'];
+$namedParameter[' :ashtray'] = $_POST['ashtray'];
+$namedParameter[' :oxidative_other'] = $_POST['oxidative_other'];
+$namedParameter[' :yeast_bread_dough_level'] = $_POST['yeast_bread_dough_level'];
+$namedParameter[' :brioche'] = $_POST['brioche'];
+$namedParameter[' :almond'] = $_POST['almond'];
+$namedParameter[' :fresh_dough'] = $_POST['fresh_dough'];
+$namedParameter[' :hazelnut'] = $_POST['hazelnut'];
+$namedParameter[' :yeast'] = $_POST['yeast'];
+$namedParameter[' :yeast_bread_dough_other'] = $_POST['yeast_bread_dough_other'];
+$namedParameter[' :ml_butter_cream_level'] = $_POST['ml_butter_cream_level'];
+$namedParameter[' :earth_leaves_mushrooms_level'] = $_POST['earth_leaves_mushrooms_level'];
+$namedParameter[' :straw_hay'] = $_POST['straw_hay'];
+$namedParameter[' :earth_leaves_mushrooms_cut_grass'] = $_POST['earth_leaves_mushrooms_cut_grass'];
+$namedParameter[' :earth_leaves_mushrooms_other'] = $_POST['earth_leaves_mushrooms_other'];
+$namedParameter[' :mineral_stone_sulfur_level'] = $_POST['mineral_stone_sulfur_level'];
+$namedParameter[' :sulfur'] = $_POST['sulfur'];
+$namedParameter[' :state_petrol'] = $_POST['state_petrol'];
+$namedParameter[' :metallic'] = $_POST['metallic'];
+$namedParameter[' :flit'] = $_POST['flit'];
+$namedParameter[' :dust'] = $_POST['dust'];
+$namedParameter[' :chalk'] = $_POST['chalk'];
+$namedParameter[' :limestone'] = $_POST['limestone'];
+$namedParameter[' :volcanic'] = $_POST['volcanic'];
+$namedParameter[' :smokey'] = $_POST['smokey'];
+$namedParameter[' :mineral_stone_sulfur_other'] = $_POST['mineral_stone_sulfur_other'];
+$namedParameter[' :oak_vanilla_toast_level'] = $_POST['oak_vanilla_toast_level'];
+$namedParameter[' :vanilla'] = $_POST['vanilla'];
+$namedParameter[' :maple'] = $_POST['maple'];
+$namedParameter[' :light_toast'] = $_POST['light_toast'];
+$namedParameter[' :heavy_toast'] = $_POST['heavy_toast'];
+$namedParameter[' :sawdust'] = $_POST['sawdust'];
+$namedParameter[' :oak_vanilla_toast_other'] = $_POST['oak_vanilla_toast_other'];
+$namedParameter[' :sweetness'] = $_POST['sweetness'];
+$namedParameter[' :alcohol'] = $_POST['alcohol'];
+$namedParameter[' :bitter'] = $_POST['bitter'];
+$namedParameter[' :balanced'] = $_POST['balanced'];
+$namedParameter[' :length'] = $_POST['length'];
+$namedParameter[' :complexity'] = $_POST['complexity'];
+$namedParameter[' :quality_for_price'] = $_POST['quality_for_price'];
+$namedParameter[' :quality_for_price_rate'] = $_POST['quality_for_price_rate'];
+$namedParameter[' :acid'] = $_POST['acid'];
 
     	$statement = $conn->prepare($sql); // prevents sql injection
     	$statement->execute($namedParameter);
-
-
-    }
-
+ }
 
 }
  echo json_encode($_POST);
-*/
+
 
 ?>
+

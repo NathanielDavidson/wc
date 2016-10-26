@@ -1,9 +1,9 @@
 <?php
     function getDatabaseConnection() {
-        //echo "db";
+
         $host = getenv('IP');
         $dbname = "wc_db";
-        $username = "masloph";
+        $username = "miriam230";
         $password = "";
 
         try{
