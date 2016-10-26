@@ -1,5 +1,4 @@
 <?php
-
     include 'db.include.php';
     $conn = getDatabaseConnection(); //gets database connection
     //$host = "localhost";

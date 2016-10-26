@@ -11,7 +11,6 @@ $conn = getDatabaseConnection();
     //$wine_name = $_POST['wine_name'];
     //$wine_vintage = $_POST['wine_vintage'];
 
-
     $date = date("Y-m-d H:i:s", time());
     echo "DATE: " . $date;
     $phpdate = strtotime($date);
