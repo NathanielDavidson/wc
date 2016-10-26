@@ -1,24 +1,41 @@
 <?php
-
 include 'db.include.php';
 $conn = getDatabaseConnection();
-
 //if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
-    echo "Form filled out";
-
+    echo "Form filled out \n";
     // TODO: add logic to determine if user is signed in or not
     // TODO: 
     //$username = $_POST['username'];
     //$wine_producer = $_POST['wine_producer'];
     //$wine_name = $_POST['wine_name'];
     //$wine_vintage = $_POST['wine_vintage'];
-    $sql = "INSERT INTO assessment (date, producer, wine_name, vintage) VALUES (NOW(), 'Producer', 'Name', 1234);";
+
+
+    $date = date("Y-m-d H:i:s", time());
+    echo "DATE: " . $date;
+    $phpdate = strtotime($date);
+    echo "DATE 2: " . $phpdate;
+    $sql = "INSERT INTO assessment (date, producer, wine_name, vintage) VALUES (FROM_UNIXTIME($phpdate), 'Producer', 'Name', 1234);";
     //$sql = "INSERT INTO assessment VALUES $date, $wine_producer, $wine_name, $wine_vintage";
 	$statement = $conn->prepare($sql);
     $statement->execute();
+
+
+   // UNIX_TIMESTAMP(datetimefield)
+    $taste_id = "SELECT assessment_id from assessment WHERE date = $date;";
+        $statement = $conn->prepare($taste_id); // prevents sql injection
+        $statement->execute();
+        $record = $statement->fetch(PDO::FETCH_ASSOC);
+        echo "Taste id: " . $record;
+
+
+        echo "Primary Color: " . $_POST['primary_color'];
+        echo "Secondary Color: " . $_POST['secondary_color'];
+        echo "Red Fruits Level: " . $_POST['red_fruits_level'];
+    //echo $_POST['taste_id'];
+    
     
     //if(isset($_POST['redAssessForm']){
-        echo "Red form filled out";
         /*
         $sql = "INSERT INTO red_taste_assessment
            VALUES 
@@ -42,12 +59,12 @@ $conn = getDatabaseConnection();
         :sweetness, :alcohol, :tannin, :bitter, :balanced, :length, :complexity, 
         :quality_for_price,:quality_for_price_rate);";
         */
-        
-        $taste_id = "SELECT assessment_id from assessment WHERE date = $date";
 
+        
+        /*
         $sql = "INSERT INTO red_taste_assessment
            VALUES 
-        ($taste_id, 1, 1, 1, 
+        ($taste_id, :primary_color, :secondary_color, :red_fruits_level, 
         1, 1, 1, 1,
         1, '*', 1, 1,
         1, 1, 1, 1, 
@@ -83,8 +100,14 @@ $conn = getDatabaseConnection();
         1, 1, 1, 1,
         1, 1, 1, 1);";
 
+        $namedParameter = array();
+        $namedParameter[':taste_id'] = $_POST['taste_id'];
+        $namedParameter[':primary_color'] = $_POST['primary_color'];
+        $namedParameter[':secondary_color'] = $_POST['secondary_color'];
+        $namedParameter[':red_fruits_level'] = $_POST['red_fruits_level'];
+
         $statement = $conn->prepare($sql); // prevents sql injection
-        $statement->execute();
+        $statement->execute($namedParameter);
         $statement
         /*
         $namedParameter = array();
@@ -461,6 +484,7 @@ $conn = getDatabaseConnection();
   	$statement->execute($namedParameter);
 
     }
+
 }*/
 //echo json_encode($_POST);
 

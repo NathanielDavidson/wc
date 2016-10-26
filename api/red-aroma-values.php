@@ -1,4 +1,5 @@
 <?php
+
     include 'db.include.php';
     $conn = getDatabaseConnection(); //gets database connection
 
@@ -50,6 +51,7 @@
       case "oak_vanilla_toast_smoke_coconut":
            $sql = "SELECT oak_vanilla_toast_smoke_coconut FROM aromas WHERE color_key = 0 AND LENGTH(oak_vanilla_toast_smoke_coconut) > 0";
            break;
+
     }
 
     $statement = $conn->prepare($sql);
@@ -64,5 +66,6 @@
     //echo implode(" ",$record[0]);
     //var_dump($record);
     //echo "</pre>";
+
 
 ?>

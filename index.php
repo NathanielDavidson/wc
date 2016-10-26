@@ -8,8 +8,9 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<html lang="en">
 
+<html lang="en">
+<?php session_start();?> 
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
@@ -21,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="elements/wc-aroma-value-input/wc-aroma-value-input.html">
   <link rel="import" href="elements/wc-long-menu/wc-long-menu.html">
 
-  <title>Polymer Starter Kit</title>
+  <title>Winary Code</title>
 
   <!-- Place favicon.ico in the `app/` directory -->
 
@@ -83,7 +84,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
           </a>
-
           <a data-route="users" href="{{baseUrl}}users">
             <iron-icon icon="info"></iron-icon>
             <span>Users</span>
@@ -95,9 +95,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </a>
 
           <a data-route="register-wine" href="{{baseUrl}}register-wine">
-            <iron-icon icon="book"></iron-icon>
-            <span>register-wine</span>
+            <iron-icon icon="assignment"></iron-icon>
+            <span>Register Wine</span>
 
+          </a><!--Login declared here -->
+          <a data-route="login-form" href = "{{baseUrl}}login-form">
+            <iron-icon icon "mail"></iron-icon>
+            <span>Login</span>
           </a>
         </paper-menu>
       </paper-scroll-header-panel>
@@ -116,12 +120,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application name -->
           <div class="middle middle-container">
-            <div class="app-name">Polymer Starter Kit</div>
+            <div class="app-name">Winary Code</div>
           </div>
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">The future of the web today</div>
+            <div class="bottom-title">Sommeiler 2.0</div>
           </div>
         </paper-toolbar>
 
@@ -130,19 +134,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home">
               <paper-material elevation="1">
-                <my-greeting></my-greeting>
-
-                <p class="subhead">You now have:</p>
-                <my-list></my-list>
-
-                <p>Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+                <p>
+                  <br>
+                        <?php 
+                        if(isset($_SESSION['email'])){
+                        $fbPhoto = $_SESSION['image'];
+                        echo '<h1>Welcome, '. $_SESSION['name'] . '</h1>'.'<br>';
+                    	  echo "<img src='$fbPhoto' /><br>";
+                    	  //Logout
+                      }
+                      else{
+                        echo "<h1>Welcome!</h1>";
+                      }
+                  ?>
+                </p>
+                
               </paper-material>
 
               <paper-material elevation="1">
                 <p>This is another card.</p>
 
-                <form action="api/register-wine.php">
-                  <button name="regWine" type="submit">Register Wine</button>
+                <form action="api/login.php">
+                  <button name="regWine" type="submit">Logout</button>
                 </form>
 
               </paper-material>
@@ -474,73 +487,134 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      <input hidden$="{{true}}" type="text" value="{{params.vintage}}" name="wine_vintage">
                  </div>
                  <button class="btn" name="redAssessReturn" type="submit">Submit</button>
-             </wc-assess> -->
+             </wc-assess> 
             </paper-material>
           </section>
-            <section data-route="register-wine">
+          <section data-route="register-wine">
               <paper-material elevation="1">
-                <p>Hello, World!</p>
                 <!--Masons Section-->
-                <form  id="register-wine-form" method="post" action="{{baseUrl}}api/register-wine.php">
+                <form id="register-wine-form" method="post" action="api/register-wine.php">
                   <h3>Insert Wine Data! </h3>
                   <paper-input-container>
                       <input is="iron-input" id = "inputProducer" name ="producer" type ="text" placeholder = "Producer" required>
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
                   </paper-input-container>
 
                   <paper-input-container>
                       <input is="iron-input" id = "inputName" name ="wname" type ="text" placeholder = "Wine Name" required>
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+
                   </paper-input-container>
 
                   <paper-input-container>
                       <input is="iron-input" id = "inputGrape" name ="grape" type ="text" placeholder = "Grape (Optional)">
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
+
                   </paper-input-container>
 
-                  <paper-dropdown-menu label="Wine Style">
-                      <paper-listbox class="dropdown-content" name = "wine_styles">
+                  <paper-dropdown-menu id='menu' label="Wine Style">
+                      <paper-listbox class="dropdown-content">
                         <paper-item>Sparkling White</paper-item>
                         <paper-item>Sparkling Rose</paper-item>
-                        <paper-item>Stil White</paper-item>
+                        <paper-item>Still White</paper-item>
                         <paper-item>Still Red</paper-item>
                         <paper-item>Dessert</paper-item>
                         <paper-item>Fortified White</paper-item>
                         <paper-item>Fortified Red</paper-item>
                       </paper-listbox>
                     </paper-dropdown-menu>
-
-                    <paper-input-container>
-                      <input is="iron-input" id = "inputVintage" name ="vintage" type ="number" placeholder = "Vintage (YYYY)" required>
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
-                  </paper-input-container>
-
+                    
+                    <select name="wine_styles">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                    
                   <paper-input-container>
                       <input is="iron-input" id = "inputCountry" name ="country" type ="text" placeholder = "Country" required>
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
                   </paper-input-container>
-
+                  
                   <paper-input-container>
                       <input is="iron-input" id = "inputState" name ="state" type ="text" placeholder = "State/Province" required>
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
                   </paper-input-container>
 
                   <paper-input-container>
                       <input is="iron-input" id = "inputRegion" name ="region" type ="text" placeholder = "Region (Optional)">
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
                   </paper-input-container>
 
                   <paper-input-container>
                       <input is="iron-input" id = "inputSubRegion" name ="sRegion" type ="text" placeholder = "Sub-Region (Optional)">
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
                   </paper-input-container>
 
                   <paper-input-container>
                       <input is="iron-input" id = "inputAlcohol" name ="alcohol" type ="number" placeholder = "Alcohol Percentage (##)" required>
-                      <!---Can insert Icon for prettiness, but will later, lets get functionality-->
                   </paper-input-container>
                     <button name="regWine" type="submit">Register Wine</button>
                 </form>
+              </paper-material>
+            </section>
+            <section data-route="login-form">
+              <paper-material elevation="1">
+                <p>Hello, World!</p>
+                <div>
+                  <?php 
+                      require_once ('vendor/autoload.php');
+                      
+                      //start session above because cache error 
+                      $fb = new Facebook\Facebook([
+                          'app_id'=>'1773451242931017',
+                          'app_secret'=> '74656c1a602d2c78ce7da86f189d9c99',
+                          'default_graph_version'=>'v2.5'
+                      ]);
+                  
+                      $redirecTo = 'https://winarycode-masloph.c9users.io/wc/api/login.php';
+                      //will need to change redirect above when migrating to AWS 
+                      $helper = $fb->getRedirectLoginHelper();
+                      try{
+                          $accessToken = $helper->getAccessToken();
+                      }
+                      catch(Facebooks\Exceptions\FacebookResponseException $e){
+                          echo "Error" . $e->getMessage();
+                          exit;
+                      }
+                      catch(Facebook\Exceptions\FacebookSDKException $e){
+                          echo " FB SDK ERR". $e->getMessage();
+                          exit;
+                      }
+                      if (isset($accessToken)) {
+                  	  	//logged in
+                  	  	$fb->setDefaultAccessToken($accessToken);
+                  		try {
+                  		  $response = $fb->get('/me?fields=email,name');
+                  		  $userNode = $response->getGraphUser();
+                  		}catch(Facebook\Exceptions\FacebookResponseException $e) {
+                  		  echo 'error: ' . $e->getMessage();
+                  		  exit;
+                  		} catch(Facebook\Exceptions\FacebookSDKException $e) {
+                  		  echo 'SDK error: ' . $e->getMessage();
+                  		  exit;
+                  		}
+                  		// Payload, where we could see if its in database, if not insert.
+                  		echo 'Name: ' . $userNode->getName().'<br>';
+                  		echo 'User ID: ' . $userNode->getId().'<br>';
+                  		echo 'Email: ' . $userNode->getProperty('email').'<br><br>';
+                  		$fbPhoto = 'https://graph.facebook.com/'.$userNode->getId().'/picture?width=400';
+                  		echo "<img src='$fbPhoto' /><br>";
+                	    }else{
+                	    //may be ugly, but I can add the basic login form here as well. DONE
+                	    echo '<form action = " " method = "POST">';
+                	    echo 'Login<br>Username<input type="text" name = "uName"> <br>';
+                	    echo 'Password <input type = "password" name = "passWord"><br>';
+                	    echo '<button name="signIn" type="submit">Login</button>';
+                	    echo '</form>';
+                	    echo '<br>Alternative Log in Methods<br>';
+                	    
+                  		$permissions  = ['email'];
+                  		$loginUrl = $helper->getLoginUrl($redirecTo,$permissions);
+                  	
+                  		echo '<a href="' . $loginUrl . '">';
+                  		echo '<img src="https://s12.postimg.org/d6dhoc20d/FBlogin.png"></a>';
+                  	}
+            ?>
+                </div>
               </paper-material>
             </section>
           </iron-pages>
@@ -556,6 +630,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
+ 
   <!-- endbuild-->
 </body>
 
