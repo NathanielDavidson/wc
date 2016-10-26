@@ -6,9 +6,8 @@
     ],
     "hash": "55d6e3d21ad494730d818a24bd22f16b",
     "content-hash": "f3d0664564def590250e7b1fd5fad163",
-    "packages": [],
-    "packages-dev": [
-     {
+    "packages": [
+        {
             "name": "facebook/php-sdk-v4",
             "version": "5.4.1",
             "source": {
@@ -66,6 +65,8 @@
             "abandoned": "facebook/graph-sdk",
             "time": "2016-10-18 19:19:03"
         }
+    ],
+    "packages-dev": [
 
         {
             "name": "doctrine/instantiator",
