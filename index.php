@@ -153,10 +153,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               <paper-material elevation="1">
                 <p>This is another card.</p>
+                
 
-                <form action="api/login.php">
-                  <button name="regWine" type="submit">Logout</button>
-                </form>
+                
 
               </paper-material>
 
@@ -508,24 +507,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <input is="iron-input" id = "inputGrape" name ="grape" type ="text" placeholder = "Grape (Optional)">
 
                   </paper-input-container>
-
-                  <paper-dropdown-menu id='menu' label="Wine Style">
-                      <paper-listbox class="dropdown-content">
-                        <paper-item>Sparkling White</paper-item>
-                        <paper-item>Sparkling Rose</paper-item>
-                        <paper-item>Still White</paper-item>
-                        <paper-item>Still Red</paper-item>
-                        <paper-item>Dessert </paper-item>
-                        <paper-item>Fortified White</paper-item>
-                        <paper-item>Fortified Red</paper-item>
-                      </paper-listbox>
-                    </paper-dropdown-menu>
                     
                     <select name="wine_styles">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="mercedes">Mercedes</option>
-                      <option value="audi">Audi</option>
+                      <option value = "Sparkling White">Sparkling White</option>
+                        <option value = "Sparkling Rose">Sparkling Rose</option>
+                        <option value = "Still White">Still White</option>
+                        <option value = "Still Red">Still Red</option>
+                        <option value = "Dessert">Dessert </option>
+                        <option value = "Fortified White">Fortified White</option>
+                        <option value = "Fortified Red">Fortified Red</option>
                     </select>
                     
                   <paper-input-container>
@@ -598,6 +588,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   		echo 'Email: ' . $userNode->getProperty('email').'<br><br>';
                   		$fbPhoto = 'https://graph.facebook.com/'.$userNode->getId().'/picture?width=400';
                   		echo "<img src='$fbPhoto' /><br>";
+                  		
+                  	  
                 	    }else{
                 	    //may be ugly, but I can add the basic login form here as well. DONE
                 	    echo '<form action = " " method = "POST">';
