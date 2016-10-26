@@ -53,13 +53,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .horizontal-section{
         font-size: 15px;
         font-family: sans-serif, Arial;
-        font-weight: bold;
         padding:20px;
         border-bottom: #c2c2c2 1px solid;
       }
 
       span.search-term{
         background: #ffc0f7;
+      }
+
+      span.wine-label {
+        font-weight: bolder;
+        font-size: 18px;
+
       }
     </style>
 
@@ -68,21 +73,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div id="container">
         <div id="search-container">
           <iron-ajax
-            auto
+            id="ajax"
+            method="GET"
             url="../../api/search.php"
-            params="[[_setParams(query)]]"
+            params="[[_setParams(searchq)]]"
             handle-as="json"
             debounce-duration="300"
             last-response="{{ajaxResponse}}"></iron-ajax>
           <input placeholder="Live Search..." id="search" type="text" name="q" value="">
-          <pre id="instructions">Search for "Albarino", "Brunello", "Bruno", "Madeira" or "Red"</pre>
+          <pre id="instructions">Search for "fizz" or "estate"</pre>
 
           <button id="button" type="button" name="button">Here </button>
 
           <template is="dom-repeat" items="[[ajaxResponse]]">
             <div class="horizontal-section">
-              <p id="producer"><b>Producer:</b> [[item.Producer]]</p>
-              <p> Wine Name: [[item.Wine_Name]]</p>
+              <p> <span class="wine-label">Producer:</span> [[item.producer]] <span class="wine-label">Vintage:</span> [[item.vintage]]</p>
+              <p> <span class="wine-label"> Wine Name:</span> [[item.wine_name]] </p>
             </div>
           </template>
 
@@ -96,21 +102,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       is: 'wc-search',
 
       properties: {
-        query: {
+        searchq: {
           type: String
+        },
+        response: {
+          type: Object
         }
       },
 
       listeners: {
-        'button.click' : 'sendSearch'
+        'button.click' : '_sendSearch'
 
       },
-      sendSearch : function (e){
-        this.query = this.$.search.value;
-
+      _sendSearch : function (e){
+        //sets the query value which executes a state change on "searchTerm"
+        //which then runs '_setParams(searchTerm)' on iron-ajax
+        this.searchq = this.$.search.value;
+        //this tells iron ajax to sent out the request.
+        this.$.ajax.generateRequest();
+        this.response = this.$.ajax.lastResponse;
       },
-      _setParams: function(query){
-        return {"q":query}
+
+      _setParams: function(searchq){
+        return {"q": searchq };
       }
     });
 
