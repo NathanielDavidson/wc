@@ -515,7 +515,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <paper-item>Sparkling Rose</paper-item>
                         <paper-item>Still White</paper-item>
                         <paper-item>Still Red</paper-item>
-                        <paper-item>Dessert</paper-item>
+                        <paper-item>Dessert </paper-item>
                         <paper-item>Fortified White</paper-item>
                         <paper-item>Fortified Red</paper-item>
                       </paper-listbox>
