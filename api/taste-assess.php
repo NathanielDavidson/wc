@@ -1,12 +1,9 @@
 <?php 
     include 'db.include.php';
     $conn = getDatabaseConnection(); //gets database connection
-
-
     $varsearch = $_GET["var"];
 
     $sql = "SELECT :varsearch FROM aromas WHERE color_key = 0 AND LENGTH(:samesearch) > 0";
-
    // $sql = "SELECT :username FROM `login`";
 
     $statement = $conn->prepare($sql); // prevents sql injection

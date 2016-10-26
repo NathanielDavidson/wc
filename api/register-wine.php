@@ -45,7 +45,6 @@
             $sub_region = '';
         }
 
-
         $sql = "INSERT INTO wine_bottle (producer, wine_name, vintage, wine_style, grapes, country, state, city, region, alcohol) VALUES('$producer', '$name','$vintage', '$wine_style', '$grape', '$region_country', 
             '$region_state', 'city','$region','$alcohol_percentage');";
         $statement = $conn->prepare($sql); //prevents SQL Injection

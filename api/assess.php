@@ -1,6 +1,7 @@
 <?php
 include 'db.include.php';
 $conn = getDatabaseConnection();
+
 //if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn'])  ){
     echo "Form filled out \n";
     // TODO: add logic to determine if user is signed in or not
@@ -383,6 +384,7 @@ $conn = getDatabaseConnection();
                       :vanilla, :maple, :light_toast, :heavy_toast, :sawdust, :oak_vanilla_toast_other,
                       :sweetness, :alcohol, :bitter, :balanced, :length, :complexity, :quality_for_price,
                       :quality_for_price_rate, :acid)";
+
     $namedParameter = array();
     $namedParameter[':taste_id'] = $_POST[':taste_id'];
     $namedParameter[' :primary_color'] = $_POST[' :primary_color'];
@@ -487,5 +489,5 @@ $conn = getDatabaseConnection();
 
 }*/
 //echo json_encode($_POST);
-
 ?>
+
