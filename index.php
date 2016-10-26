@@ -553,7 +553,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
             <section data-route="login-form">
               <paper-material elevation="1">
-                <p>Hello, World!</p>
                 <div>
                   <?php 
                       require_once ('vendor/autoload.php');
@@ -565,7 +564,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                           'default_graph_version'=>'v2.5'
                       ]);
                   
-                      $redirecTo = 'https://winarycode-masloph.c9users.io/wc/api/login.php';
+                      $redirecTo = 'http://localhost:8888';
                       //will need to change redirect above when migrating to AWS 
                       $helper = $fb->getRedirectLoginHelper();
                       try{

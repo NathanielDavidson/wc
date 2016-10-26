@@ -12,7 +12,7 @@
         'default_graph_version'=>'v2.5'
     ]);
 
-    $redirecTo = 'https://winarycode-masloph.c9users.io/wc/api/login.php';
+    $redirecTo = './login.php';
     //will need to change redirect above when migrating to AWS 
     $helper = $fb->getRedirectLoginHelper();
     try{
