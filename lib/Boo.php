@@ -5,7 +5,7 @@
  * Date: 10/25/16
  * Time: 2:11 AM
  */
-class Class
+class Boo
 {
     public $php = "object";
     public function pop(){

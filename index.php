@@ -1,8 +1,8 @@
 <?php
-include "lib/Class.php";
-$mon = new Class();
-echo "test: ". $mon->pop();
-?>
+include "./lib/Class.php";
+//$mon = new Class();
+//echo "test: ". $mon->pop();
+?> 
 <!doctype html>
 <!--
 @license

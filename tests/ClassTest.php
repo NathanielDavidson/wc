@@ -6,13 +6,13 @@ use PHPUnit\Framework\TestCase;
  * Date: 10/25/16
  * Time: 3:25 PM
  */
-include "../lib/Class.php";
+include "../lib/Boo.php";
 class ClassTest extends TestCase
 {
     public function testThisMethod()
     {
         // Arrange
-        $a = new Class();
+        $a = new Boo();
         // Assert
         $this->assertEquals("werewolf", $a->pop());
     }
