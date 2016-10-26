@@ -84,8 +84,7 @@ CREATE TABLE `assessment` (
   `date` varchar(20) DEFAULT NULL,
   `producer` varchar(40) DEFAULT NULL,
   `wine_name` varchar(40) DEFAULT NULL,
-  `vintage` int(4) DEFAULT NULL,
-  `zip_code` int(5) DEFAULT NULL
+  `vintage` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

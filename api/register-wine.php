@@ -1,10 +1,10 @@
 <?php
     include 'db.include.php';
     $conn = getDatabaseConnection(); //gets database connection
-    $host = "localhost";
-    $dbname = "wc_db";
-    $username = "root";
-    $password = "root";
+    //$host = "localhost";
+    //$dbname = "wc_db";
+    //$username = "root";
+    //$password = "root";
 
     if(isset($_POST["regWine"])){
         echo "form not empty";

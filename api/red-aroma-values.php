@@ -2,6 +2,8 @@
     include 'db.include.php';
     $conn = getDatabaseConnection(); //gets database connection
 
+    $varquery = $_GET["var"]; // Testing purposes
+
     switch ($varquery) {
         case "red_fruit":
             $sql = "SELECT red_fruit FROM aromas WHERE color_key = 0 AND LENGTH(red_fruit) > 0";
@@ -57,7 +59,10 @@
 
     header('Content-type: application/json');
     //print_r($record);
-     echo json_encode($record);
-    // var_dump($record);
+    echo json_encode($record);
+    //echo "<pre>";
+    //echo implode(" ",$record[0]);
+    //var_dump($record);
+    //echo "</pre>";
 
 ?>
