@@ -1,10 +1,12 @@
-test:
+checkout:
   post:
-      - mkdir -p $CIRCLE_TEST_REPORTS/reports
-      - cp ./*/*-reports/*.xml $CIRCLE_TEST_REPORTS/reports
-      - cp ./*/*.war $CIRCLE_TEST_ARTIFACRS/
-      - mvn verify
-      - bash <(curl -s https://codecov.io/bash)
+    - wget https://phar.phpunit.de/phpunit.phar -O ~/phpunit.phar
+    - chmod 0755 ~/phpunit.phar
+test:
+  override:
+    - ~/phpunit.phar ./tests
+  post:
+    - bash <(curl -s https://codecov.io/bash)
 notify:
-  webooks:
-    -url: http://csumbse.net/harbormaster/hook/cirlceci/
+  webhooks:
+    - url: http://csumbse.net/harbormaster/hook/circleci/

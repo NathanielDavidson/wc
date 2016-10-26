@@ -1,8 +1,8 @@
 <?php
     function getDatabaseConnection() {
-        echo "db";
+        //echo "DB";
         $host = "localhost";
-        $dbname = "db_wc";
+        $dbname = "wc_db";
         $username = "root";
         $password = "root";
 
