@@ -1,4 +1,4 @@
 {
-  "conduit_uri" : "https://reviews.facebook.net/api/",
+  "conduit_uri" : "http://csumbse.net/arcanist",
   "git.default-relative-commit" : "HEAD^"
 }
