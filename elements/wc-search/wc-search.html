@@ -1,4 +1,14 @@
 <!--
+Summary:
+ The search function allows users to search for a key word and then lists the matching results.
+Test Plan:
+Navigate to the home page.
+In the search bar, enter one of the example strings in yellow.
+Verify that a list populates with the matching results.
+Reviewers:
+anitagarcia819
+Subscribers:
+
 @license
 Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -83,7 +93,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <input placeholder="Live Search..." id="search" type="text" name="q" value="">
           <pre id="instructions">Search for "fizz" or "estate"</pre>
 
-          <button id="button" type="button" name="button">Here </button>
+          <button id="button" type="button" name="button">Search</button>
+          <a href="{{baseUrl}}register-wine">Or, Register a New Wine</a>
 
           <template is="dom-repeat" items="[[ajaxResponse]]">
             <div class="horizontal-section">
