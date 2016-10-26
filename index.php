@@ -1,7 +1,7 @@
 <?php
-include "./lib/Class.php";
-//$mon = new Class();
-//echo "test: ". $mon->pop();
+include "./lib/Boo.php";
+$mon = new Boo();
+echo "test: ". $mon->pop();
 ?> 
 <!doctype html>
 <!--
