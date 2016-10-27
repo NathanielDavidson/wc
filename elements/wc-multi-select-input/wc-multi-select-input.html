@@ -51,7 +51,7 @@
             </div>
             <paper-menu id="menu" multi class="dropdown-content">
                 <template is="dom-repeat" items="[[ajaxResponse]]">
-                    <wc-aroma-value-input name="[[_setName(item)]]" >
+                    <wc-aroma-value-input name="{{item}}" >
                         [[_getItem(item)]]
                     </wc-aroma-value-input>
                 </template>
@@ -207,13 +207,15 @@
 
             },
             _urlBuilder: function(from) {
-                return window.location.href + from;
+                //return location.protocol + "//" + location.host + "/" + from; //AWS
+                return location.protocol + "//" + location.host + "/" + from; //Localhost
             },
             _getItem: function(item){
                 for (var key in item) {
                     return item[key];
                 }
             },
+            /*
             _setName : function(item){
                 for (var key in item) {
                     var arrOfWords = item[key].split(" ");
@@ -227,7 +229,7 @@
                     }
                     return name;
                 }
-            },
+            },*/
             _setOtherName : function(link) {
                 return link + "_other";
             },
