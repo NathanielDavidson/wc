@@ -2,7 +2,7 @@
 include "./lib/Boo.php";
 $mon = new Boo();
 echo "test: ". $mon->pop();
-?> 
+?>
 <!doctype html>
 <!--
 @license
@@ -15,7 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <html lang="en">
-<?php session_start();?> 
+<?php session_start();?>
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
@@ -142,7 +142,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <p>
                   <br>
-                        <?php 
+                  <!-- custom element -->
+                  <wc-search></wc-search>
+                        <?php
                         if(isset($_SESSION['email'])){
                         $fbPhoto = $_SESSION['image'];
                         echo '<h1>Welcome, '. $_SESSION['name'] . '</h1>'.'<br>';
@@ -154,35 +156,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       }
                   ?>
                 </p>
-                
-              </paper-material>
-
-              <paper-material elevation="1">
-                <p>This is another card.</p>
-                
-
-                
 
               </paper-material>
 
-              <paper-material elevation="1">
-                <h1 id="license">License</h1>
-                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
-                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
-                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-                <ul>
-                <li>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</li>
-                <li>Redistributions in binary form must reproduce the above
-                copyright notice, this list of conditions and the following disclaimer
-                in the documentation and/or other materials provided with the
-                distribution.</li>
-                <li>Neither the name of Google Inc. nor the names of its
-                contributors may be used to endorse or promote products derived from
-                this software without specific prior written permission.</li>
-                </ul>
-                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-              </paper-material>
             </section>
 
             <section data-route="white-assessment">
@@ -478,16 +454,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                      <input hidden$="{{true}}" type="text" value="{{params.producer}}" name="wine_producer">
                                      <input hidden$="{{true}}" type="text" value="{{params.vintage}}" name="wine_vintage">
                                  </div>
-                                 
+
                                 <input type="submit" value="Submit">
-                                 
+
                              </form>
               </paper-material>
             </section>
 
             <section data-route="red-assessment">
               <paper-material elevation="1">
-                <!-- Anita's --> 
+                <!-- Anita's -->
                 <wc-assess id="wc-red-assess"  method="post" action="api/assess.php">
                  <div class="assess-section" id="asses-overview">
 
@@ -774,7 +750,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      <input hidden$="{{true}}" type="text" value="{{params.vintage}}" name="wine_vintage">
                  </div>
                  <button class="btn" name="redAssessReturn" type="submit">Submit</button>
-             </wc-assess> 
+             </wc-assess>
             </paper-material>
           </section>
           <section data-route="register-wine">
@@ -795,7 +771,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <input is="iron-input" id = "inputGrape" name ="grape" type ="text" placeholder = "Grape (Optional)">
 
                   </paper-input-container>
-                    
+
                     <select name="wine_styles">
                       <option value = "Sparkling White">Sparkling White</option>
                         <option value = "Sparkling Rose">Sparkling Rose</option>
@@ -805,11 +781,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <option value = "Fortified White">Fortified White</option>
                         <option value = "Fortified Red">Fortified Red</option>
                     </select>
-                    
+
                   <paper-input-container>
                       <input is="iron-input" id = "inputCountry" name ="country" type ="text" placeholder = "Country" required>
                   </paper-input-container>
-                  
+
                   <paper-input-container>
                       <input is="iron-input" id = "inputState" name ="state" type ="text" placeholder = "State/Province" required>
                   </paper-input-container>
@@ -832,18 +808,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="login-form">
               <paper-material elevation="1">
                 <div>
-                  <?php 
+                  <?php
                       require_once ('vendor/autoload.php');
-                      
-                      //start session above because cache error 
+
+                      //start session above because cache error
                       $fb = new Facebook\Facebook([
                           'app_id'=>'1773451242931017',
                           'app_secret'=> '74656c1a602d2c78ce7da86f189d9c99',
                           'default_graph_version'=>'v2.5'
                       ]);
-                  
+
                       $redirecTo = 'https://winarycode-masloph.c9users.io/wc/api/login.php';
-                      //will need to change redirect above when migrating to AWS 
+                      //will need to change redirect above when migrating to AWS
                       $helper = $fb->getRedirectLoginHelper();
                       try{
                           $accessToken = $helper->getAccessToken();
@@ -875,8 +851,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   		echo 'Email: ' . $userNode->getProperty('email').'<br><br>';
                   		$fbPhoto = 'https://graph.facebook.com/'.$userNode->getId().'/picture?width=400';
                   		echo "<img src='$fbPhoto' /><br>";
-                  		
-                  	  
+
+
                 	    }else{
                 	    //may be ugly, but I can add the basic login form here as well. DONE
                 	    echo '<form action = " " method = "POST">';
@@ -885,10 +861,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 	    echo '<button name="signIn" type="submit">Login</button>';
                 	    echo '</form>';
                 	    echo '<br>Alternative Log in Methods<br>';
-                	    
+
                   		$permissions  = ['email'];
                   		$loginUrl = $helper->getLoginUrl($redirecTo,$permissions);
-                  	
+
                   		echo '<a href="' . $loginUrl . '">';
                   		echo '<img src="https://s12.postimg.org/d6dhoc20d/FBlogin.png"></a>';
                   	}
@@ -909,7 +885,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
- 
+
   <!-- endbuild-->
 </body>
 

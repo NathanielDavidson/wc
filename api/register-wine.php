@@ -16,7 +16,7 @@
         $vintage = $_POST["vintage"];
         //echo $vintage;
         $wine_style = $_POST['wine_styles'];
-        
+
         //echo $wine_style;
         //var_dump($_POST);
         $grape = $_POST["grape"];
@@ -44,7 +44,7 @@
             $sub_region = '';
         }
 
-        $sql = "INSERT INTO wine_bottle (producer, wine_name, vintage, wine_style, grapes, country, state, city, region, alcohol) VALUES('$producer', '$name','$vintage', '$wine_style', '$grape', '$region_country', 
+        $sql = "INSERT INTO wine_bottle (producer, wine_name, vintage, wine_style, grapes, country, state, city, region, alcohol) VALUES('$producer', '$name','$vintage', '$wine_style', '$grape', '$region_country',
             '$region_state', 'city','$region','$alcohol_percentage');";
         $statement = $conn->prepare($sql); //prevents SQL Injection
         $statement->execute();
