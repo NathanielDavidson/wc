@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 21, 2016 at 05:38 AM
+-- Generation Time: Oct 29, 2016 at 06:37 AM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -81,7 +81,7 @@ INSERT INTO `aromas` (`color_key`, `primary_color`, `secondary_color`, `apple_pe
 
 CREATE TABLE `assessment` (
   `assessment_id` int(11) NOT NULL,
-  `date` varchar(20) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `producer` varchar(40) DEFAULT NULL,
   `wine_name` varchar(40) DEFAULT NULL,
   `vintage` int(4) DEFAULT NULL
@@ -243,33 +243,21 @@ INSERT INTO `red_taste_assessment` (`taste_id`, `primary_color`, `secondary_colo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sommelier`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `sommelier` (
-  `user_name` varchar(20) NOT NULL,
-  `password` varchar(40) DEFAULT NULL,
-  `first_name` varchar(40) DEFAULT NULL,
-  `last_name` varchar(40) DEFAULT NULL,
-  `zip` int(5) DEFAULT NULL,
-  `age` int(2) DEFAULT NULL,
-  `tastings_per_year` int(4) DEFAULT NULL,
-  `membership_date` date NOT NULL,
-  `expert_level` int(1) NOT NULL,
-  `certification_body` varchar(40) DEFAULT NULL,
-  `first_cert_month` date DEFAULT NULL,
-  `first_cert_year` date DEFAULT NULL,
-  `last_cert_month` date DEFAULT NULL,
-  `last_cert_year` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sommelier`
---
-
-INSERT INTO `sommelier` (`user_name`, `password`, `first_name`, `last_name`, `zip`, `age`, `tastings_per_year`, `membership_date`, `expert_level`, `certification_body`, `first_cert_month`, `first_cert_year`, `last_cert_month`, `last_cert_year`) VALUES
-('Anita', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Anita', 'Garcia', 93901, 24, 0, '2016-01-19', 0, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00'),
-('Miriam', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Miriam', 'Flores', 93907, 21, 0, '2016-01-19', 0, NULL, NULL, NULL, NULL, NULL);
+CREATE TABLE `user` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `firstname` varchar(40) NOT NULL,
+  `lastname` varchar(40) NOT NULL,
+  `age` int(3) NOT NULL,
+  `zipcode` int(5) NOT NULL,
+  `employment` varchar(40) NOT NULL,
+  `cert_body` varchar(40) NOT NULL,
+  `date_cert` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -801,7 +789,9 @@ INSERT INTO `wine_bottle` (`producer`, `wine_name`, `vintage`, `wine_style`, `gr
 ('Taylor Fladgate Vintage Porto', 'Vintage Port', '1966', 'Fortified Red', 'Port Blend', 'Portugal', '', '', 'Douro', NULL),
 ('$producer', '$name', '$vin', 'Sparkling', '$grape', '$region_coun', '$region_st', 'city', '$region', NULL),
 ('WORKING', 'WORKING', '1234', 'Sparkling', 'WORKING', 'WORKING', 'CA', 'city', 'WORKING', NULL),
-('WORKING', 'WORKING', '1234', 'Sparkling', '', 'WORKING', 'ca', 'city', 'WORKING', NULL);
+('WORKING', 'WORKING', '1234', 'Sparkling', '', 'WORKING', 'ca', 'city', 'WORKING', NULL),
+('Tallbot', 'Kali-Hart ', '', 'Still Red', 'Pinot Noir', 'USA', 'CA', 'city', 'Central Coast', 12),
+('Tallbot', 'Kali-Hart ', '', 'Sparkling White', 'Pinot Noir', 'USA', 'California', 'city', 'Central Coast', 13);
 
 --
 -- Indexes for dumped tables
@@ -820,10 +810,10 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `sommelier`
+-- Indexes for table `user`
 --
-ALTER TABLE `sommelier`
-  ADD PRIMARY KEY (`user_name`(8));
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -833,4 +823,4 @@ ALTER TABLE `sommelier`
 -- AUTO_INCREMENT for table `assessment`
 --
 ALTER TABLE `assessment`
-  MODIFY `assessment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `assessment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
