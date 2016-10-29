@@ -2,7 +2,7 @@
 include "./lib/Boo.php";
 $mon = new Boo();
 echo "test: ". $mon->pop();
-?> 
+?>
 <!doctype html>
 <!--
 @license
@@ -15,7 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <html lang="en">
-<?php session_start();?> 
+<?php session_start();?>
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
@@ -140,49 +140,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home">
               <paper-material elevation="1">
-                <p>
-                  <br>
-                        <?php 
-                        if(isset($_SESSION['email'])){
-                        $fbPhoto = $_SESSION['image'];
-                        echo '<h1>Welcome, '. $_SESSION['name'] . '</h1>'.'<br>';
-                    	  echo "<img src='$fbPhoto' /><br>";
-                    	  //Logout
-                      }
-                      else{
-                        echo "<h1>Welcome!</h1>";
-                      }
-                  ?>
-                </p>
-                
+                <wc-search></wc-search>
+                  <p><br>           
+                  <!-- custom element -->  
+                  
+                  </p>
               </paper-material>
 
-              <paper-material elevation="1">
-                <p>This is another card.</p>
-                
-
-                
-
-              </paper-material>
-
-              <paper-material elevation="1">
-                <h1 id="license">License</h1>
-                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
-                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
-                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-                <ul>
-                <li>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</li>
-                <li>Redistributions in binary form must reproduce the above
-                copyright notice, this list of conditions and the following disclaimer
-                in the documentation and/or other materials provided with the
-                distribution.</li>
-                <li>Neither the name of Google Inc. nor the names of its
-                contributors may be used to endorse or promote products derived from
-                this software without specific prior written permission.</li>
-                </ul>
-                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-              </paper-material>
             </section>
 
             <section data-route="white-assessment">
@@ -478,16 +442,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                      <input hidden$="{{true}}" type="text" value="{{params.producer}}" name="wine_producer">
                                      <input hidden$="{{true}}" type="text" value="{{params.vintage}}" name="wine_vintage">
                                  </div>
-                                 
+
                                 <input type="submit" value="Submit">
-                                 
+
                              </form>
               </paper-material>
             </section>
 
             <section data-route="red-assessment">
               <paper-material elevation="1">
-                <!-- Anita's --> 
+                <!-- Anita's -->
                 <wc-assess id="wc-red-assess"  method="post" action="api/assess.php">
                  <div class="assess-section" id="asses-overview">
 
@@ -774,7 +738,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      <input hidden$="{{true}}" type="text" value="{{params.vintage}}" name="wine_vintage">
                  </div>
                  <button class="btn" name="redAssessReturn" type="submit">Submit</button>
-             </wc-assess> 
+             </wc-assess>
             </paper-material>
           </section>
           <section data-route="register-wine">
@@ -795,7 +759,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <input is="iron-input" id = "inputGrape" name ="grape" type ="text" placeholder = "Grape (Optional)">
 
                   </paper-input-container>
-                    
+
                     <select name="wine_styles">
                       <option value = "Sparkling White">Sparkling White</option>
                         <option value = "Sparkling Rose">Sparkling Rose</option>
@@ -805,11 +769,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <option value = "Fortified White">Fortified White</option>
                         <option value = "Fortified Red">Fortified Red</option>
                     </select>
-                    
+
                   <paper-input-container>
                       <input is="iron-input" id = "inputCountry" name ="country" type ="text" placeholder = "Country" required>
                   </paper-input-container>
-                  
+
                   <paper-input-container>
                       <input is="iron-input" id = "inputState" name ="state" type ="text" placeholder = "State/Province" required>
                   </paper-input-container>
@@ -829,71 +793,105 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </form>
               </paper-material>
             </section>
+            <!-- Register Account Form -->
+            <section data-route="register-account">
+              <paper-material elevation="1">
+                <!--Masons Section-->
+                <form id="register-account-form" method="post" action="api/register-account.php">
+                  <h3>Insert Wine Data! </h3>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="username" type ="text" placeholder = "Username" required>
+                  </paper-input-container>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="password" type ="text" placeholder = "Password" required>
+                  </paper-input-container>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="confirm_password" type ="text" placeholder = "Confirm Password" required>
+                  </paper-input-container>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="email" type ="text" placeholder = "E-mail" required>
+                  </paper-input-container>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="confirm-email" type ="text" placeholder = "Confirm Email" required>
+                  </paper-input-container>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="firstname" type ="text" placeholder = "First name" required>
+                  </paper-input-container>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="lastname" type ="text" placeholder = "Last name" required>
+                  </paper-input-container>
+
+                   <select name="age">
+                      <option value = "0"> Prefer not to answer</option>
+                        <option value = "1"> 20 - 25 </option>
+                        <option value = "2"> 26 - 30 </option>
+                        <option value = "3"> 31 - 35 </option>
+                        <option value = "4"> 36 - 40 </option>
+                        <option value = "5"> 41 - 45 </option>
+                        <option value = "6"> 45 - 50 </option>
+                        <option value = "7"> 51 - 55 </option>
+                        <option value = "8"> 55 and older </option>
+                    </select>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="zipcode" type ="text" placeholder = "Zip code" required>
+                  </paper-input-container>
+                   <select name="employment">
+                      <option value = "consumer"> Consumer </option>
+                        <option value = "producer"> Producer </option>
+                        <option value = "service"> Service/Sales </option>
+                        <option value = "buyer"> Buyer </option>    
+                    </select>
+                   <select name="cert_body">
+                        <option value = "none"> None </option>
+                        <option value = "">Court of Master Sommeliers Intro Certificate</option>
+                        <option value = "Still White"> Court of Master Sommeliers Certified Sommelier </option>
+                        <option value = "Still Red"> Court of Master Sommeliers Advanced Level </option>
+                        <option value = "Dessert">Dessert </option>
+                        <option value = "Fortified White">Fortified White</option>
+                        <option value = "Fortified Red">Fortified Red</option>
+                    </select>
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputProducer" name ="producer" type ="text" placeholder = "Producer" required>
+                  </paper-input-container>
+
+                    <select name="wine_styles">
+                      <option value = "Sparkling White">Sparkling White</option>
+                        <option value = "Sparkling Rose">Sparkling Rose</option>
+                        <option value = "Still White">Still White</option>
+                        <option value = "Still Red">Still Red</option>
+                        <option value = "Dessert">Dessert </option>
+                        <option value = "Fortified White">Fortified White</option>
+                        <option value = "Fortified Red">Fortified Red</option>
+                    </select>
+
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputCountry" name ="country" type ="text" placeholder = "Country" required>
+                  </paper-input-container>
+
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputState" name ="state" type ="text" placeholder = "State/Province" required>
+                  </paper-input-container>
+
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputRegion" name ="region" type ="text" placeholder = "Region (Optional)">
+                  </paper-input-container>
+
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputSubRegion" name ="sRegion" type ="text" placeholder = "Sub-Region (Optional)">
+                  </paper-input-container>
+
+                  <paper-input-container>
+                      <input is="iron-input" id = "inputAlcohol" name ="alcohol" type ="number" placeholder = "Alcohol Percentage (##)" required>
+                  </paper-input-container>
+                    <button name="regWine" type="submit">Register Wine</button>
+                </form>
+              </paper-material>
+            </section>
+
             <section data-route="login-form">
               <paper-material elevation="1">
-                <div>
-                  <?php 
-                      require_once ('vendor/autoload.php');
-                      
-                      //start session above because cache error 
-                      $fb = new Facebook\Facebook([
-                          'app_id'=>'1773451242931017',
-                          'app_secret'=> '74656c1a602d2c78ce7da86f189d9c99',
-                          'default_graph_version'=>'v2.5'
-                      ]);
-                  
-                      $redirecTo = 'https://winarycode-masloph.c9users.io/wc/api/login.php';
-                      //will need to change redirect above when migrating to AWS 
-                      $helper = $fb->getRedirectLoginHelper();
-                      try{
-                          $accessToken = $helper->getAccessToken();
-                      }
-                      catch(Facebooks\Exceptions\FacebookResponseException $e){
-                          echo "Error" . $e->getMessage();
-                          exit;
-                      }
-                      catch(Facebook\Exceptions\FacebookSDKException $e){
-                          echo " FB SDK ERR". $e->getMessage();
-                          exit;
-                      }
-                      if (isset($accessToken)) {
-                  	  	//logged in
-                  	  	$fb->setDefaultAccessToken($accessToken);
-                  		try {
-                  		  $response = $fb->get('/me?fields=email,name');
-                  		  $userNode = $response->getGraphUser();
-                  		}catch(Facebook\Exceptions\FacebookResponseException $e) {
-                  		  echo 'error: ' . $e->getMessage();
-                  		  exit;
-                  		} catch(Facebook\Exceptions\FacebookSDKException $e) {
-                  		  echo 'SDK error: ' . $e->getMessage();
-                  		  exit;
-                  		}
-                  		// Payload, where we could see if its in database, if not insert.
-                  		echo 'Name: ' . $userNode->getName().'<br>';
-                  		echo 'User ID: ' . $userNode->getId().'<br>';
-                  		echo 'Email: ' . $userNode->getProperty('email').'<br><br>';
-                  		$fbPhoto = 'https://graph.facebook.com/'.$userNode->getId().'/picture?width=400';
-                  		echo "<img src='$fbPhoto' /><br>";
-                  		
-                  	  
-                	    }else{
-                	    //may be ugly, but I can add the basic login form here as well. DONE
-                	    echo '<form action = " " method = "POST">';
-                	    echo 'Login<br>Username<input type="text" name = "uName"> <br>';
-                	    echo 'Password <input type = "password" name = "passWord"><br>';
-                	    echo '<button name="signIn" type="submit">Login</button>';
-                	    echo '</form>';
-                	    echo '<br>Alternative Log in Methods<br>';
-                	    
-                  		$permissions  = ['email'];
-                  		$loginUrl = $helper->getLoginUrl($redirecTo,$permissions);
-                  	
-                  		echo '<a href="' . $loginUrl . '">';
-                  		echo '<img src="https://s12.postimg.org/d6dhoc20d/FBlogin.png"></a>';
-                  	}
-            ?>
-                </div>
+               
+            
               </paper-material>
             </section>
           </iron-pages>
@@ -909,7 +907,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
- 
+
   <!-- endbuild-->
 </body>
 
