@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-include_once("../wineBottle.php");
+include_once("../lib/wineBottle.php");
 
 class BottleTest extends TestCase
 {

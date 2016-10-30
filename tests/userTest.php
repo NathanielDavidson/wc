@@ -1,6 +1,6 @@
 <?PHP
 use PHPUnit\Framework\TestCase;
-include_once("../user.php");
+include_once("../lib/user.php");
 
 class UserTest extends TestCase
 {
