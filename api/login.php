@@ -8,7 +8,7 @@
     //starts session and grabs facebooks(composers) autoloaders
     $fb = new Facebook\Facebook([
         'app_id'=>'1773451242931017',
-        'app_secret'=> '74656c1a602d2c78ce7da86f189d9c99',
+        'app_secret'=> '5a2fd5013528d9551880d8bf247a661e',
         'default_graph_version'=>'v2.5'
     ]);
 

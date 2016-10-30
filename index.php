@@ -890,8 +890,75 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             <section data-route="login-form">
               <paper-material elevation="1">
+<<<<<<< Updated upstream
                
             
+=======
+                <p>Hello, World!</p>
+                <div>
+                  <?php 
+                      require_once ('vendor/autoload.php');
+                      
+                      //start session above because cache error 
+                      $fb = new Facebook\Facebook([
+                          'app_id'=>'1773451242931017',
+                          'app_secret'=> '5a2fd5013528d9551880d8bf247a661e',
+                          'default_graph_version'=>'v2.5'
+                      ]);
+                  
+                      $redirecTo = 'https://winarycode-masloph.c9users.io/wc/api/login.php';
+                      //will need to change redirect above when migrating to AWS 
+                      $helper = $fb->getRedirectLoginHelper();
+                      try{
+                          $accessToken = $helper->getAccessToken();
+                      }
+                      catch(Facebooks\Exceptions\FacebookResponseException $e){
+                          echo "Error" . $e->getMessage();
+                          exit;
+                      }
+                      catch(Facebook\Exceptions\FacebookSDKException $e){
+                          echo " FB SDK ERR". $e->getMessage();
+                          exit;
+                      }
+                      if (isset($accessToken)) {
+                  	  	//logged in
+                  	  	$fb->setDefaultAccessToken($accessToken);
+                  		try {
+                  		  $response = $fb->get('/me?fields=email,name');
+                  		  $userNode = $response->getGraphUser();
+                  		}catch(Facebook\Exceptions\FacebookResponseException $e) {
+                  		  echo 'error: ' . $e->getMessage();
+                  		  exit;
+                  		} catch(Facebook\Exceptions\FacebookSDKException $e) {
+                  		  echo 'SDK error: ' . $e->getMessage();
+                  		  exit;
+                  		}
+                  		// Payload, where we could see if its in database, if not insert.
+                  		echo 'Name: ' . $userNode->getName().'<br>';
+                  		echo 'User ID: ' . $userNode->getId().'<br>';
+                  		echo 'Email: ' . $userNode->getProperty('email').'<br><br>';
+                  		$fbPhoto = 'https://graph.facebook.com/'.$userNode->getId().'/picture?width=400';
+                  		echo "<img src='$fbPhoto' /><br>";
+                  		
+                  	  
+                	    }else{
+                	    //may be ugly, but I can add the basic login form here as well. DONE
+                	    echo '<form action = " " method = "POST">';
+                	    echo 'Login<br>Username<input type="text" name = "uName"> <br>';
+                	    echo 'Password <input type = "password" name = "passWord"><br>';
+                	    echo '<button name="signIn" type="submit">Login</button>';
+                	    echo '</form>';
+                	    echo '<br>Alternative Log in Methods<br>';
+                	    
+                  		$permissions  = ['email'];
+                  		$loginUrl = $helper->getLoginUrl($redirecTo,$permissions);
+                  	
+                  		echo '<a href="' . $loginUrl . '">';
+                  		echo '<img src="https://i.imgsafe.org/2ae8e6aefa.png"></a>';
+                  	}
+            ?>
+                </div>
+>>>>>>> Stashed changes
               </paper-material>
             </section>
           </iron-pages>
