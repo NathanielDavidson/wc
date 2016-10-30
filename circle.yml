@@ -9,8 +9,3 @@ test:
 notify:
   webhooks:
     - url: http://csumbse.net/harbormaster/hook/circleci/
-
-#Integration     
-dependencies:
-  pre:
-    - cp config/custom.ini /opt/circleci/php/$(phpenv global)/etc/conf.d/
