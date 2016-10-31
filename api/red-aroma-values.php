@@ -1,6 +1,6 @@
 <?php
 
-    include 'db.include.php';
+    include 'config.php';
     $conn = getDatabaseConnection(); //gets database connection
 
     $varquery = $_GET["var"]; // Testing purposes

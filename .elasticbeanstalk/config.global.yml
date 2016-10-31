@@ -1,0 +1,9 @@
+branch-defaults:
+  master:
+    environment: wcdeploy
+deploy:
+  artifact: wcdeploy.zip
+global:
+  application_name: wc-deploy
+  default_region: us-west-2
+  sc: git

@@ -1,9 +1,11 @@
+<?php session_start();?>
+
+<!doctype html>
 <?php
-include "./lib/Boo.php";
+include "lib/Boo.php";
 $mon = new Boo();
 echo "test: ". $mon->pop();
 ?>
-<!doctype html>
 <!--
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
@@ -15,7 +17,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <html lang="en">
-<?php session_start();?>
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
@@ -140,24 +141,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home">
               <paper-material elevation="1">
-                <p>
-                  <br>
-                  <!-- custom element -->
-                  <wc-search></wc-search>
-                        <?php
-                        if(isset($_SESSION['email'])){
-                        $fbPhoto = $_SESSION['image'];
-                        echo '<h1>Welcome, '. $_SESSION['name'] . '</h1>'.'<br>';
-                    	  echo "<img src='$fbPhoto' /><br>";
-                    	  //Logout
-                      }
-                      else{
-                        echo "<h1>Welcome!</h1>";
-                      }
-                  ?>
-                </p>
+                <wc-sesarch></wc-search>
+               <div>
 
-              </paper-material>
+                       <?php
+                       //echo "<h1>HI!</h1>";
+
+                       if(isset($_SESSION['email'])){
+                       $fbPhoto = $_SESSION['image'];
+                       echo '<h1>Welcome, '. $_SESSION['name'] . '</h1>'.'<br>';
+                       echo "<img src='$fbPhoto' /><br>";
+                       //Logout
+                     }
+                     else{
+                       echo "<h1>Welcome!</h1>";
+                     }
+
+                 ?>
+               </div>
+
+             </paper-material>
 
             </section>
 
@@ -756,7 +759,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <section data-route="register-wine">
               <paper-material elevation="1">
                 <!--Masons Section-->
-                <form id="register-wine-form" method="post" action="api/register-wine.php">
+                <form is="iron-form" id="register-wine-form" method="post" action="api/register-wine.php">
                   <h3>Insert Wine Data! </h3>
                   <paper-input-container>
                       <input is="iron-input" id = "inputProducer" name ="producer" type ="text" placeholder = "Producer" required>
@@ -809,7 +812,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <div>
                   <?php
-                      require_once ('vendor/autoload.php');
+                      require_once('vendor/autoload.php');
 
                       //start session above because cache error
                       $fb = new Facebook\Facebook([
@@ -818,7 +821,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                           'default_graph_version'=>'v2.5'
                       ]);
 
-                      $redirecTo = 'https://winarycode-masloph.c9users.io/wc/api/login.php';
+                      $redirecTo = 'http://daniel.codes/api/login.php';
                       //will need to change redirect above when migrating to AWS
                       $helper = $fb->getRedirectLoginHelper();
                       try{
