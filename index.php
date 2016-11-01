@@ -105,7 +105,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!--Login declared here -->
           <a data-route="login-form" href = "{{baseUrl}}login-form">
-            <iron-icon icon "mail"></iron-icon>
+            <iron-icon icon="account-box"></iron-icon>
             <span>Login</span>
           </a>
         </paper-menu>
@@ -142,17 +142,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <div>
                      <wc-search></wc-search>
                 </div>
-              </paper-material>
-            </section>
-
-            <section data-route="white-assesment">
-              <paper-material elevation="1">
-                <h2 class="page-title">Users</h2>
-                <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
               </paper-material>
             </section>
 
@@ -972,7 +961,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="login-form">
               <paper-material elevation="1">
                 <div>
-                <!-- Facebook will go here -->
+                 <form class="" action="local-login.php" method="post">
+                   <h1>Please Login</h1>
+                   <input type="text" name="username" placeholder="Username" value="">
+                   <input type="email" name="password" placeholder="Password" value="">
+                   <button type="button" name="login-submit">Submit</button>
+                 </form>
                 </div>
               </paper-material>
             </section>

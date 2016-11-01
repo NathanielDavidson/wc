@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once("../lib/user.php");
 if(isset($_POST[regAccount])){
     $username = $_POST['username'];
@@ -15,11 +15,5 @@ if(isset($_POST[regAccount])){
     $user::insertUser($username,$password,$email,$firstname,$lastname,$age,$zipcode,$employment,$cert,$date);
 
 }
-
-
-
-
-
-
 
 ?>
