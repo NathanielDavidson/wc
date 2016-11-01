@@ -8,7 +8,7 @@ class UserTest extends TestCase
         $newUser = new RegUser();
         $tester = $newUser::isUser("Testy2");
         //assertEquals(-1, $b->getAmount());
-        $this->assertEquals($tester,true);
+        $this->assertEquals($tester,false);
     }
     
     public function testInsertUser(){
@@ -16,7 +16,7 @@ class UserTest extends TestCase
         
         $tester = $newUser::insertUser("Pimpy2","PasswordBro","test@email.com","FirstNameYo",
         "LastNameYO",1,93933,"drugDealer","DrugSmuggleAchievement",1970);
-        $this->assertEquals($tester,false);
+        $this->assertEquals($tester,true);
     }
     
     public function testDeleteUser(){
@@ -24,7 +24,5 @@ class UserTest extends TestCase
         $tester = $newUser::deleteUser("asdf");
         $this->assertTrue($tester);
     }
-    
-   
 }
 ?>
