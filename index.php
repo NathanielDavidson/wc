@@ -144,7 +144,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
               </paper-material>
             </section>
-
             <!-- White Wine Assessment Form-->
             <section data-route="white-assessment">
               <paper-material elevation="1">
@@ -452,7 +451,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="bitter" value="1"> Low
                     <input type="radio" name="bitter" value="2"> Med. -
                     <input type="radio" name="bitter" value="3"> Med. +
-                    <input type="radio" name="bitter" value="4"> Hig
+                    <input type="radio" name="bitter" value="4"> High
 
                     <h3> Balanced </h3><br>
                     <input type="radio" name="balanced" value="1">Yes
@@ -809,7 +808,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="bitter" value="1"> Low
                     <input type="radio" name="bitter" value="2"> Med. -
                     <input type="radio" name="bitter" value="3"> Med. +
-                    <input type="radio" name="bitter" value="4"> Hig
+                    <input type="radio" name="bitter" value="4"> High
 
                     <h3> Balanced </h3><br>
                     <input type="radio" name="balanced" value="1">Yes
@@ -952,7 +951,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <input is="iron-input" id = "inputProducer" name ="date" type ="text" placeholder = "Date certified" required>
                   </paper-input-container>
 
-
                     <button name="regAccount" type="submit">Register Account</button>
                 </form>
               </paper-material>
@@ -975,7 +973,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
       </paper-scroll-header-panel>
     </paper-drawer-panel>
-
     <paper-toast id="toast">
       <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
     </paper-toast>

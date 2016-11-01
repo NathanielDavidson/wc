@@ -13,7 +13,6 @@ if(isset($_POST[regAccount])){
     $date = $_POST['date'];
     $user = new RegUser();
     $user::insertUser($username,$password,$email,$firstname,$lastname,$age,$zipcode,$employment,$cert,$date);
-
 }
 
 ?>
