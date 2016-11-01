@@ -820,7 +820,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="bitter" value="1"> Low
                     <input type="radio" name="bitter" value="2"> Med. -
                     <input type="radio" name="bitter" value="3"> Med. +
-                    <input type="radio" name="bitter" value="4"> Hig
+                    <input type="radio" name="bitter" value="4"> High
 
                     <h3> Balanced </h3><br>
                     <input type="radio" name="balanced" value="1">Yes
