@@ -12,7 +12,7 @@ notify:
 dependencies:
   pre:
     - sudo apt-get install python-dev
-    - sudo -H pip install awscli --upgrade --ignore-installed six
+    - sudo -H pip install awscli 
 deployment:
   production:
     branch: master
