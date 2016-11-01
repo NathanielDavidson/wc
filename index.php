@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <!--
 @license
@@ -83,6 +86,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
           </a>
+          <a data-route="user-profile" href="{{baseUrl}}user-profile">
+            <iron-icon icon="perm-identity"></iron-icon>
+            <span>Profile</span>
+          </a>
           <a data-route="white-assessment" href="{{baseUrl}}white-assessment">
             <iron-icon icon="info"></iron-icon>
             <span>White Assesment</span>
@@ -145,15 +152,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
-            <section data-route="white-assesment">
+            <section data-route="user-profile">
               <paper-material elevation="1">
-                <h2 class="page-title">Users</h2>
-                <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
-              </paper-material>
+              Update Profile
+                  <form is="iron-form" id="profile-form" method="post" action="api/updateProfile.php">
+                        <paper-input-container>
+                            <input is="iron-input" id = "inputUsername" name ="username" type ="text" placeholder = "Enter new username" required>
+                        </paper-input-container>
+
+                        <paper-input-container>
+                            <input is="iron-input" id = "inputPassword" name ="password" type ="text" placeholder = "Enter new password" required>
+                        </paper-input-container>
+                      <button name="updateProfile" type="submit">Update data</button>
+                  </form>
+                </paper-material>
             </section>
 
             <!-- White Wine Assessment Form-->
@@ -967,10 +979,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
-            <section data-route="login-form">
+             <section data-route="login-form">
               <paper-material elevation="1">
                 <div>
-                <!-- Facebook will go here -->
+                 <form class="" action="api/local-login.php" method="post">
+                   <h1>Please Login</h1>
+                   <input type="text" name="username" placeholder="Username" value="">
+                   <input type="email" name="password" placeholder="Password" value="">
+                   <button type="submit" name="login-submit">Submit</button>
+                 </form>
                 </div>
               </paper-material>
             </section>
