@@ -55,15 +55,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     page('/register-wine', function() {
       app.route = 'register-wine';
     });
+    
+    page('/register-account', function() {
+      app.route ='register-account';
+    });
+    
     page('/login-form', function(){
       app.route = 'login-form';
     });
 
     // 404
     page('*', function() {
-      //app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
-      //app.$.toast.show();
-      //page.redirect(app.baseUrl);
+      app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
+      app.$.toast.show();
+      page.redirect(app.baseUrl);
     });
 
     // add #! before urls

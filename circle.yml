@@ -1,10 +1,9 @@
-checkout:
-  post:
-    - wget https://phar.phpunit.de/phpunit.phar -O ~/phpunit.phar
-    - chmod 0755 ~/phpunit.phar
+machine:
+  php:
+    version: 7.0.4
 test:
   override:
-    - ~/phpunit.phar ./tests
+    - ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-junit $CIRCLE_TEST_REPORTS/tests.xml
   post:
     - bash <(curl -s https://codecov.io/bash)
 notify:
