@@ -12,9 +12,9 @@ notify:
 dependencies:
   pre:
     - sudo apt-get install python-dev
-    - sudo -H pip install awscli 
+    - sudo -H pip install awsebcli
 deployment:
   production:
     branch: master
     commands:
-      - eb deploy --staged
+      - sudo eb deploy --staged
