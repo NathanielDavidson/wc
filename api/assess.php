@@ -521,6 +521,17 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $baked_apple = 0;
         $apple_pear_other = "";
 
+        switch($apple_pear_aroma){
+            case "Green Apple": $green_apple = 1;
+                break;
+            case "Yellow Apple": $yellow_apple = 1;
+                break;
+            case "Red Apple": $red_apple = 1;
+                break;
+            case "Baked Apple": $baked_apple = 1;
+                break;
+        }
+
         // Citrus
         $citrus_level = (int)$_POST['citrus_level'];
         //echo "Citrus Level" . $citrus_level . "<br>";
@@ -534,7 +545,26 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $grapefruit = 0;
         $cirtus_other = "";
 
+<<<<<<< HEAD
         // Stone
+=======
+        switch($citrus_aroma){
+            case "Lemon": $lemon = 1;
+                break;
+            case "Myer Lemon": $myer_lemon = 1;
+                break;
+            case "Lime": $lime = 1;
+                break;
+            case "Orange": $orange = 1;
+                break;
+            case "Dried Orange Peel": $dried_orange_peel = 1;
+                break;
+            case "Grapefruit": $grapefruit = 1;
+                break;
+        }
+
+        // Stone 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $stone_level = (int)$_POST['stone_level'];
         //echo "Stone Level" . $stone_level . "<br>";
         $stone_aroma = $_POST['stone_aromas'];
@@ -546,7 +576,24 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $nectarine = 0;
         $stone_other = "";
 
+<<<<<<< HEAD
         // Tropical
+=======
+        switch($stone_aroma){
+            case "White Peach": $white_peach = 1;
+                break;
+            case "Yellow Peach": $yellow_peach = 1;
+                break;
+            case "Apricot": $apricot = 1;
+                break;
+            case "Apricot Kernal": $apricot_kernal = 1;
+                break;
+            case "Nectarine": $nectarine = 1;
+                break;
+        }
+
+        // Tropical 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $tropical_melon_level = (int)$_POST['tropical_melon_level'];
         //echo "Trop Level" . $tropical_melon_level . "<br>";
         $tropical_melon_aroma = $_POST['tropical_melon_aromas'];
@@ -558,6 +605,21 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $mango = 0;
         $banana = 0;
         $tropical_melon_other = "";
+
+        switch($tropical_melon_aroma){
+            case "Passion Fruit": $passion_fruit = 1;
+                break;
+            case "Pineapple": $pineapple = 1;
+                break;
+            case "kiwi": $kiwi = 1;
+                break;
+            case "Lychee": $lychee = 1;
+                break;
+            case "Mango": $mango = 1;
+                break;
+            case "Banana": $banana = 1;
+                break;
+        }
 
         // Fruit type
         $fruit_type = (int)$_POST['fruit_type'];
@@ -575,6 +637,19 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $orange_blossom = 0;
         $flower_other = "";
 
+        switch($flower_aroma){
+            case "White Flower": $white_flowers = 1;
+                break;
+            case "Yellow Flowers": $yellow_flowers = 1;
+                break;
+            case "Dried Flowers": $dried_flowers = 1;
+                break;
+            case "Honeysuckle": $honeysuckle = 1;
+                break;
+            case "Orange Blossom": $orange_blossom = 1;
+                break;
+        }
+
         // Herb
         $herb_level = (int)$_POST['herbs_level'];
         //echo "Herb Level" . $herb_level . "<br>";
@@ -584,6 +659,13 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $fresh_herbs = 0;
         $herbs_other = "";
 
+        switch($herb_aroma){
+            case "Dried Herbs": $dried_herbs = 1;
+                break;
+            case "Fresh Herbs": $fresh_herbs = 1;               
+                break;
+        }
+
         // Vegetal
         $vegetal_level = (int)$_POST['vegetal_level'];
         //echo "Veg level" . $vegetal_level . "<br>";
@@ -592,6 +674,17 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $green_bell_pepper = 0;
         $vegetal_cut_grass = 0;
         $vegetal_other = "";
+
+         switch($vegetal_aroma){
+            case "Radish": $radish = 1;
+                break;
+            case "Jalapeno": $jalapeno = 1;
+                break;
+            case "Green Bell Pepper": $green_bell_pepper = 1;
+                break;
+            case "Vegetal Cut Grass": $vegetal_cut_grass = 1;
+                break;
+        }
 
         // Oxidative
         $oxidative_level = (int)$_POST['oxidative_level'];
@@ -604,7 +697,22 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $ashtray = 0;
         $oxidative_other = "";
 
+<<<<<<< HEAD
         // Yeast Bread Dough
+=======
+         switch($oxidative_aroma){
+            case "Baked Fruit": $baked_fruit = 1;
+                break;
+            case "Brown Fruit": $brown_fruit = 1;
+                break;
+            case "Leather": $leather = 1;
+                break;
+            case "Ashtray": $ashtray = 1;
+                break;
+        }
+
+        // Yeast Bread Dough 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $yeast_bread_dough_level = (int)$_POST['yeast_bread_dough_level'];
         //echo "Ox Level" . $yeast_bread_dough_level . "<br>";
         $yeast_bread_dough_aroma = $_POST['yeast_bread_dough_aromas'];
@@ -616,20 +724,47 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $yeast = 0;
         $yeast_bread_dough_other = "";
 
+        switch($yeast_bread_dough_aroma){
+            case "Brioche": $brioche= 1;
+                break;
+            case "Almond": $almond = 1;
+                break;
+            case "Fresh Dough": $fresh_dough = 1;
+                break;
+            case "Hazelnut": $hazelnut = 1;
+                break;
+            case "Yeast": $yeast = 1;
+                break;
+        }
+
         // Butter Cream
         $ml_butter_cream_level = (int)$_POST['ml_butter_cream_level'];
         //echo "ml_butter_cream_level Level" . $ml_butter_cream_level . "<br>";
 
         // Earth Leaves
         $earth_leaves_mushrooms_level = (int)$_POST['earth_leaves_mushrooms_level'];
+<<<<<<< HEAD
         //echo "Ox Level" . $earth_leaves_mushrooms_level . "<br>";
+=======
+        $earth_leaves_mushrooms_aromas = $_POST['earth_leaves_mushrooms_aromas'];
+        //echo "Ox Level" . $earth_leaves_mushrooms_level . "<br>"; 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $straw_hay = 0;
         $earth_leaves_mushrooms_cut_grass = 0;
         $earth_leaves_mushrooms_other = "";
 
+        switch($earth_leaves_mushrooms_aromas){
+            case "Straw Hay": $straw_hay = 1;
+                break;
+        }
         // Stone
         $mineral_stone_sulfur_level = (int)$_POST['mineral_stone_sulfur_level'];
+<<<<<<< HEAD
         //echo "Min Level" . $mineral_stone_sulfur_level . "<br>";
+=======
+        //echo "Min Level" . $mineral_stone_sulfur_level . "<br>"; 
+        $mineral_stone_sulfur_aroma = $_POST['mineral_stone_sulfur_aromas'];
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $sulfur = 0;
         $state_petrol = 0;
         $metallic = 0;
@@ -641,15 +776,55 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $smokey = 0;
         $mineral_stone_sulfur_other = "";
 
+        switch($mineral_stone_sulfur_aroma){
+            case "Sulfur": $sulfur = 1;
+                break;
+            case "State Petrol": $state_petrol = 1;
+                break;
+            case "Metallic": $metallic = 1;
+                break;
+            case "Flit": $flit = 1;
+                break;
+            case "Dust": $dust = 1;
+                break;
+            case "Chalk": $chalk = 1;
+                break;
+            case "Limestone": $limestone = 1;
+                break;
+            case "Volcanic": $volcanic = 1;
+                break;
+            case "Smokey": $smokey = 1;
+                break;
+        }
+
         // Oak Vanilla Toast
         $oak_vanilla_toast_level = (int)$_POST['oak_vanilla_toast_level'];
+<<<<<<< HEAD
         //echo "Oak Level" . $oak_vanilla_toast_level . "<br>";
         $vanilla = 0;
+=======
+        //echo "Oak Level" . $oak_vanilla_toast_level . "<br>"; 
+        $oak_vanilla_toast_aroma = $_POST['oak_vanilla_smoke_coconut_aromas'];
+        $vanilla = 0; 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $maple = 0;
         $light_toast = 0;
         $heavy_toast = 0;
         $sawdust = 0;
         $oak_vanilla_toast_other = "";
+
+        switch($oak_vanilla_toast_aroma){
+            case "Vanilla": $vanilla = 1;
+                break;
+            case "Maple": $maple = 1;
+                break;
+            case "Light Toast": $light_toast = 1;
+                break;
+            case "Heavy Toast": $heavy_toast = 1;
+                break;
+            case "Sawdust": $sawdust = 1;
+                break;
+        }
 
         // Structure
         $sweetness = (int)$_POST['sweetness'];
