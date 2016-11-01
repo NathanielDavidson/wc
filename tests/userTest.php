@@ -13,10 +13,9 @@ class UserTest extends TestCase
     
     public function testInsertUser(){
         $newUser = new RegUser();
-        
-        $tester = $newUser::insertUser("Pimpy2","PasswordBro","test@email.com","FirstNameYo",
-        "LastNameYO",1,93933,"drugDealer","DrugSmuggleAchievement",1970);
-        $this->assertEquals($tester,false);
+        $tester = $newUser::insertUser("Anita","1234","anitag@gmail.com","Anita",
+        "Garcia",25,93901,"Consumer","None",2016);
+        $this->assertEquals($tester,true);
     }
     
     public function testDeleteUser(){
