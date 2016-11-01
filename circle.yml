@@ -12,7 +12,7 @@ notify:
 dependencies:
   pre:
     - sudo apt-get install python-dev
-    - sudo -H pip install awsebcli
+    - sudo -H pip install awsebcli --upgrade --ignore-installed six
 deployment:
   production:
     branch: master
