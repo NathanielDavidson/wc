@@ -18,5 +18,4 @@ deployment:
   production:
     branch: master
     commands:
-      - zip -r --exclude=*.git* wcdeploy.zip .
       - eb deploy --staged
