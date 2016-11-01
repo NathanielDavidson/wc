@@ -1,6 +1,6 @@
 <?php
     //include 'db.include.php';
-    //$conn = getDatabaseConnection(); //gets database 
+    //$conn = getDatabaseConnection(); //gets database
     require_once("../lib/wineBottle.php");
     if(isset($_POST['regWine'])){
         //var_dump($_POST);
@@ -24,7 +24,7 @@
         //echo $sub_region;
         $alcohol = $_POST["alcohol"];
         $regBottle = new RegBottle();
-        $regBottle::insertBottle($producer, $wine_name, $vintage, $wine_style, 
-            $grapes, $country, $state, $region, $alcohol);
+        $regBottle::insertBottle($producer, $wine_name, $vintage, $wine_style,
+        $grapes, $country, $state, $region, $alcohol);
     }
 ?>

@@ -1,7 +1,6 @@
 <?php
-include 'db.include.php';
+include '../config.php';
 $conn = getDatabaseConnection();
-echo "Here";
 
 if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
     //var_dump($_POST);
@@ -20,15 +19,15 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
     if(isset($_POST['redAssessReturn'])){
         //echo 'Red';
         //var_dump($_POST);
-        // For Red Assessment 
+        // For Red Assessment
         $primary_color = (int)$_POST['primary_color'];
         //echo "Primary: " . $primary_color . "<br>";
         $secondary_color =  (int)$_POST['secondary_color'];
         //echo "Secondary: " . $secondary_color . "<br>";
-        
+
          //Red  Fruit Aromas
         $red_fruits_level = (int)$_POST['red_fruits_level'];
-        //echo "Fruit Level" . $red_fruits_level . "<br>";   
+        //echo "Fruit Level" . $red_fruits_level . "<br>";
         $red_aroma = $_POST['red_aromas'];
         //echo "Red Aroma: " . $red_aroma . "<br>";
         $red_cherry = 0;
@@ -43,7 +42,7 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         //echo "Red Currant " . $red_currant . "<br>";
         $red_fruit_other = "";
         //echo "Red Fruit Other " . $red_fruit_other. "<br>";
-        
+
         switch($red_aroma){
             case "Red Cherry": $red_cherry = 1;
                 break;
@@ -408,7 +407,7 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
                 break;
         }
 
-        // Structure 
+        // Structure
         $sweetness = (int)$_POST['sweetness'];
         //echo "sweetness " . $sweetness . "<br>";
         $alcohol = (int)$_POST['alcohol'];
@@ -424,98 +423,98 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $complexity = (int)$_POST['complexity'];
          //echo " complexity" . $complexity . "<br>";
 
-        // Rating 
+        // Rating
         $quality_for_price = (int)$_POST['quality_for_price'];
         //echo "quality_for_price" . $quality_for_price . "<br>";
         $quality_for_price_rate = (int)$_POST['quality_for_price_rate'];
         //echo "quality_for_price_rate " . $quality_for_price_rate . "<br>";
 
-        $sql = "INSERT INTO red_taste_assessment 
+        $sql = "INSERT INTO red_taste_assessment
                 (taste_id, primary_color, secondary_color, red_fruits_level, red_cherry, pomegranate,
-                cranberry, raspberry, red_currant, red_fruit_other, black_fruit_level, black_berry, 
-                black_currant, raisin,date, fig, black_fruit_other, blue_fruit_level, blueberry, 
+                cranberry, raspberry, red_currant, red_fruit_other, black_fruit_level, black_berry,
+                black_currant, raisin,date, fig, black_fruit_other, blue_fruit_level, blueberry,
                 dried_blueberry, plum, plum_skin, blue_fruit_other, fruit_type, flowers_level, rose,
-                violet, lavender, dried_flowers, potpourri, flowers_other, herbs_level, fresh_herbs, 
-                dried_herbs, tomatoe_leaf, basil, oregeno, fennel, herbs_other, vegetal_level, 
-                green_bell_pepper_capsicum, vegetal_fresh_herbs, vegetal_dried_herbs, stem_whole_cluster, 
-                vegetal_other, mint_eucalyptus_level, mint, eucalyptus, menthol, mint_eucalyptus_other, 
-                pepper_spice_level, black_peppercorn, green_peppercorn, cinnamon, baking_spice, hard_spice, 
-                anise_licorice, pepper_spice_other, cocoa_coffee_level, milk_chocolate, dark_chocolate, 
-                cocoa_powder, mocha, espresso, coffee_grounds, cocoa_coffee_other, meat_leather_level, 
-                meat, grilled_meat, beef_jerkey, wet_leather, dried_leather, meat_leather_other, 
-                tobacco_tar_level, wet_tobacco, dried_tobacco, tar, ashtray, tobacco_tar_other, 
-                earth_leaves_mushrooms_level, forest_floor, compost, mushrooms, potting_soil, barnyard, 
-                wet_leaves, dried_leaves, earth_leaves_mushrooms_other, mineral_stone_sulfur_level, sulfur, 
-                slate_petrol, metallic, flit, dust, chalk, limestone, volcanic, smokey, pencil_lead, 
-                mineral_stone_sulfur_other, oak_vanilla_smoke_coconut_level, vanilla, maple, light_toast, 
+                violet, lavender, dried_flowers, potpourri, flowers_other, herbs_level, fresh_herbs,
+                dried_herbs, tomatoe_leaf, basil, oregeno, fennel, herbs_other, vegetal_level,
+                green_bell_pepper_capsicum, vegetal_fresh_herbs, vegetal_dried_herbs, stem_whole_cluster,
+                vegetal_other, mint_eucalyptus_level, mint, eucalyptus, menthol, mint_eucalyptus_other,
+                pepper_spice_level, black_peppercorn, green_peppercorn, cinnamon, baking_spice, hard_spice,
+                anise_licorice, pepper_spice_other, cocoa_coffee_level, milk_chocolate, dark_chocolate,
+                cocoa_powder, mocha, espresso, coffee_grounds, cocoa_coffee_other, meat_leather_level,
+                meat, grilled_meat, beef_jerkey, wet_leather, dried_leather, meat_leather_other,
+                tobacco_tar_level, wet_tobacco, dried_tobacco, tar, ashtray, tobacco_tar_other,
+                earth_leaves_mushrooms_level, forest_floor, compost, mushrooms, potting_soil, barnyard,
+                wet_leaves, dried_leaves, earth_leaves_mushrooms_other, mineral_stone_sulfur_level, sulfur,
+                slate_petrol, metallic, flit, dust, chalk, limestone, volcanic, smokey, pencil_lead,
+                mineral_stone_sulfur_other, oak_vanilla_smoke_coconut_level, vanilla, maple, light_toast,
                 heavy_toast, sawdust, sandalwood, pencil_shavings, oak_vanilla_smoke_coconut_other,
                 sweetness, alcohol, tannin, bitter, balanced, length, complexity,
                 quality_for_price, quality_for_price_rate)
-            VALUES 
-                (NOW(), '$primary_color', '$secondary_color', '$red_fruits_level', 
-                '$red_cherry', '$pomegranate','$cranberry', '$raspberry', '$red_currant', 
-                '$red_fruit_other', 
+            VALUES
+                (NOW(), '$primary_color', '$secondary_color', '$red_fruits_level',
+                '$red_cherry', '$pomegranate','$cranberry', '$raspberry', '$red_currant',
+                '$red_fruit_other',
 
                 '$black_fruit_level', '$black_berry', '$black_currant', '$raisin',
                 '$date', '$fig', '$black_fruit_other',
 
-                '$blue_fruit_level', '$blueberry', '$dried_blueberry', '$plum', 
+                '$blue_fruit_level', '$blueberry', '$dried_blueberry', '$plum',
                 '$plum_skin','$blue_fruit_other','$fruit_type',
 
-                '$flowers_level', '$rose', '$violet', '$lavender', '$dried_flowers', 
+                '$flowers_level', '$rose', '$violet', '$lavender', '$dried_flowers',
                 'potpourri', '$flowers_other',
 
-                '$herbs_level', '$fresh_herbs', '$dried_herbs', '$tomatoe_leaf', '$basil', 
-                '$oregeno', '$fennel', '$herbs_other', 
+                '$herbs_level', '$fresh_herbs', '$dried_herbs', '$tomatoe_leaf', '$basil',
+                '$oregeno', '$fennel', '$herbs_other',
 
-                '$vegetal_level', '$green_bell_pepper_capsicum', '$vegetal_fresh_herbs', 
-                '$vegetal_dried_herbs', '$stem_whole_cluster', '$vegetal_other', 
+                '$vegetal_level', '$green_bell_pepper_capsicum', '$vegetal_fresh_herbs',
+                '$vegetal_dried_herbs', '$stem_whole_cluster', '$vegetal_other',
 
-                '$mint_eucalyptus_level', '$mint', '$eucalyptus', '$menthol', 
-                '$mint_eucalyptus_other', 
+                '$mint_eucalyptus_level', '$mint', '$eucalyptus', '$menthol',
+                '$mint_eucalyptus_other',
 
-                '$pepper_spice_level', '$black_peppercorn', '$green_peppercorn', '$cinnamon', 
-                '$baking_spice', '$hard_spice', '$anise_licorice', '$pepper_spice_other', 
+                '$pepper_spice_level', '$black_peppercorn', '$green_peppercorn', '$cinnamon',
+                '$baking_spice', '$hard_spice', '$anise_licorice', '$pepper_spice_other',
 
-                '$cocoa_coffee_level', '$milk_chocolate', '$dark_chocolate', '$cocoa_powder', 
-                '$mocha', '$espresso', '$coffee_grounds', '$cocoa_coffee_other', 
+                '$cocoa_coffee_level', '$milk_chocolate', '$dark_chocolate', '$cocoa_powder',
+                '$mocha', '$espresso', '$coffee_grounds', '$cocoa_coffee_other',
 
-                '$meat_leather_level', '$meat', '$grilled_meat', '$beef_jerkey', 
-                '$wet_leather', '$dried_leather', '$meat_leather_other', 
+                '$meat_leather_level', '$meat', '$grilled_meat', '$beef_jerkey',
+                '$wet_leather', '$dried_leather', '$meat_leather_other',
 
-                '$tobacco_tar_level','$wet_tobacco', '$dried_tobacco', '$tar', '$ashtray', 
-                '$tobacco_tar_other', 
+                '$tobacco_tar_level','$wet_tobacco', '$dried_tobacco', '$tar', '$ashtray',
+                '$tobacco_tar_other',
 
                 '$earth_leaves_mushrooms_level', '$forest_floor', '$compost', '$mushrooms',
-                '$potting_soil', '$barnyard', '$wet_leaves', '$dried_leaves', 
+                '$potting_soil', '$barnyard', '$wet_leaves', '$dried_leaves',
                 '$earth_leaves_mushrooms_other',
 
-                '$mineral_stone_sulfur_level', '$sulfur', '$slate_petrol', '$metallic', 
+                '$mineral_stone_sulfur_level', '$sulfur', '$slate_petrol', '$metallic',
                 '$flit', '$dust', '$chalk', '$limestone',
-                '$volcanic', '$smokey', '$pencil_lead', '$mineral_stone_sulfur_other', 
+                '$volcanic', '$smokey', '$pencil_lead', '$mineral_stone_sulfur_other',
 
-                '$oak_vanilla_smoke_coconut_level', '$vanilla', '$maple', '$light_toast', 
+                '$oak_vanilla_smoke_coconut_level', '$vanilla', '$maple', '$light_toast',
                 '$heavy_toast', '$sawdust', '$sandalwood', '$pencil_shavings',
-                
-                '$oak_vanilla_smoke_coconut_other', '$sweetness', '$alcohol', '$tannin', 
-                '$bitter', '$balanced', '$length', '$complexity', 
+
+                '$oak_vanilla_smoke_coconut_other', '$sweetness', '$alcohol', '$tannin',
+                '$bitter', '$balanced', '$length', '$complexity',
 
                 '$quality_for_price','$quality_for_price_rate');";
 
             $statement = $conn->prepare($sql);
             $statement->execute();
     }else{
-        // White wine assessment 
+        // White wine assessment
         $primary_color = (int)$_POST['primary_color'];
         //echo "Primary: " . $primary_color . "<br>";
         $secondary_color = (int)$_POST['secondary_color'];
         //echo "Secondary: " . $secondary_color . "<br>";
 
-        // Apple Pear 
+        // Apple Pear
         $apple_pear_level = (int)$_POST['apple_pear_level'];
-        //echo "Fruit Level" . $apple_pear_level . "<br>"; 
+        //echo "Fruit Level" . $apple_pear_level . "<br>";
         $apple_pear_aroma = $_POST['apple_pear_aromas'];
-        //echo "Fruit Level" . $apple_pear_aroma . "<br>"; 
+        //echo "Fruit Level" . $apple_pear_aroma . "<br>";
         $green_apple = 0;
         $yellow_apple = 0;
         $red_apple = 0;
@@ -535,9 +534,9 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Citrus
         $citrus_level = (int)$_POST['citrus_level'];
-        //echo "Citrus Level" . $citrus_level . "<br>"; 
+        //echo "Citrus Level" . $citrus_level . "<br>";
         $citrus_aroma = $_POST['citrus_aromas'];
-        //echo "Cit Aroma" . $citrus_aroma . "<br>"; 
+        //echo "Cit Aroma" . $citrus_aroma . "<br>";
         $lemon = 0;
         $myer_lemon = 0;
         $lime = 0;
@@ -546,6 +545,9 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $grapefruit = 0;
         $cirtus_other = "";
 
+<<<<<<< HEAD
+        // Stone
+=======
         switch($citrus_aroma){
             case "Lemon": $lemon = 1;
                 break;
@@ -562,17 +564,21 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
 
         // Stone 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $stone_level = (int)$_POST['stone_level'];
-        //echo "Stone Level" . $stone_level . "<br>"; 
+        //echo "Stone Level" . $stone_level . "<br>";
         $stone_aroma = $_POST['stone_aromas'];
-        //echo "Fruit Level" . $stone_aroma . "<br>"; 
+        //echo "Fruit Level" . $stone_aroma . "<br>";
         $white_peach = 0;
-        $yellow_peach = 0; 
-        $apricot = 0; 
-        $apricot_kernal = 0; 
-        $nectarine = 0; 
+        $yellow_peach = 0;
+        $apricot = 0;
+        $apricot_kernal = 0;
+        $nectarine = 0;
         $stone_other = "";
 
+<<<<<<< HEAD
+        // Tropical
+=======
         switch($stone_aroma){
             case "White Peach": $white_peach = 1;
                 break;
@@ -587,16 +593,17 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
 
         // Tropical 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $tropical_melon_level = (int)$_POST['tropical_melon_level'];
-        //echo "Trop Level" . $tropical_melon_level . "<br>"; 
+        //echo "Trop Level" . $tropical_melon_level . "<br>";
         $tropical_melon_aroma = $_POST['tropical_melon_aromas'];
-        //echo "Fruit Level" . $tropical_melon_aroma . "<br>"; 
+        //echo "Fruit Level" . $tropical_melon_aroma . "<br>";
         $passion_fruit = 0;
         $pineapple = 0;
-        $kiwi = 0; 
-        $lychee = 0; 
-        $mango = 0; 
-        $banana = 0; 
+        $kiwi = 0;
+        $lychee = 0;
+        $mango = 0;
+        $banana = 0;
         $tropical_melon_other = "";
 
         switch($tropical_melon_aroma){
@@ -616,13 +623,13 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Fruit type
         $fruit_type = (int)$_POST['fruit_type'];
-        //echo "Fruit type" . $fruit_type . "<br>"; 
+        //echo "Fruit type" . $fruit_type . "<br>";
 
         // Flower
         $flower_level = (int)$_POST['flower_level'];
-        //echo "Flower Level" . $flower_level . "<br>"; 
+        //echo "Flower Level" . $flower_level . "<br>";
         $flower_aroma = $_POST['flowers_aromas'];
-        //echo "Fruit Level" . $flower_aroma . "<br>"; 
+        //echo "Fruit Level" . $flower_aroma . "<br>";
         $white_flowers = 0;
         $yellow_flowers = 0;
         $dried_flowers = 0;
@@ -645,9 +652,9 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Herb
         $herb_level = (int)$_POST['herbs_level'];
-        //echo "Herb Level" . $herb_level . "<br>"; 
+        //echo "Herb Level" . $herb_level . "<br>";
         $herb_aroma = $_POST['herbs_aromas'];
-        //echo "Fruit Level" . $herb_aroma . "<br>"; 
+        //echo "Fruit Level" . $herb_aroma . "<br>";
         $dried_herbs = 0;
         $fresh_herbs = 0;
         $herbs_other = "";
@@ -661,9 +668,9 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Vegetal
         $vegetal_level = (int)$_POST['vegetal_level'];
-        //echo "Veg level" . $vegetal_level . "<br>"; 
+        //echo "Veg level" . $vegetal_level . "<br>";
         $radish = 0;
-        $jalapeno = 0; 
+        $jalapeno = 0;
         $green_bell_pepper = 0;
         $vegetal_cut_grass = 0;
         $vegetal_other = "";
@@ -681,15 +688,18 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Oxidative
         $oxidative_level = (int)$_POST['oxidative_level'];
-        //echo "Ox Level" . $oxidative_level . "<br>"; 
+        //echo "Ox Level" . $oxidative_level . "<br>";
         $oxidative_aroma = $_POST['oxidative_aromas'];
-        //echo "Ox aroma" . $oxidative_aroma . "<br>"; 
+        //echo "Ox aroma" . $oxidative_aroma . "<br>";
         $baked_fruit = 0;
         $brown_fruit = 0;
         $leather = 0;
         $ashtray = 0;
         $oxidative_other = "";
 
+<<<<<<< HEAD
+        // Yeast Bread Dough
+=======
          switch($oxidative_aroma){
             case "Baked Fruit": $baked_fruit = 1;
                 break;
@@ -702,14 +712,15 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
 
         // Yeast Bread Dough 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $yeast_bread_dough_level = (int)$_POST['yeast_bread_dough_level'];
-        //echo "Ox Level" . $yeast_bread_dough_level . "<br>"; 
+        //echo "Ox Level" . $yeast_bread_dough_level . "<br>";
         $yeast_bread_dough_aroma = $_POST['yeast_bread_dough_aromas'];
-        //echo "Ox Level" . $yeast_bread_dough_aroma . "<br>"; 
+        //echo "Ox Level" . $yeast_bread_dough_aroma . "<br>";
         $brioche = 0;
-        $almond = 0; 
+        $almond = 0;
         $fresh_dough = 0;
-        $hazelnut = 0; 
+        $hazelnut = 0;
         $yeast = 0;
         $yeast_bread_dough_other = "";
 
@@ -728,12 +739,16 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Butter Cream
         $ml_butter_cream_level = (int)$_POST['ml_butter_cream_level'];
-        //echo "ml_butter_cream_level Level" . $ml_butter_cream_level . "<br>"; 
-        
+        //echo "ml_butter_cream_level Level" . $ml_butter_cream_level . "<br>";
+
         // Earth Leaves
         $earth_leaves_mushrooms_level = (int)$_POST['earth_leaves_mushrooms_level'];
+<<<<<<< HEAD
+        //echo "Ox Level" . $earth_leaves_mushrooms_level . "<br>";
+=======
         $earth_leaves_mushrooms_aromas = $_POST['earth_leaves_mushrooms_aromas'];
         //echo "Ox Level" . $earth_leaves_mushrooms_level . "<br>"; 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $straw_hay = 0;
         $earth_leaves_mushrooms_cut_grass = 0;
         $earth_leaves_mushrooms_other = "";
@@ -744,16 +759,20 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
         // Stone
         $mineral_stone_sulfur_level = (int)$_POST['mineral_stone_sulfur_level'];
+<<<<<<< HEAD
+        //echo "Min Level" . $mineral_stone_sulfur_level . "<br>";
+=======
         //echo "Min Level" . $mineral_stone_sulfur_level . "<br>"; 
         $mineral_stone_sulfur_aroma = $_POST['mineral_stone_sulfur_aromas'];
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $sulfur = 0;
         $state_petrol = 0;
         $metallic = 0;
-        $flit = 0; 
+        $flit = 0;
         $dust = 0;
-        $chalk = 0; 
+        $chalk = 0;
         $limestone = 0;
-        $volcanic = 0; 
+        $volcanic = 0;
         $smokey = 0;
         $mineral_stone_sulfur_other = "";
 
@@ -780,11 +799,16 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Oak Vanilla Toast
         $oak_vanilla_toast_level = (int)$_POST['oak_vanilla_toast_level'];
+<<<<<<< HEAD
+        //echo "Oak Level" . $oak_vanilla_toast_level . "<br>";
+        $vanilla = 0;
+=======
         //echo "Oak Level" . $oak_vanilla_toast_level . "<br>"; 
         $oak_vanilla_toast_aroma = $_POST['oak_vanilla_smoke_coconut_aromas'];
         $vanilla = 0; 
+>>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $maple = 0;
-        $light_toast = 0; 
+        $light_toast = 0;
         $heavy_toast = 0;
         $sawdust = 0;
         $oak_vanilla_toast_other = "";
@@ -803,29 +827,29 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
 
         // Structure
-        $sweetness = (int)$_POST['sweetness']; 
-        //echo "sweet" . $sweetness . "<br>"; 
-        $acid = (int)$_POST['acid']; 
-        //echo "sweet" . $acid . "<br>"; 
-        $alcohol = (int)$_POST['alcohol']; 
-        //echo "sweet" . $alcohol . "<br>"; 
-        $bitter = (int)$_POST['bitter']; 
-        //echo "sweet" . $bitter . "<br>"; 
+        $sweetness = (int)$_POST['sweetness'];
+        //echo "sweet" . $sweetness . "<br>";
+        $acid = (int)$_POST['acid'];
+        //echo "sweet" . $acid . "<br>";
+        $alcohol = (int)$_POST['alcohol'];
+        //echo "sweet" . $alcohol . "<br>";
+        $bitter = (int)$_POST['bitter'];
+        //echo "sweet" . $bitter . "<br>";
         $balanced = (int)$_POST['balanced'];
-        //echo "sweet" . $balanced . "<br>"; 
+        //echo "sweet" . $balanced . "<br>";
         $length = (int)$_POST['length'];
-        //echo "sweet" . $length . "<br>"; 
+        //echo "sweet" . $length . "<br>";
         $complexity = (int)$_POST['complexity'];
-        //echo "sweet" . $complexity . "<br>"; 
+        //echo "sweet" . $complexity . "<br>";
 
         $quality_for_price = 0;
         $quality_for_price_rate = 0;
 
         $quality_for_price = (int)$_POST['quality_for_price'];
-        //echo "sweet" . $quality_for_price . "<br>"; 
+        //echo "sweet" . $quality_for_price . "<br>";
         $quality_for_price_rate = (int)$_POST['quality_for_price_rate'];
-        //echo "sweet" . $quality_for_price_rate . "<br>"; 
-            
+        //echo "sweet" . $quality_for_price_rate . "<br>";
+
         $sql = "INSERT INTO white_taste_assessment
             (taste_id, primary_color, secondary_color, apple_pear_level,
             green_apple, yellow_apple, red_apple, baked_apple,
@@ -848,16 +872,16 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
             mineral_stone_sulfur_level, sulfur, state_petrol, metallic,
             flit, dust, chalk, limestone, volcanic,  smokey,
             mineral_stone_sulfur_other, oak_vanilla_toast_level, vanilla, maple,
-            light_toast, heavy_toast, sawdust, oak_vanilla_toast_other, sweetness, acid, alcohol, bitter, 
+            light_toast, heavy_toast, sawdust, oak_vanilla_toast_other, sweetness, acid, alcohol, bitter,
             balanced, length, complexity, quality_for_price, quality_for_price_rate)
-           VALUES 
+           VALUES
             (NOW(), '$primary_color', '$secondary_color', '$apple_pear_level',
             '$green_apple', '$yellow_apple', '$red_apple', '$baked_apple',
-            '$apple_pear_other', 
+            '$apple_pear_other',
 
             '$citrus_level','$lemon','$myer_lemon',
             '$lime', '$orange', '$dried_orange_peel', '$grapefruit',
-            '$cirtus_other', 
+            '$cirtus_other',
 
             '$stone_level', '$white_peach', '$yellow_peach',
             '$apricot', '$apricot_kernal', '$nectarine', '$stone_other',
@@ -871,7 +895,7 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
             '$herb_level', '$dried_herbs', '$fresh_herbs', '$herbs_other',
 
             '$vegetal_level', '$radish', '$jalapeno', '$green_bell_pepper',
-            '$vegetal_cut_grass', '$vegetal_other', 
+            '$vegetal_cut_grass', '$vegetal_other',
 
             '$oxidative_level', '$baked_fruit',
             '$brown_fruit', '$leather', '$ashtray', '$oxidative_other',
@@ -883,16 +907,14 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
             '$mineral_stone_sulfur_level', '$sulfur', '$state_petrol', '$metallic',
             '$flit', '$dust', '$chalk', '$limestone', '$volcanic',  '$smokey',
-            '$mineral_stone_sulfur_other', 
+            '$mineral_stone_sulfur_other',
 
             '$oak_vanilla_toast_level', '$vanilla','$maple',
-            '$light_toast', '$heavy_toast', '$sawdust', '$oak_vanilla_toast_other', 
-            '$sweetness', '$acid', '$alcohol', '$bitter', '$balanced', '$length', 
+            '$light_toast', '$heavy_toast', '$sawdust', '$oak_vanilla_toast_other',
+            '$sweetness', '$acid', '$alcohol', '$bitter', '$balanced', '$length',
             '$complexity','$quality_for_price', '$quality_for_price_rate');";
         $statement = $conn->prepare($sql);
         $statement->execute();
     }
 }// end of check
-
 ?>
-

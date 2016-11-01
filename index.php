@@ -97,12 +97,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="assignment"></iron-icon>
             <span>Register Wine</span>
             </a>
-            <!--Register Account Routing --> 
+            <!--Register Account Routing -->
           <a data-route="register-account" href="{{baseUrl}}register-account">
             <iron-icon icon="info"></iron-icon>
             <span>Register Account</span>
           </a>
-          
+
           <!--Login declared here -->
           <a data-route="login-form" href = "{{baseUrl}}login-form">
             <iron-icon icon "mail"></iron-icon>
@@ -142,7 +142,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <div>
                      <wc-search></wc-search>
                 </div>
-                
               </paper-material>
             </section>
 
@@ -157,9 +156,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
-            <!-- White Wine Assessment Form--> 
+            <!-- White Wine Assessment Form-->
             <section data-route="white-assessment">
               <paper-material elevation="1">
+
               <h2 class="page-title">White Wine Assessment</h2>
                 <form id="wc-white-assess" method="post" action="api/assess.php">
                     <h3> Primary Color </h3><br>
@@ -170,7 +170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <h3> Secondary Color </h3><br>
                     <input type="radio" name="secondary_color" value=1>None
                     <input type="radio" name="secondary_color" value=2>Silver
-                    <input type="radio" name="secondary_color" value=3>Green 
+                    <input type="radio" name="secondary_color" value=3>Green
                     <input type="radio" name="secondary_color" value=4>Copper
 
                     <h3> Apple Pear </h3><br>
@@ -207,12 +207,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"citrus_fruit"}'
                      handle-as="json"
                      last-response='{{citrusResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="citrus_aromas">
                       <template is="dom-repeat" items="{{citrusResponse}}">
                         <option value="{{item.citrus_fruit}}"> {{item.citrus_fruit}}
                         </option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Stone Fruit </h3><br>
@@ -228,11 +228,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"stone_fruit"}'
                      handle-as="json"
                      last-response='{{stoneResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="stone_aromas">
                         <template is="dom-repeat" items="{{stoneResponse}}">
                         <option value="{{item.stone_fruit}}"> {{item.stone_fruit}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                    <h3> Tropical Melon </h3>
@@ -248,11 +248,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"tropical_melon"}'
                      handle-as="json"
                      last-response='{{tropicalResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="tropical_melon_aromas">
                         <template is="dom-repeat" items="{{tropicalResponse}}">
                         <option value="{{item.tropical_melon}}"> {{item.tropical_melon}}</option>
-                      </template> 
+                      </template>
                     </select>
                      <h3> Fruit Type </h3>
                     <input type="radio" name="fruit_type" value="1">Under Ripe
@@ -273,11 +273,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"flowers"}'
                      handle-as="json"
                      last-response='{{flowerResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="flowers_aromas">
                         <template is="dom-repeat" items="{{flowerResponse}}">
                         <option value="{{item.flowers}}"> {{item.flowers}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Herbs </h3>
@@ -293,11 +293,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"herbs"}'
                      handle-as="json"
                      last-response='{{herbsResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="herbs_aromas">
                       <template is="dom-repeat" items="{{herbsResponse}}">
                         <option value="{{item.herbs}}"> {{item.herbs}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Vegetal </h3>
@@ -313,11 +313,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"vegetal"}'
                      handle-as="json"
                      last-response='{{vegetalResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="vegetal_aromas">
                       <template is="dom-repeat" items="{{vegetalResponse}}">
                         <option value="{{item.vegetal}}"> {{item.vegetal}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Oxidative </h3>
@@ -339,7 +339,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <option value="{{item.oxidative}}"> {{item.oxidative}}</option>
                       </template>
                     </select>
-                    
+
                     <h3> Yeast Bread Dough  </h3>
                     <input type="radio" name="yeast_bread_dough_level" value="0">None
                     <input type="radio" name="yeast_bread_dough_level" value="1">Low
@@ -426,7 +426,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="oak_vanilla_smoke_coconut_level" value="2">Medium
                     <input type="radio" name="oak_vanilla_smoke_coconut_level" value="3">High
                     <br>
-                    
+
                     <iron-ajax auto
                      id="ajax"
                      method="GET"
@@ -442,25 +442,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     </select>
 
                     <h3> Sweetness </h3><br>
-                    <input type="radio" name="sweetness" value="1">Bone Dry 
+                    <input type="radio" name="sweetness" value="1">Bone Dry
                     <input type="radio" name="sweetness" value="2">Dry
                     <input type="radio" name="sweetness" value="3">Off Dry
-                    <input type="radio" name="sweetness" value="4">Med. Sweet 
+                    <input type="radio" name="sweetness" value="4">Med. Sweet
 
                     <h3> Acid </h3><br>
-                    <input type="radio" name="acid" value="1"> Low 
-                    <input type="radio" name="acid"" value="2"> Med. -
-                    <input type="radio" name="acid"" value="3"> Med. +
-                    <input type="radio" name="acid"" value="4"> High
+                    <input type="radio" name="acid" value="1"> Low
+                    <input type="radio" name="acid" value="2"> Med. -
+                    <input type="radio" name="acid" value="3"> Med. +
+                    <input type="radio" name="acid" value="4"> High
 
                     <h3> Alcohol </h3><br>
-                    <input type="radio" name="alcohol" value="1"> Low 
+                    <input type="radio" name="alcohol" value="1"> Low
                     <input type="radio" name="alcohol" value="2"> Med. -
                     <input type="radio" name="alcohol" value="3"> Med. +
                     <input type="radio" name="alcohol" value="4"> High
 
                     <h3> Bitter </h3><br>
-                    <input type="radio" name="bitter" value="1"> Low 
+                    <input type="radio" name="bitter" value="1"> Low
                     <input type="radio" name="bitter" value="2"> Med. -
                     <input type="radio" name="bitter" value="3"> Med. +
                     <input type="radio" name="bitter" value="4"> Hig
@@ -471,12 +471,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
                     <h3> Length </h3><br>
                     <input type="radio" name="length" value="1">Short
-                    <input type="radio" name="length" value="2">Medium 
+                    <input type="radio" name="length" value="2">Medium
                     <input type="radio" name="length" value="3">Medium Plus
-                    <input type="radio" name="length" value="4">Long 
+                    <input type="radio" name="length" value="4">Long
 
                     <h3> Complexity </h3><br>
-                    <input type="radio" name="complexity" value="1">Low 
+                    <input type="radio" name="complexity" value="1">Low
                     <input type="radio" name="complexity" value="2">Moderate
                     <input type="radio" name="complexity" value="3">Complex
 
@@ -485,10 +485,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="quality_for_price" value="2">No
 
                     <h3> Quality for price rate</h3><br>
-                    <input type="radio" name="quality_for_price_rate" value="1">0 
+                    <input type="radio" name="quality_for_price_rate" value="1">0
                     <input type="radio" name="quality_for_price_rate" value="2">1
                     <input type="radio" name="quality_for_price_rate" value="3">2
-                    <input type="radio" name="quality_for_price_rate" value="4">3  
+                    <input type="radio" name="quality_for_price_rate" value="4">3
 
                     <button class="btn" name="whiteAssessReturn" type="submit">Submit</button>
             </form>
@@ -499,10 +499,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <form id="red-wine-assessment" method="post" action="api/assess.php">
                     <h3> Primary Color </h3><br>
-                    <input type="radio" name="primary_color" value=1>Orange 
+                    <input type="radio" name="primary_color" value=1>Orange
                     <input type="radio" name="primary_color" value=2>Garnet
                     <input type="radio" name="primary_color" value=3>Ruby
-                    <input type="radio" name="primary_color" value=4>Purple  
+                    <input type="radio" name="primary_color" value=4>Purple
 
                     <h3> Secondary Color </h3><br>
                     <input type="radio" name="secondary_color" value=1>Brown
@@ -544,11 +544,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"black_fruit"}'
                      handle-as="json"
                      last-response='{{blackFruitResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="black_aromas">
                       <template is="dom-repeat" items="{{blackFruitResponse}}">
                         <option value="{{item.black_fruit}}"> {{item.black_fruit}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Blue Fruit </h3><br>
@@ -564,11 +564,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"blue_fruit"}'
                      handle-as="json"
                      last-response='{{blueFruitResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="blue_aromas">
                         <template is="dom-repeat" items="{{blueFruitResponse}}">
                         <option value="{{item.blue_fruit}}"> {{item.blue_fruit}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Fruit Type </h3>
@@ -590,11 +590,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"flowers"}'
                      handle-as="json"
                      last-response='{{flowerResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="flowers_aromas">
                         <template is="dom-repeat" items="{{flowerResponse}}">
                         <option value="{{item.flowers}}"> {{item.flowers}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Herbs </h3>
@@ -610,11 +610,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"herbs"}'
                      handle-as="json"
                      last-response='{{herbsResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="herbs_aromas">
                       <template is="dom-repeat" items="{{herbsResponse}}">
                         <option value="{{item.herbs}}"> {{item.herbs}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Vegetal </h3>
@@ -630,11 +630,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      params='{"var" :"vegetal"}'
                      handle-as="json"
                      last-response='{{vegetalResponse}}'>
-                    </iron-ajax> 
+                    </iron-ajax>
                     <select name="vegetal_aromas">
                       <template is="dom-repeat" items="{{vegetalResponse}}">
                         <option value="{{item.vegetal}}"> {{item.vegetal}}</option>
-                      </template> 
+                      </template>
                     </select>
 
                     <h3> Mint Eucalyptus  </h3>
@@ -656,7 +656,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <option value="{{item.mint_eucalyptus}}"> {{item.mint_eucalyptus}}</option>
                       </template>
                     </select>
-                    
+
                     <h3> Pepper Spice  </h3>
                     <input type="radio" name="pepper_spice_level" value="0">None
                     <input type="radio" name="pepper_spice_level" value="1">Low
@@ -783,7 +783,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="oak_vanilla_smoke_coconut_level" value="2">Medium
                     <input type="radio" name="oak_vanilla_smoke_coconut_level" value="3">High
                     <br>
-                    
+
                     <iron-ajax auto
                      id="ajax"
                      method="GET"
@@ -799,25 +799,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     </select>
 
                     <h3> Sweetness </h3><br>
-                    <input type="radio" name="sweetness" value="1">Bone Dry 
+                    <input type="radio" name="sweetness" value="1">Bone Dry
                     <input type="radio" name="sweetness" value="2">Dry
                     <input type="radio" name="sweetness" value="3">Off Dry
-                    <input type="radio" name="sweetness" value="4">Med. Sweet 
+                    <input type="radio" name="sweetness" value="4">Med. Sweet
 
                     <h3> Alcohol </h3><br>
-                    <input type="radio" name="alcohol" value="1"> Low 
+                    <input type="radio" name="alcohol" value="1"> Low
                     <input type="radio" name="alcohol" value="2"> Med. -
                     <input type="radio" name="alcohol" value="3"> Med. +
                     <input type="radio" name="alcohol" value="4"> High
 
                     <h3> Tannin </h3><br>
-                    <input type="radio" name="tannin" value="1"> Low 
+                    <input type="radio" name="tannin" value="1"> Low
                     <input type="radio" name="tannin" value="2"> Med. -
                     <input type="radio" name="tannin" value="3"> Med. +
                     <input type="radio" name="tannin" value="4"> High
 
                     <h3> Bitter </h3><br>
-                    <input type="radio" name="bitter" value="1"> Low 
+                    <input type="radio" name="bitter" value="1"> Low
                     <input type="radio" name="bitter" value="2"> Med. -
                     <input type="radio" name="bitter" value="3"> Med. +
                     <input type="radio" name="bitter" value="4"> Hig
@@ -828,12 +828,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
                     <h3> Length </h3><br>
                     <input type="radio" name="length" value="1">Short
-                    <input type="radio" name="length" value="2">Medium 
+                    <input type="radio" name="length" value="2">Medium
                     <input type="radio" name="length" value="3">Medium Plus
-                    <input type="radio" name="length" value="4">Long 
+                    <input type="radio" name="length" value="4">Long
 
                     <h3> Complexity </h3><br>
-                    <input type="radio" name="complexity" value="1">Low 
+                    <input type="radio" name="complexity" value="1">Low
                     <input type="radio" name="complexity" value="2">Moderate
                     <input type="radio" name="complexity" value="3">Complex
 
@@ -842,10 +842,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="quality_for_price" value="2">No
 
                     <h3> Quality for price rate</h3><br>
-                    <input type="radio" name="quality_for_price_rate" value="1">0 
+                    <input type="radio" name="quality_for_price_rate" value="1">0
                     <input type="radio" name="quality_for_price_rate" value="2">1
                     <input type="radio" name="quality_for_price_rate" value="3">2
-                    <input type="radio" name="quality_for_price_rate" value="4">3  
+                    <input type="radio" name="quality_for_price_rate" value="4">3
 
                     <button class="btn" name="redAssessReturn" type="submit">Submit</button>
               </form>
@@ -854,7 +854,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <section data-route="register-wine">
               <paper-material elevation="1">
                 <!--Masons Section-->
-                <form id="register-wine-form" method="post" action="api/register-wine.php">
+                <form is="iron-form" id="register-wine-form" method="post" action="api/register-wine.php">
                   <h3>Insert Wine Data! </h3>
                   <paper-input-container>
                       <input is="iron-input" id = "inputProducer" name ="producer" type ="text" placeholder = "Producer" required>
@@ -869,7 +869,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <input is="iron-input" id = "inputGrape" name ="grape" type ="text" placeholder = "Grape (Optional)">
 
                   </paper-input-container>
-                    
+
                     <select name="wine_styles">
                       <option value = "Sparkling White">Sparkling White</option>
                         <option value = "Sparkling Rose">Sparkling Rose</option>
@@ -879,11 +879,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <option value = "Fortified White">Fortified White</option>
                         <option value = "Fortified Red">Fortified Red</option>
                     </select>
-                    
+
                   <paper-input-container>
                       <input is="iron-input" id = "inputCountry" name ="country" type ="text" placeholder = "Country" required>
                   </paper-input-container>
-                  
+
                   <paper-input-container>
                       <input is="iron-input" id = "inputState" name ="state" type ="text" placeholder = "State/Province" required>
                   </paper-input-container>
@@ -951,7 +951,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <option value = "consumer">Consumer</option>
                         <option value = "producer">Producer</option>
                         <option value = "service">Service/Sales</option>
-                        <option value = "buyer">Buyer</option>    
+                        <option value = "buyer">Buyer</option>
                     </select>
                    <select name="cert_body">
                         <option value = "none"> None </option>
@@ -963,12 +963,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <input is="iron-input" id = "inputProducer" name ="date" type ="text" placeholder = "Date certified" required>
                   </paper-input-container>
 
-                
+
                     <button name="regAccount" type="submit">Register Account</button>
                 </form>
               </paper-material>
             </section>
-            
+
             <section data-route="login-form">
               <paper-material elevation="1">
                 <div>
@@ -976,7 +976,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
               </paper-material>
             </section>
-            
+
           </iron-pages>
         </div>
       </paper-scroll-header-panel>
@@ -991,8 +991,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <script src ="scripts/validation.js"></script>
- 
   <!-- endbuild-->
 </body>
-
 </html>

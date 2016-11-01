@@ -9,5 +9,12 @@ test:
 notify:
   webhooks:
     - url: http://csumbse.net/harbormaster/hook/circleci/
-    
-    
+dependencies:
+  pre:
+    - sudo apt-get install python-dev
+    - sudo pip install awsebcli
+deployment:
+  production:
+    branch: master
+    commands:
+      - eb deploy --staged
