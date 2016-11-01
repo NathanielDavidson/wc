@@ -448,7 +448,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="sweetness" value="4">Med. Sweet
 
                     <h3> Acid </h3><br>
-                    <input type="radio" name="acid" value="1"> Low
+                    <input type="radio" name="acid" value="1"> Low 
                     <input type="radio" name="acid" value="2"> Med. -
                     <input type="radio" name="acid" value="3"> Med. +
                     <input type="radio" name="acid" value="4"> High
@@ -463,7 +463,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="bitter" value="1"> Low
                     <input type="radio" name="bitter" value="2"> Med. -
                     <input type="radio" name="bitter" value="3"> Med. +
-                    <input type="radio" name="bitter" value="4"> Hig
+                    <input type="radio" name="bitter" value="4"> High
 
                     <h3> Balanced </h3><br>
                     <input type="radio" name="balanced" value="1">Yes
@@ -962,8 +962,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <paper-input-container>
                       <input is="iron-input" id = "inputProducer" name ="date" type ="text" placeholder = "Date certified" required>
                   </paper-input-container>
-
-
                     <button name="regAccount" type="submit">Register Account</button>
                 </form>
               </paper-material>
@@ -981,7 +979,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
       </paper-scroll-header-panel>
     </paper-drawer-panel>
-
     <paper-toast id="toast">
       <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
     </paper-toast>

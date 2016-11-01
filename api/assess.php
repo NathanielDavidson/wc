@@ -1,5 +1,5 @@
 <?php
-include '../config.php';
+include 'db.include.php';
 $conn = getDatabaseConnection();
 
 if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
@@ -545,9 +545,6 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $grapefruit = 0;
         $cirtus_other = "";
 
-<<<<<<< HEAD
-        // Stone
-=======
         switch($citrus_aroma){
             case "Lemon": $lemon = 1;
                 break;
@@ -564,7 +561,6 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
 
         // Stone 
->>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $stone_level = (int)$_POST['stone_level'];
         //echo "Stone Level" . $stone_level . "<br>";
         $stone_aroma = $_POST['stone_aromas'];
@@ -576,9 +572,6 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $nectarine = 0;
         $stone_other = "";
 
-<<<<<<< HEAD
-        // Tropical
-=======
         switch($stone_aroma){
             case "White Peach": $white_peach = 1;
                 break;
@@ -593,7 +586,6 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
 
         // Tropical 
->>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $tropical_melon_level = (int)$_POST['tropical_melon_level'];
         //echo "Trop Level" . $tropical_melon_level . "<br>";
         $tropical_melon_aroma = $_POST['tropical_melon_aromas'];
@@ -697,9 +689,6 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $ashtray = 0;
         $oxidative_other = "";
 
-<<<<<<< HEAD
-        // Yeast Bread Dough
-=======
          switch($oxidative_aroma){
             case "Baked Fruit": $baked_fruit = 1;
                 break;
@@ -712,7 +701,6 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
 
         // Yeast Bread Dough 
->>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $yeast_bread_dough_level = (int)$_POST['yeast_bread_dough_level'];
         //echo "Ox Level" . $yeast_bread_dough_level . "<br>";
         $yeast_bread_dough_aroma = $_POST['yeast_bread_dough_aromas'];
@@ -743,12 +731,8 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Earth Leaves
         $earth_leaves_mushrooms_level = (int)$_POST['earth_leaves_mushrooms_level'];
-<<<<<<< HEAD
-        //echo "Ox Level" . $earth_leaves_mushrooms_level . "<br>";
-=======
         $earth_leaves_mushrooms_aromas = $_POST['earth_leaves_mushrooms_aromas'];
         //echo "Ox Level" . $earth_leaves_mushrooms_level . "<br>"; 
->>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $straw_hay = 0;
         $earth_leaves_mushrooms_cut_grass = 0;
         $earth_leaves_mushrooms_other = "";
@@ -759,12 +743,8 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         }
         // Stone
         $mineral_stone_sulfur_level = (int)$_POST['mineral_stone_sulfur_level'];
-<<<<<<< HEAD
-        //echo "Min Level" . $mineral_stone_sulfur_level . "<br>";
-=======
         //echo "Min Level" . $mineral_stone_sulfur_level . "<br>"; 
         $mineral_stone_sulfur_aroma = $_POST['mineral_stone_sulfur_aromas'];
->>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $sulfur = 0;
         $state_petrol = 0;
         $metallic = 0;
@@ -799,14 +779,9 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
         // Oak Vanilla Toast
         $oak_vanilla_toast_level = (int)$_POST['oak_vanilla_toast_level'];
-<<<<<<< HEAD
-        //echo "Oak Level" . $oak_vanilla_toast_level . "<br>";
-        $vanilla = 0;
-=======
         //echo "Oak Level" . $oak_vanilla_toast_level . "<br>"; 
         $oak_vanilla_toast_aroma = $_POST['oak_vanilla_smoke_coconut_aromas'];
         $vanilla = 0; 
->>>>>>> 65fa1ac6b20fd240c3a66594d06996a0981f5cf1
         $maple = 0;
         $light_toast = 0;
         $heavy_toast = 0;
