@@ -284,10 +284,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      url="api/white-aroma-values.php"
                      params='{"var" :"flowers"}'
                      handle-as="json"
-                     last-response='{{flowerResponse}}'>
+                     last-response='{{flowerWhiteResponse}}'>
                     </iron-ajax>
                     <select name="flowers_aromas">
-                        <template is="dom-repeat" items="{{flowerResponse}}">
+                        <template is="dom-repeat" items="{{flowerWhiteResponse}}">
                         <option value="{{item.flowers}}"> {{item.flowers}}</option>
                       </template>
                     </select>
@@ -304,10 +304,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      url="api/white-aroma-values.php"
                      params='{"var" :"herbs"}'
                      handle-as="json"
-                     last-response='{{herbsResponse}}'>
+                     last-response='{{herbsWhiteResponse}}'>
                     </iron-ajax>
                     <select name="herbs_aromas">
-                      <template is="dom-repeat" items="{{herbsResponse}}">
+                      <template is="dom-repeat" items="{{herbsWhiteResponse}}">
                         <option value="{{item.herbs}}"> {{item.herbs}}</option>
                       </template>
                     </select>
@@ -324,10 +324,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      url="api/white-aroma-values.php"
                      params='{"var" :"vegetal"}'
                      handle-as="json"
-                     last-response='{{vegetalResponse}}'>
+                     last-response='{{vegetalWhiteResponse}}'>
                     </iron-ajax>
                     <select name="vegetal_aromas">
-                      <template is="dom-repeat" items="{{vegetalResponse}}">
+                      <template is="dom-repeat" items="{{vegetalWhiteResponse}}">
                         <option value="{{item.vegetal}}"> {{item.vegetal}}</option>
                       </template>
                     </select>
@@ -404,10 +404,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      url="api/white-aroma-values.php"
                      params='{"var" :"earth_leaves_mushrooms"}'
                      handle-as="json"
-                     last-response='{{earthResponse}}'>
+                     last-response='{{earth2Response}}'>
                     </iron-ajax>
                     <select name="earth_leaves_mushrooms_aromas">
-                      <template is="dom-repeat" items="{{earthResponse}}">
+                      <template is="dom-repeat" items="{{earth2Response}}">
                         <option value="{{item.earth_leaves_mushrooms}}"> {{item.earth_leaves_mushrooms}}</option>
                       </template>
                     </select>
@@ -424,10 +424,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      url="api/white-aroma-values.php"
                      params='{"var" :"mineral_stone_sulfur"}'
                      handle-as="json"
-                     last-response='{{mineralResponse}}'>
+                     last-response='{{mineralWhiteResponse}}'>
                     </iron-ajax>
                     <select name="mineral_stone_sulfur_aromas">
-                      <template is="dom-repeat" items="{{mineralResponse}}">
+                      <template is="dom-repeat" items="{{mineralWhiteResponse}}">
                         <option value="{{item.mineral_stone_sulfur}}"> {{item.mineral_stone_sulfur}}</option>
                       </template>
                     </select>
@@ -445,10 +445,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      url="api/white-aroma-values.php"
                      params='{"var" :"oak_vanilla_toast_smoke_coconut"}'
                      handle-as="json"
-                     last-response='{{oakResponse}}'>
+                     last-response='{{oakWhiteResponse}}'>
                     </iron-ajax>
                     <select name="oak_vanilla_smoke_coconut_aromas">
-                         <template is="dom-repeat" items="{{oakResponse}}">
+                         <template is="dom-repeat" items="{{oakWhiteResponse}}">
                         <option value="{{item.oak_vanilla_toast_smoke_coconut}}"> {{item.oak_vanilla_toast_smoke_coconut}}</option>
                       </template>
                     </select>
@@ -982,7 +982,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
              <section data-route="login-form">
               <paper-material elevation="1">
                 <div>
-                 <form class="" action="api/local-login.php" method="post">
+                 <form class="" action="" method="post">
                    <h1>Please Login</h1>
                    <input type="text" name="username" placeholder="Username" value="">
                    <input type="email" name="password" placeholder="Password" value="">
