@@ -104,7 +104,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </a>
 
           <!--Login declared here -->
-          <a data-route="login-form" href = "{{baseUrl}}login-form">
+          <a data-route="login-form" href="{{baseUrl}}login-form">
             <iron-icon icon="account-box"></iron-icon>
             <span>Login</span>
           </a>
@@ -478,6 +478,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="quality_for_price_rate" value="3">2
                     <input type="radio" name="quality_for_price_rate" value="4">3
 
+                    <!-- Adds the wine info-->
+                    <input id="winenamewhite" type="hidden" name="wine_name" >
+                    <input id="wineproducerwhite" type="hidden" name="wine_producer" >
+                    <input id="winestylewhite" type="hidden" name="wine_style" >
+                    <input id="winevintagewhite" type="hidden" name="wine_vintage" >
+
                     <button class="btn" name="whiteAssessReturn" type="submit">Submit</button>
             </form>
                 </paper-material>
@@ -834,6 +840,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="quality_for_price_rate" value="2">1
                     <input type="radio" name="quality_for_price_rate" value="3">2
                     <input type="radio" name="quality_for_price_rate" value="4">3
+
+                    <!-- Adds the wine info-->
+                    <input id="winenamered" type="hidden" name="wine_name">
+                    <input id="wineproducerred" type="hidden" name="wine_producer">
+                    <input id="winestylered" type="hidden" name="wine_style">
+                    <input id="winevintagered" type="hidden" name="wine_vintage">
 
                     <button class="btn" name="redAssessReturn" type="submit">Submit</button>
               </form>
