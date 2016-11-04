@@ -23,7 +23,7 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
     $wine_style = $_POST['wine_style']; // red or white 
     $username = $_SESSION['username'];
 
-    $sql = "INSERT INTO assessment (assessment_id, date, producer, wine_name, vintage, username) VALUES ('$uniqueAssessmnetId', FROM_UNIXTIME($phpdate), '$producer', 'Nm', '$vin', '$username');";
+    $sql = "INSERT INTO assessment (assessment_id, date, producer, wine_name, vintage, username) VALUES ('$uniqueAssessmnetId', FROM_UNIXTIME($phpdate), '$producer', '$wine_name', '$vintage', '$username');";
     //$sql = "INSERT INTO assessment VALUES $date, $wine_producer, $wine_name, $wine_vintage";
     $statement = $conn->prepare($sql);
     $statement->execute();

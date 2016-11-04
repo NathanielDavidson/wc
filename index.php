@@ -153,17 +153,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
             <section data-route="user-profile">
               <paper-material elevation="1">
-<<<<<<< HEAD
               Update Profile <br>
               <?php 
-=======
-              Update Profile
-              <?php
->>>>>>> 53999e00edd81613d05c4ea6940178927670aeb7
-                     if(isset($_SESSION['username']) && !empty($_SESSION['username'])){
-                         echo "User logged in: " . $_SESSION['username'] . "<br>";
-                     }
-
+                 if(isset($_SESSION['username']) && !empty($_SESSION['username'])){
+                     echo "User logged in: " . $_SESSION['username'] . "<br>";
+                 }
               ?>
                   <?php if (isset($_SESSION['username'])){ ?>
                   <form method="POST" action="api/updateProfile.php">
