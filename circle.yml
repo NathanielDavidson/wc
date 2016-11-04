@@ -15,7 +15,7 @@ dependencies:
     - sudo apt-get install python-dev
     - sudo -H pip install awsebcli --upgrade --ignore-installed setuptools
     - composer install
-    - apt-get install php5-xdebug
+    - sudo apt-get install php5-xdebug
 deployment:
   production:
     branch: master
