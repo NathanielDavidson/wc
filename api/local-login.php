@@ -3,10 +3,10 @@
   include 'db.include.php';
   $conn = getDatabaseConnection(); //gets database connection
   //fixed login
-  
+
   //added logout button and session destroy
   if(isset($_POST['logoutForm'])){
-      session_destroy();              
+      session_destroy();
       header("Location: ../index.php");
 
   }
@@ -32,12 +32,12 @@
         //echo json_encode($record);
         header("Location: ../index.php");
         //echo 'empty';
+
     } else {
         $reply = array();
         $reply['username'] = $record['username'];
         $reply['firstname'] = $record['firstname'];
         $reply['lastname'] = $record['lastname'];
-
         $_SESSION['username'] = $record['username'];
         $_SESSION['adminname'] = $record['firstname'] . " " . $record['lastname'];
         header("Location: ../index.php");

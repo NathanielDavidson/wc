@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once("../lib/user.php");
 if(isset($_POST["regAccount"])){
     $username = $_POST['username'];

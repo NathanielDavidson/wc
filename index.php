@@ -111,8 +111,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </a>
 
           <!--Login declared here -->
-          <a data-route="login-form" href = "{{baseUrl}}login-form">
-            <iron-icon icon "mail"></iron-icon>
+          <a data-route="login-form" href="{{baseUrl}}login-form">
+            <iron-icon icon="account-box"></iron-icon>
             <span>Login</span>
           </a>
         </paper-menu>
@@ -151,29 +151,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
               </paper-material>
             </section>
-
             <section data-route="user-profile">
               <paper-material elevation="1">
+<<<<<<< HEAD
               Update Profile <br>
               <?php 
+=======
+              Update Profile
+              <?php
+>>>>>>> 53999e00edd81613d05c4ea6940178927670aeb7
                      if(isset($_SESSION['username']) && !empty($_SESSION['username'])){
                          echo "User logged in: " . $_SESSION['username'] . "<br>";
                      }
-    
+
               ?>
                   <?php if (isset($_SESSION['username'])){ ?>
                   <form method="POST" action="api/updateProfile.php">
                         <paper-input-container>
                             <input is="iron-input" id = "inputPassword" name ="password" type ="text" placeholder = "Enter new password" required>
                         </paper-input-container>
-                        
+
                       <button name="updateProfile" type="submit">Update data</button>
                   </form>
                   <?php } else{ echo "<h2> Please Log in to alter profile </h2>"; }?>
-                  
+
                 </paper-material>
             </section>
-
             <!-- White Wine Assessment Form-->
             <section data-route="white-assessment">
               <paper-material elevation="1">
@@ -466,7 +469,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="sweetness" value="4">Med. Sweet
 
                     <h3> Acid </h3><br>
-                    <input type="radio" name="acid" value="1"> Low 
+                    <input type="radio" name="acid" value="1"> Low
                     <input type="radio" name="acid" value="2"> Med. -
                     <input type="radio" name="acid" value="3"> Med. +
                     <input type="radio" name="acid" value="4"> High
@@ -507,6 +510,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="quality_for_price_rate" value="2">1
                     <input type="radio" name="quality_for_price_rate" value="3">2
                     <input type="radio" name="quality_for_price_rate" value="4">3
+
+                    <!-- Adds the wine info-->
+                    <input id="winenamewhite" type="hidden" name="wine_name" >
+                    <input id="wineproducerwhite" type="hidden" name="wine_producer" >
+                    <input id="winestylewhite" type="hidden" name="wine_style" >
+                    <input id="winevintagewhite" type="hidden" name="wine_vintage" >
 
                     <button class="btn" name="whiteAssessReturn" type="submit">Submit</button>
             </form>
@@ -865,6 +874,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <input type="radio" name="quality_for_price_rate" value="3">2
                     <input type="radio" name="quality_for_price_rate" value="4">3
 
+                    <!-- Adds the wine info-->
+                    <input id="winenamered" type="hidden" name="wine_name">
+                    <input id="wineproducerred" type="hidden" name="wine_producer">
+                    <input id="winestylered" type="hidden" name="wine_style">
+                    <input id="winevintagered" type="hidden" name="wine_vintage">
+
                     <button class="btn" name="redAssessReturn" type="submit">Submit</button>
               </form>
             </paper-material>
@@ -980,6 +995,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <paper-input-container>
                       <input is="iron-input" id = "inputProducer" name ="date" type ="text" placeholder = "Date certified" required>
                   </paper-input-container>
+
                     <button name="regAccount" type="submit">Register Account</button>
                 </form>
               </paper-material>
@@ -988,7 +1004,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
              <section data-route="login-form">
               <paper-material elevation="1">
                 <div>
-                    <?php if(!isset($_SESSION['username'])) { ?>
+                <?php if(!isset($_SESSION['username'])) { ?>
                  <form action="api/local-login.php" method="POST">
                    <h1>Please Login</h1>
                    <input type="text" name="username" placeholder = "Username" value="">

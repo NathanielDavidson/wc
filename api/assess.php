@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'db.include.php';
+include '../config.php';
 $conn = getDatabaseConnection();
 
 if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
@@ -569,6 +570,7 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $dried_orange_peel = 0;
         $grapefruit = 0;
         $cirtus_other = "";
+
         
         $citrus_aroma = trim($citrus_aroma);
         switch($citrus_aroma){
@@ -722,8 +724,8 @@ if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
         $ashtray = 0;
         $oxidative_other = "";
 
-         $oxidative_aroma = trim($oxidative_aroma);
-         switch($oxidative_aroma){
+        $oxidative_aroma = trim($oxidative_aroma);
+        switch($oxidative_aroma){
             case "Baked Fruit": $baked_fruit = 1;
                 break;
             case "Brown Fruit": $brown_fruit = 1;
