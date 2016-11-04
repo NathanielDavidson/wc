@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <!--
 @license
@@ -83,6 +86,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
           </a>
+          <a data-route="user-profile" href="{{baseUrl}}user-profile">
+            <iron-icon icon="perm-identity"></iron-icon>
+            <span>Profile</span>
+          </a>
           <a data-route="white-assessment" href="{{baseUrl}}white-assessment">
             <iron-icon icon="info"></iron-icon>
             <span>White Assesment</span>
@@ -143,6 +150,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      <wc-search></wc-search>
                 </div>
               </paper-material>
+            </section>
+            <section data-route="user-profile">
+              <paper-material elevation="1">
+              Update Profile
+              <?php
+                     if(isset($_SESSION['username']) && !empty($_SESSION['username'])){
+                         echo "User logged: " . $_SESSION['username'];
+                     }
+
+              ?>
+                  <?php if (isset($_SESSION['username'])){ ?>
+                  <form method="POST" action="api/updateProfile.php">
+                        <paper-input-container>
+                            <input is="iron-input" id = "inputPassword" name ="password" type ="text" placeholder = "Enter new password" required>
+                        </paper-input-container>
+
+                      <button name="updateProfile" type="submit">Update data</button>
+                  </form>
+                  <?php } else{ echo "<h2> Please Log in to alter profile </h2>"; }?>
+
+                </paper-material>
             </section>
             <!-- White Wine Assessment Form-->
             <section data-route="white-assessment">
@@ -968,15 +996,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
-            <section data-route="login-form">
+             <section data-route="login-form">
               <paper-material elevation="1">
                 <div>
-                 <form class="" action="local-login.php" method="post">
+                <?php if(!isset($_SESSION['username'])) { ?>
+                 <form action="api/local-login.php" method="POST">
                    <h1>Please Login</h1>
-                   <input type="text" name="username" placeholder="Username" value="">
-                   <input type="email" name="password" placeholder="Password" value="">
-                   <button type="button" name="login-submit">Submit</button>
+                   <input type="text" name="username" placeholder = "Username" value="">
+                   <input type="password" name="password" placeholder = "Password" value="">
+                     <!--<button type="submit" name="login-submit">Submit</button>-->
+                   <button name="loginForm" type="submit">Login</button>
                  </form>
+                 <?php } else { ?>
+                 <form action="api/local-login.php" method="POST">
+                   <h1>Logout</h1>
+                   <button name="logoutForm" type="submit">Logout</button>
+                 </form>
+                 <?php } ?>
                 </div>
               </paper-material>
             </section>
