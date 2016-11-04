@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'db.include.php';
-include '../config.php';
 $conn = getDatabaseConnection();
 
 if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
