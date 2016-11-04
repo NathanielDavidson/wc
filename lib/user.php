@@ -1,6 +1,5 @@
 <?php 
 include_once('database.php');
-session_start();
 class RegUser {
     public static $name;
     public static $email;
