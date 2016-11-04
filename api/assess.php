@@ -1,8 +1,9 @@
 <?php
+session_start();
 include 'db.include.php';
 $conn = getDatabaseConnection();
 
-//if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
+if(isset($_POST['redAssessReturn']) || isset($_POST['whiteAssessReturn']) ){
 
     // For assessment table
     // Generates unique id
@@ -19,12 +20,13 @@ $conn = getDatabaseConnection();
     $wine_name = $_POST['wine_name'];
     $vintage = $_POST['wine_vintage'];
     $wine_style = $_POST['wine_style']; // red or white 
+    $username = $_SESSION['username'];
 
-    $sql = "INSERT INTO assessment (assessment_id, date, producer, wine_name, vintage) VALUES ('$uniqueAssessmnetId', FROM_UNIXTIME($phpdate), '$producer', 'Nm', '$vin');";
+    $sql = "INSERT INTO assessment (assessment_id, date, producer, wine_name, vintage, username) VALUES ('$uniqueAssessmnetId', FROM_UNIXTIME($phpdate), '$producer', 'Nm', '$vin', '$username');";
     //$sql = "INSERT INTO assessment VALUES $date, $wine_producer, $wine_name, $wine_vintage";
     $statement = $conn->prepare($sql);
     $statement->execute();
-/*    if(isset($_POST['redAssessReturn'])){
+    if(isset($_POST['redAssessReturn'])){
         //echo 'Red';
         //var_dump($_POST);
         // For Red Assessment
@@ -473,7 +475,7 @@ $conn = getDatabaseConnection();
                 sweetness, alcohol, tannin, bitter, balanced, length, complexity,
                 quality_for_price, quality_for_price_rate)
             VALUES
-                (NOW(), '$primary_color', '$secondary_color', '$red_fruits_level',
+                ('$uniqueAssessmnetId', '$primary_color', '$secondary_color', '$red_fruits_level',
                 '$red_cherry', '$pomegranate','$cranberry', '$raspberry', '$red_currant',
                 '$red_fruit_other',
 
@@ -888,7 +890,7 @@ $conn = getDatabaseConnection();
             light_toast, heavy_toast, sawdust, oak_vanilla_toast_other, sweetness, acid, alcohol, bitter,
             balanced, length, complexity, quality_for_price, quality_for_price_rate)
            VALUES
-            (NOW(), '$primary_color', '$secondary_color', '$apple_pear_level',
+            ('$uniqueAssessmnetId', '$primary_color', '$secondary_color', '$apple_pear_level',
             '$green_apple', '$yellow_apple', '$red_apple', '$baked_apple',
             '$apple_pear_other',
 
@@ -930,4 +932,5 @@ $conn = getDatabaseConnection();
         $statement->execute();
     }
 }// end of check
+header("Location: ../index.php");
 ?>
