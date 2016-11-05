@@ -1,7 +1,7 @@
 
 machine:
   php:
-    version: 5.5.7
+    version: 7.0.1
 test:
   override:
     - ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-junit $CIRCLE_TEST_REPORTS/tests.xml
