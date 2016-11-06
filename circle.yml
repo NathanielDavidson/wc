@@ -11,7 +11,7 @@ dependencies:
     - php -i | grep xdebug
 test:
   override:
-    - ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-phpunit $CIRCLE_TEST_REPORTS/tests.xml
+    - ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-junit $CIRCLE_TEST_REPORTS/tests.xml
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/reports/
     - cp ./*/*-reports/*.xml $CIRCLE_TEST_REPORTS/reports/
