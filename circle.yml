@@ -7,7 +7,7 @@ dependencies:
     - sudo apt-get install python-dev
     - sudo -H pip install awsebcli --upgrade --ignore-installed setuptools
     - composer install
-    - sudo apt-get install php56-xdebug
+    - sudo apt-get install php-xdebug
     - php -i | grep xdebug
 test:
   override:
