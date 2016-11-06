@@ -7,8 +7,9 @@ dependencies:
     - sudo apt-get install python-dev
     - sudo -H pip install awsebcli --upgrade --ignore-installed setuptools
     - composer install
-    - sudo apt-get install php7-xdebug
+    - sudo apt-get install php5-xdebug
     - php -i | grep xdebug
+    - sudo apt-get install php5-phpdbg
 test:
   override:
     - ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-junit $CIRCLE_TEST_REPORTS/tests.xml
