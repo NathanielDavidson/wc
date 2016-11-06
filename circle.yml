@@ -11,7 +11,7 @@ dependencies:
     - php -i | grep xdebug
 test:
   override:
-    - ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-junit $CIRCLE_ARTIFACTS/tests.xml
+    - ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-junit $CIRCLE_TEST_REPORTS/tests.xml
   post:
     - bash <(curl -s https://codecov.io/bash)
 notify:
