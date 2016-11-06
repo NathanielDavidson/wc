@@ -11,8 +11,10 @@ dependencies:
     - php -i | grep xdebug
 test:
   override:
-    #- ./vendor/phpunit/phpunit/phpunit ./tests --coverage-html ./coverage --testdox-html $CIRCLE_ARTIFACTS/index.html
-    - ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-junit $CIRCLE_ARTIFACTS/tests.xml
+    - mkdir ./coverage
+    - ./vendor/phpunit/phpunit/phpunit --coverage-html ./coverage ./tests/userTest.php 
+    - cp ./coverage/*.html $CIRCLE_ARTIFACTS
+    #- ./vendor/phpunit/phpunit/phpunit ./tests --coverage-clover coverage.xml --whitelist ./wc --log-junit $CIRCLE_ARTIFACTS/tests.xml
   post:
     - bash <(curl -s https://codecov.io/bash)
 notify:
